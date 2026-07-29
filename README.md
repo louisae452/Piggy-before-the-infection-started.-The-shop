@@ -54,7 +54,7 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - As a user I want to be able to navigate through the products easily so that I can see what is on offer.
 
-- As a user I want to be able to search products by category and character.
+- As a user I want to be able to search products by category and character so that I can find what I want easily.
 
 - As a user I want to be able to see the specific information for the product that interests me so that I can make a decision.
 
@@ -62,19 +62,21 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - As a user I want to be able to add items to the basket so that I can purchase them.
 
+- As a user I want to be able to modify  items on the basket so that I can refine my purchase.
+
 - As a user I want to  see how much I have spent so far so that I can decide whether to continue buying.
 
 - As a user I want to be able to pay for my items securely so that my personal information is not compromised.
 
 - As the creator I want to be able to  add, remove and modify products so that my offer is always up to date.
 
-- As the creator I want to be able to  see a list of the items that have been sold and the state of the order so that I can ensure a fast service.
+- As the creator I want to be able to  see a list of the items that have been sold and the state of the orders so that I can ensure a fast service.
 
 ## Plan.
 
 From the users point of view, the site will have four main pages. The home page will show a header with buttons to log in and register and a footer with links to  appropriate sites  and newsletter registration. Once the user has logged in, the header will show buttons to log out, go to account and shopping basket.
 
-On the body, here will be a side panel with suggested videos and a middle section which will work as a navigation to see the different categories of products and offers.
+On the body, there will be a side panel with suggested videos and a middle section which will work as a navigation to see the different categories of products and offers.
 
 [Intitial home page wireframe. Desktop](/readme/images/wireframes/initial_home.jpg)
 
