@@ -100,6 +100,14 @@ The account link will lead to a page where the user can see and modify their per
 
 ## Frameworks, packages and libraries.
 
+- Django 6.0.7
+- To manage sensitive data: django-environ 0.14.0
+- To manage database: psycopg2 2.9.12
+
+
+
+- Django-environ documentation [https://django-environ.readthedocs.io/en/latest/]
+
 
 
 
