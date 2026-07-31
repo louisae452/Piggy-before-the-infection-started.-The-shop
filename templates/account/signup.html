@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load allauth i18n %}
+{% block head_title %}
+    {% trans "Register" %}
+{% endblock head_title %}
+{% block content %}
+<div class="content-container">
+    <div>
+        <h1 class="center padding-10">{% trans "Register" %}</h1>
+        <p class="padding-bottom-10">Already have an account?&nbsp;
+            <a class="" href="{%url 'account_login' %}">log in</a> &nbsp;here</p>
+        </p>
+    </div>
+    <div>
+        <form class="" method="post" action="{% url 'account_signup' %}"> 
+            {% csrf_token %} 
+                
+            <label for="id_login">Username:</label>
+            <br>
+            <input type="text" name="username" placeholder="Username" autocomplete="username" maxlength="150" required id="id_username">
+            <br>
+            <label for ="id-email">Email</label>
+            <br>
+            <input type="email" name="email" placeholder="Email address" autocomplete="email" required id="id_email">
+            <br>
+            <label for="id_password1">Password:</label>
+            <br>
+            <input type="password" name="password1" placeholder="Password" autocomplete="new-password" required aria-describedby="id_password_helptext" id="id_password1">
+            <br>
+            <label for="id_password2">Confirm Password:</label>
+            <br>
+            <input type="password" name="password2" placeholder="Confirm Password" autocomplete="new-password" required id="id_password2">
+            <br>
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            
+            <br>
+            <button class="button margin-0" type="submit">{% trans "Register" %}</button>
+        </form>            
+    </div>
+</div>    
+{% endblock content %}

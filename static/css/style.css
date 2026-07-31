@@ -42,6 +42,15 @@ main {
     align-items: center;
     text-align: center;
 }
+form {
+    color: var(--purple);
+}
+input {
+    border-color: var(--purple);
+    border-radius: 5px;
+}
+
+
 /* Header */
 nav {
     background-color: var(--purple);
@@ -63,22 +72,36 @@ nav {
 .nav-links a {
     text-decoration: none;
 }
-.nav-toggle, .hamburger {
-    display: none;
-    font-size:24px;
-    cursor: pointer;
 
-}
 /* main */
 main {
     background-color: var(--pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Footer */
 footer {
     background-color: var(--purple);
     color: var(--mid-green);
 }
-
+/* Allauth pages */
+.content-container{
+    justify-content: center;
+}
+/* Override elements standard settings */
+.center {
+    text-align: center;
+}
+.padding-10 {
+    padding: 10px;
+}
+.padding-bottom-10 {
+    padding-bottom: 10px;
+}
+.margin-0 {
+    margin: 0;
+}
 
 /* Media queries */
 

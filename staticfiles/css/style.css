@@ -1,0 +1,100 @@
+/* CSS variables*/
+:root {
+    
+    --dark-purple: #440643;
+    --purple: #730a71;
+    --pink: #fde8fd;
+    --barely-there-pink: #fef8fe;
+    --barely-there-green: #f8fef8;
+    --mid-green: #dffce0;
+    --forest-green: #064407;
+    
+}
+
+
+
+
+/* Wildcard elector */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+/* General */
+.button {
+    background-color: var(--dark-purple);
+    color: var(--mid-green);
+    width: 75px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* Header */
+nav {
+    background-color: var(--purple);
+    padding: 5px;
+    color: var(--mid-green);
+    display: grid;
+    grid-template-columns: auto auto;
+
+
+}
+.right-align {
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-links {
+    display: flex;
+    flex-direction: row;
+}
+.nav-links a {
+    text-decoration: none;
+}
+.nav-toggle, .hamburger {
+    display: none;
+    font-size:24px;
+    cursor: pointer;
+
+}
+/* main */
+main {
+    background-color: var(--pink);
+}
+/* Footer */
+footer {
+    background-color: var(--purple);
+    color: var(--mid-green);
+}
+
+
+/* Media queries */
+
+@media screen and (max-width: 768px) {
+    /* Header */
+    nav {
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        
+        width: 100%;
+        
+        justify-content: center;
+    }
+    
+    
+}
