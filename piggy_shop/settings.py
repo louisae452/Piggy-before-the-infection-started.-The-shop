@@ -16,6 +16,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
 # Set sensitive information.
 env = environ.Env(
     DEBUG=(bool, False),
@@ -39,6 +40,7 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -48,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'products',
 ]
 
 MIDDLEWARE = [
@@ -62,10 +65,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'piggy_shop.urls'
 
+TEMPLATES_DIR = BASE_DIR / 'templates'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,6 +81,12 @@ TEMPLATES = [
         },
     },
 ]
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 WSGI_APPLICATION = 'piggy_shop.wsgi.application'
 
@@ -92,6 +103,11 @@ WSGI_APPLICATION = 'piggy_shop.wsgi.application'
 DATABASES = {
     'default': env.db('DATABASE_URL')
 }
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.codeinstitute-ide.net",
+    "https://*.herokuapp.com",
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
