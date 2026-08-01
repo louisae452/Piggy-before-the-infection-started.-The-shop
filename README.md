@@ -96,14 +96,21 @@ On the creator’s side of the site, there will be features to add, modify and d
 
 The account link will lead to a page where the user can see and modify their personal information, as well as see their purchase history and the status of their current order.
 
+## Deployment.
 
+When setting heorku app must run this from terminal:
+
+heroku config:set EMAIL_HOST_PASSWORD="email-app-pwd" --app heroku-app-name
+
+to configure the email
 
 ## Frameworks, packages and libraries.
 
 - Django 6.0.7
 - To manage sensitive data: django-environ 
 - To manage database: psycopg2 
-- For enhanced authentifcation: django-allauth
+- For enhanced authentifcation
+- To format outbound emails: django-anymail
 
 
 
@@ -112,6 +119,8 @@ The account link will lead to a page where the user can see and modify their per
 - Passwords in online services. [ico](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/a-guide-to-data-security/passwords-in-online-services/)
 
 - Passwords administratoin for system owners [National Cyber Security centre](https://www.ncsc.gov.uk/collection/passwords/updating-your-approach)
+
+- To send emails. [Resend](https://resend.com/docs/send-with-django)
 
 
 
