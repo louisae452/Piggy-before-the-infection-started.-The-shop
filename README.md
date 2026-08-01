@@ -109,7 +109,9 @@ The account link will lead to a page where the user can see and modify their per
 
 - Django-environ documentation [https://django-environ.readthedocs.io/en/latest/]
 
+- Passwords in online services. [ico](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/a-guide-to-data-security/passwords-in-online-services/)
 
+- Passwords administratoin for system owners [National Cyber Security centre](https://www.ncsc.gov.uk/collection/passwords/updating-your-approach)
 
 
 
