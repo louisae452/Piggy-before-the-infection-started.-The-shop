@@ -137,6 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 ACCOUNT_AUTHENTIFICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
@@ -154,6 +155,7 @@ USE_I18N = True
 USE_TZ = True
 
 # Configure email:
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
@@ -161,6 +163,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'piggy.before.the.shop@gmail.com'
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'Piggy The Shop <piggy.before.the.shop@gmail.com>'
+EMAIL_FAIL_SILENTLY = False
 
 
 

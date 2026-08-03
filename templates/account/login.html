@@ -23,6 +23,7 @@
             <br>
             <input type="password" name="password" placeholder="Password" autocomplete="current-password" required="" aria-describedby="id_password_helptext" id="id_password">
             <br>
+            <a href="{% url 'account_reset_password'%}">Forgot your password?</a>
             {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}

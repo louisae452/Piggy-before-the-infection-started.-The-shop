@@ -8,31 +8,55 @@
     <div>
         <h1 class="center padding-10">{% trans "Register" %}</h1>
         <p class="padding-bottom-10">Already have an account?&nbsp;
-            <a class="" href="{%url 'account_login' %}">log in</a> &nbsp;here</p>
+            <a class="" href="{% url 'account_login' %}">log in</a>&nbsp; here
         </p>
     </div>
+    {% if form.non_field_errors %}
+        <div class="error-container global-errors">
+            {{ form.non_field_errors|join:", " }}
+        </div>
+    {% endif %}
     <div>
+        <!-- Used AI to show error messages and persist user name and emailaddress when passwords give errors.-->
         <form class="" method="post" action="{% url 'account_signup' %}"> 
             {% csrf_token %} 
                 
-            <label for="id_login">Username:</label>
+            <label for="id_username">Username:</label>
             <br>
-            <input type="text" name="username" placeholder="Username" autocomplete="username" maxlength="150" required id="id_username">
+            <input type="text" name="username" placeholder="Username" autocomplete="username" maxlength="150" required id="id_username" value="{{form.username.value|default:'' }}">
             <br>
-            <label for ="id-email">Email</label>
+            {% if form.username.errors %}
+                <div class="error-message">{{ form.username.errors|join:", " }}</div>
+            {% endif %}
+            <label for ="id_email">Email</label>
             <br>
-            <input type="email" name="email" placeholder="Email address" autocomplete="email" required id="id_email">
+            <input type="email" name="email" placeholder="Email address" autocomplete="email" required id="id_email"  value="{{form.email.value|default:'' }}">
+            {% if form.email.errors %}
+                <div class="error-message">{{ form.email.errors|join:", " }}</div>
+            {% endif %}
+            
             <br>
             <label for="id_password1">Password:</label>
             <br>
             <input type="password" name="password1" placeholder="Password" autocomplete="new-password" required aria-describedby="id_password_helptext" id="id_password1">
+            {% if form.password1.errors %}
+                <div class="error-message">{{ form.password1.errors|join:", " }}</div>
+            {% endif %}
             <br>
             <label for="id_password2">Confirm Password:</label>
             <br>
             <input type="password" name="password2" placeholder="Confirm Password" autocomplete="new-password" required id="id_password2">
+            {% if form.password_2.errors %}
+                <div class="error-message">{{ form.password_2.errors|join:", " }}</div>
+            {% endif %}
             <br>
             {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            {% if form.non_field_errors %}
+                <div class="error-container global-errors">
+                    {{ form.non_field_errors|join:", " }}
+                </div>
             {% endif %}
             
             <br>
