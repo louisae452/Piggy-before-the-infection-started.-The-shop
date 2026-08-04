@@ -99,7 +99,20 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# Django 5.1/6.0+ replacement for the deprecated STATICFILES_STORAGE setting
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
+    },
+}
+
+
+
+
+
 WHITENOISE_ROOT = BASE_DIR / 'static'
 
 WSGI_APPLICATION = 'piggy_shop.wsgi.application'
