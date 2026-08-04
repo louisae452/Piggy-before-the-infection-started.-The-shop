@@ -205,5 +205,6 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+WHITENOISE_MANIFEST_STRICT = False
 # End of AI generated code.
 
