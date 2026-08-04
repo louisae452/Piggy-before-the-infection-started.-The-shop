@@ -199,4 +199,11 @@ LOGGING = {
         },
     },
 }   
+# Fix heroku using older css file.
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 # End of AI generated code.
+
