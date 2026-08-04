@@ -99,6 +99,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 WSGI_APPLICATION = 'piggy_shop.wsgi.application'
 
@@ -199,7 +200,6 @@ LOGGING = {
         },
     },
 }   
-# Force WhiteNoise to use standard compression without strict manifest file checking
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 # End of AI generated code.
 
