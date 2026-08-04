@@ -23,7 +23,7 @@ env = environ.Env(
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
 )
-    
+
 env_file = BASE_DIR / '.env'
 if env_file.exists():
     environ.Env.read_env(env_file)
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -213,7 +214,7 @@ LOGGING = {
             'propagate': True,
         },
     },
-}   
+}
 
 # End of AI generated code.
 
