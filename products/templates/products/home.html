@@ -3,7 +3,17 @@
 
 {% block content %}
 <div>
-    <h1>Welcome to our shop<h1>
+    <div class="options-bar">
+        <a class= "button btn-transparent" href="">All products</a>
+        <a class="button btn-transparent" href="">Plushes</a>
+        <a class="button btn-transparent" href="">3D prints</a>
+        <div class="search-container"></div>
+        <a class="button btn-transparent" href="">Shopping basket</a>
+
+    </div>
+    {% block extracontent %}
+    <h1>Welcome to our shop</h1>
+    {% endblock extracontent %}
 </div>
 
 {% endblock %}

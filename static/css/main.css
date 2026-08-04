@@ -32,7 +32,7 @@ body {
     background-color: var(--dark-purple);
     color: var(--mid-green);
     width: 75px;
-    height: 30px;
+    height: 40px;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
@@ -110,7 +110,20 @@ main {
     width: 50%;
     aspect-ratio: 1 /1;
 }
+/* Home page */
+.options-bar {
+    display: flex;
+    flex-direction: row;
+   
 
+}
+.btn-transparent {
+    background-color: transparent;
+    color: var(--purple);
+    border: 2px solid var(--purple);
+    text-decoration: none;
+    width: 100px;
+}
 
 /* Footer */
 footer {
@@ -163,6 +176,11 @@ footer {
     .vertical-bar {
         grid-template-columns: auto auto;
         grid-template-rows: auto;
+    }
+    .options-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        
     }
     
     
