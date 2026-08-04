@@ -26,7 +26,7 @@ env = environ.Env(
     
 env_file = BASE_DIR / '.env'
 if env_file.exists():
-    environ.Env.read_env(env_file)
+    environ.env.list('ALLOWED_HOSTS', DEFAULT=['127.0.0.1', 'localhost'])
 
 
 
