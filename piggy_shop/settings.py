@@ -199,12 +199,7 @@ LOGGING = {
         },
     },
 }   
-# Fix heroku using older css file.
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-WHITENOISE_MANIFEST_STRICT = False
+# Force WhiteNoise to use standard compression without strict manifest file checking
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 # End of AI generated code.
 
