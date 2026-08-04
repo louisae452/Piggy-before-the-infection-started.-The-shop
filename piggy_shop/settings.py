@@ -26,18 +26,19 @@ env = environ.Env(
     
 env_file = BASE_DIR / '.env'
 if env_file.exists():
-    environ.env.list('ALLOWED_HOSTS', DEFAULT=['127.0.0.1', 'localhost'])
+    environ.Env.read_env(env_file)
 
 
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-7@q!e35o59-x)wj9u*qk&c8(t(n9ums9g9l06t3@ue*bu59*8&'
+
 SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-
 ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+
+
 
 
 
