@@ -109,8 +109,10 @@ to configure the email
 - Django 6.0.7
 - To manage sensitive data: django-environ 
 - To manage database: psycopg2 
-- For enhanced authentifcation
-- To format outbound emails: django-anymail
+- For enhanced authentifcation: django-allauth
+- To manage deployment to heroku: gunicorn
+- To manage deployment of static files: WhiteNoise
+- 
 
 
 

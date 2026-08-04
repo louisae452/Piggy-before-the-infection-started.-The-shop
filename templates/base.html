@@ -44,9 +44,26 @@
     </header>
 
     <main>
+        <div class="grid-container">
+            
+            <div>
+                {% block content %}
+                {% endblock %}
+            </div>
+            <div class="vertical-bar">
+                <div class="advert">
+                    <div class="circle"></div>
+                    <p class="padding-10">Content title</p>
+                </div>
+                <div class="advert">
+                    <div class="circle"></div>
+                    <p class="padding-10">Content title</p>
+                </div>
+            </div>
+        </div>
+
         
-            {% block content %}
-            {% endblock %}
+        
         
     </main>
 
