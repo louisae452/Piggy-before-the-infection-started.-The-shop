@@ -161,6 +161,15 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = True
 
+AUTHENTICATION_BACKENDS = [
+    # Needed to log in by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
