@@ -100,6 +100,7 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+WHITENOISE_ROOT = BASE_DIR / 'static'
 
 WSGI_APPLICATION = 'piggy_shop.wsgi.application'
 
