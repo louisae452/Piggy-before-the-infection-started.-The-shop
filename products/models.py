@@ -2,7 +2,7 @@ import os
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
+# Products models.
 
 
 class Category(models.Model):
@@ -74,3 +74,61 @@ class Rating(models.Model):
         else:
             author = "Verified user"
         return f"{self.product.name} by {author}"
+
+# Homepage models.
+
+
+class HomepageImage(models.Model):
+    """Holds images to be used in the homepage"""
+    image_url = models.URLField(max_length=500)
+
+    @property
+    def image_name(self):
+        return os.path.basename(self.image_url)
+
+    def __str__(self):
+        return self.image_name
+
+
+class HomepageVideo(models.Model):
+    """Holds videos to be used in the homepage"""
+    name = models.CharField(max_length=100)
+    link = models.URLField(max_length=500)
+
+    def __str__(self):
+        return self.name
+
+
+class Homepage(models.Model):
+    """ Model to show the homepages."""
+    name = models.CharField(max_length=100)
+    created_on = models.DateField(auto_now_add=True)
+    is_active = models.BooleanField(default=False)
+    top_right = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
+                                  null=True, blank=True,
+                                  related_name="toprightslot")
+    top_left = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
+                                 null=True, blank=True,
+                                 related_name="topleftslot")
+    bottom_right = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
+                                     null=True, blank=True,
+                                     related_name="bottomrightslot")
+    bottom_left = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
+                                    null=True, blank=True,
+                                    related_name="bottomleftslot")
+    video1 = models.ForeignKey(HomepageVideo, on_delete=models.SET_NULL,
+                               null=True, blank=True,
+                               related_name="video1slot")
+    video2 = models.ForeignKey(HomepageVideo, on_delete=models.SET_NULL,
+                               null=True, blank=True,
+                               related_name="video2slot")
+
+    def __str__(self):
+        if self.is_active:
+            status = "live"
+        else:
+            status = "inactive"
+        return f" {self.name} -{status}"
+
+
+

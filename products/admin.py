@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Category, Group, Product, Image, Video, Rating
+from .models import Category, Group, Product, Image, Video, Rating, Homepage, HomepageImage, HomepageVideo
 
-# Register your models here.
+# Products models
 
 
 @admin.register(Category)
@@ -41,3 +41,24 @@ class RatingAdmin(SummernoteModelAdmin):
     list_display = ('product', 'user', 'rating')
     search_fields = ('product__name', 'user__username')
     summernote_fields = ('comment',)
+
+
+# Homepage models
+
+@admin.register(HomepageImage)
+class HomepageImageAdmin(admin.ModelAdmin):
+    list_display = ('image_name',)
+    search_fields = ('image_url',)
+
+
+@admin.register(HomepageVideo)
+class HomepageVideoAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+
+
+@admin.register(Homepage)
+class HomepageAdmin(admin.ModelAdmin):
+    list_display = ('name', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('name',)
