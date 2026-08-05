@@ -107,12 +107,18 @@ to configure the email
 ## Frameworks, packages and libraries.
 
 - Django 6.0.7
+
 - To manage sensitive data: django-environ 
+
 - To manage database: psycopg2 
+
 - For enhanced authentifcation: django-allauth
+
 - To manage deployment to heroku: gunicorn
+
 - To manage deployment of static files: WhiteNoise
-- 
+
+- To provide a rich text editor: django-summernote
 
 
 
@@ -123,6 +129,8 @@ to configure the email
 - Passwords administratoin for system owners [National Cyber Security centre](https://www.ncsc.gov.uk/collection/passwords/updating-your-approach)
 
 - To send emails. [Resend](https://resend.com/docs/send-with-django)
+
+- PostgreSQL JSON tutorial [Neon](https://neon.com/postgresql/tutorial/json)
 
 
 
