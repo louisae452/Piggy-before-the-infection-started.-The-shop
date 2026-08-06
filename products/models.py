@@ -2,6 +2,7 @@ import os
 from django.contrib.auth.models import User
 from django.db import models
 
+
 # Products models.
 
 
@@ -38,14 +39,12 @@ class Product(models.Model):
 class Image(models.Model):
     """Model for products images"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    image_url = models.URLField(max_length=500)
-
-    @property
-    def image_name(self):
-        return os.path.basename(self.image_url)
+    image = models.ImageField(upload_to='products/products/')
+    is_main = models.BooleanField(default=False)
+    
 
     def __str__(self):
-        return f"{self.image_name} for {self.product.name}"
+        return f"{'Main' if self.is_main else 'Galery'} image for {self.product.name}"
 
 
 class Video(models.Model):
@@ -80,14 +79,11 @@ class Rating(models.Model):
 
 class HomepageImage(models.Model):
     """Holds images to be used in the homepage"""
-    image_url = models.URLField(max_length=500)
+    image = models.ImageField(upload_to='products/homepage/')
 
-    @property
-    def image_name(self):
-        return os.path.basename(self.image_url)
+    
 
-    def __str__(self):
-        return self.image_name
+    
 
 
 class HomepageVideo(models.Model):
