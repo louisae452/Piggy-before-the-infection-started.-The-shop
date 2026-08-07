@@ -43,7 +43,7 @@ class Image(models.Model):
     """Model for products images"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image_name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='products/products/')
+    image = models.ImageField(upload_to='media/products/')
     is_main = models.BooleanField(default=False)
     
 
@@ -84,7 +84,10 @@ class Rating(models.Model):
 class HomepageImage(models.Model):
     """Holds images to be used in the homepage"""
     image_name = models.CharField(max_length=100, null=True, blank=True)
-    image = models.ImageField(upload_to='products/homepage/', default='default_image')
+    image = models.ImageField(upload_to='media/homepage/', default='default_image')
+    
+    def __str__(self):
+        return self.image_name
 
     
 
@@ -125,11 +128,7 @@ class Homepage(models.Model):
                                related_name="video2slot")
 
     def __str__(self):
-        if self.is_active:
-            status = "live"
-        else:
-            status = "inactive"
-        return f" {self.name} -{status}"
+        return self.name
 
 
 

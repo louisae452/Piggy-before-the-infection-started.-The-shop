@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div>
+<div class="home">
     <div class="options-bar">
     <!--  alt for default homepage image: alt="Default Image"-->
         <a class= "button btn-transparent" href="">All products</a>
@@ -13,7 +13,29 @@
 
     </div>
     {% block extracontent %}
-    <h1>Welcome to our shop</h1>
+    <div class="extracontent">
+        <div class="homeblock" id="top-left">
+            <h1>Plushes!</h1>
+            <img src="{{ homepage.top_left.image.url }}">
+            <a class="button btn-transparent" href="">Enter</a>
+        </div>
+        <div class="homeblock" id="top-right">
+            <h1>3D Prints!</h1>
+            <img>
+            <a class="button btn-transparent" href="">Enter</a>
+        </div>
+        <div class="homeblock" id="bottom-left">
+            <h1>Offers</h1>
+            <img>
+            <a class="button btn-transparent" href="">Enter</a>
+        </div>
+        <div class="homeblock" id="bottom-right">
+            <h1>Coming soon!</h1>
+            <img>
+            <a class="button btn-transparent" href="">Enter</a>
+        </div>
+
+    </div>
     {% endblock extracontent %}
 </div>
 
