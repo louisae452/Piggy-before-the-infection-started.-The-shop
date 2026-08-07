@@ -120,6 +120,8 @@ to configure the email
 
 - To provide a rich text editor: django-summernote
 
+- To serve image files: cloudinary, dj3-cloudinary-storage urllib3
+
 
 
 - Django-environ documentation [https://django-environ.readthedocs.io/en/latest/]

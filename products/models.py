@@ -39,12 +39,13 @@ class Product(models.Model):
 class Image(models.Model):
     """Model for products images"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    image_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='products/products/')
     is_main = models.BooleanField(default=False)
     
 
     def __str__(self):
-        return f"{'Main' if self.is_main else 'Galery'} image for {self.product.name}"
+        return f"{self.image_name} for {self.product.name}"
 
 
 class Video(models.Model):
@@ -79,7 +80,8 @@ class Rating(models.Model):
 
 class HomepageImage(models.Model):
     """Holds images to be used in the homepage"""
-    image = models.ImageField(upload_to='products/homepage/')
+    image_name = models.CharField(max_length=100, null=True, blank=True)
+    image = models.ImageField(upload_to='products/homepage/', default='default_image')
 
     
 

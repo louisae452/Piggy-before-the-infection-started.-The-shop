@@ -41,7 +41,7 @@ else:
         'API_KEY': env('CLOUDINARY_API_KEY', default=''),
         'API_SECRET': env('CLOUDINARY_API_SECRET', default=''),
     }
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 
 
@@ -61,6 +61,7 @@ ALLOWED_HOSTS = env('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,7 +69,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary_storage',
-    'whitenoise.runserver_nostatic',
+    
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -121,7 +122,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Django 5.1/6.0+ replacement for the deprecated STATICFILES_STORAGE setting
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
