@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
+    
     'django.contrib.staticfiles',
     
     
@@ -134,7 +134,7 @@ if DEBUG:
 else:
     STORAGES = {
         "default": {
-            "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
+            "BACKEND": "cloudinary.storage.storage.MediaCloudinaryStorage"
         },
         "staticfiles": {
             "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
