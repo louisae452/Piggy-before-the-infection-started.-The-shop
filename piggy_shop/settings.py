@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     
     
@@ -125,7 +125,7 @@ if DEBUG:
     # For local development:
     STORAGES = {
         "default": {
-            "BACKEND": "django.core.files.storage.FileSystemStorage"
+            "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
         },
         "staticfiles": {
             "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
@@ -255,5 +255,6 @@ LOGGING = {
 }
 
 # End of AI generated code.
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 # Temporary
 # DEBUG_PROPAGATE_EXCEPTIONS = True
