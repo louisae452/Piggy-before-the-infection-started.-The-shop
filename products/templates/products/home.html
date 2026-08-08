@@ -5,7 +5,7 @@
 <div class="home">
     <div class="options-bar">
     <!--  alt for default homepage image: alt="Default Image"-->
-        <a class= "button btn-transparent" href="">All products</a>
+        <a class="button btn-transparent" href="">All products</a>
         <a class="button btn-transparent" href="">Plushes</a>
         <a class="button btn-transparent" href="">3D prints</a>
         <div class="search-container"></div>
@@ -15,33 +15,71 @@
     {% block extracontent %}
     <div class="extracontent">
         <div class="homeblock" id="top-left">
-            
+            {% if homepage.top_left.image %}
             <img src="{{ homepage.top_left.image.url }}">
-            
+            {% endif %} 
             <div class="homeblock-adds">
-                <h1>Plushes!</h1>
-                <a class="button btn-green" href="">Enter</a>
+                {% if homepage.top_left_title %}
+                <h1>{{ homepage.top_left_title }}</h1>
+                {% endif %}
+                {% if homepage.top_left_button %}
+                <a class="button btn-green" {% if homepage.top_left_href %}href="{{ homepage.top_left_href.get_url }}"{% endif %}>
+                    {{ homepage.top_left_button }}
+                </a>
+                {% endif %}
             </div>
-
         </div>
         <div class="homeblock" id="top-right">
-            <h1>3D Prints!</h1>
-            <img>
-            <a class="button" href="">Enter</a>
+            {% if homepage.top_right.image %}
+            <img src="{{ homepage.top_right.image.url }}">
+            {% endif %} 
+            <div class="homeblock-adds">
+                {% if homepage.top_right_title %}
+                <h1>{{ homepage.top_right_title }}</h1>
+                {% endif %}
+                {% if homepage.top_right_button %}
+                <a class="button btn-green" {% if homepage.top_right_href %}href="{{ homepage.top_right_href.get_url }}"{% endif %}>
+                    {{ homepage.top_right_button }}
+                </a>
+                {% endif %}
+            </div>
         </div>
         <div class="homeblock" id="bottom-left">
-            <h1>Offers</h1>
-            <img>
-            <a class="button btn-transparent" href="">Enter</a>
+            {% if homepage.bottom_left.image %}
+            <img src="{{ homepage.bottom_left.image.url }}">
+            {% endif %} 
+            <div class="homeblock-adds">
+                {% if homepage.bottom_left_title %}
+                <h1>{{ homepage.bottom_left_title }}</h1>
+                {% endif %}
+                {% if homepage.bottom_left_button %}
+                <a class="button btn-green" {% if homepage.bottom_left_href %}href="{{ homepage.bottom_left_href.get_url }}"{% endif %}>
+                    {{ homepage.bottom_left_button }}
+                </a>
+                {% endif %}
+            </div>
+
+
+
         </div>
         <div class="homeblock" id="bottom-right">
-            <h1>Coming soon!</h1>
-            <img>
-            <a class="button btn-transparent" href="">Enter</a>
+            {% if homepage.bottom_right.image %}
+            <img src="{{ homepage.bottom_right.image.url }}">
+            {% endif %} 
+            <div class="homeblock-adds">
+                {% if homepage.bottom_right_title %}
+                <h1>{{ homepage.bottom_right_title }}</h1>
+                {% endif %}
+                {% if homepage.bottom_right_button %}
+                <a class="button btn-green" {% if homepage.bottom_right_href %}href="{{ homepage.bottom_right_href.get_url }}"{% endif %}>
+                    {{ homepage.bottom_right_button }}
+                </a>
+                {% endif %}
+            </div>
         </div>
 
     </div>
     {% endblock extracontent %}
 </div>
 
-{% endblock %}
+{% endblock content %}

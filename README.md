@@ -96,6 +96,16 @@ On the creator’s side of the site, there will be features to add, modify and d
 
 The account link will lead to a page where the user can see and modify their personal information, as well as see their purchase history and the status of their current order.
 
+## Features
+
+### Customisable homepage. 
+
+The homepage has a structure which continues over the products templates, featuring a navigation bar at the top with links to all products, plushes, 3d prints and shopping basket and a search feature(to be added) and a vertical section which contains links to content related videos. 
+
+The main area of the homepage is divided into four completely customisable sections, with the option to include a picture, a title and a link. The content of these sections is controlled by the Homepage model, which also controls the video links in the vertical section.
+
+The videos in the vertical section on the other pages will be controlled by their respective models.
+
 ## Deployment.
 
 When setting heorku app must run this from terminal:
