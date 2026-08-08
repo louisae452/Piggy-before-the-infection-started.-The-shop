@@ -47,8 +47,8 @@ class RatingAdmin(SummernoteModelAdmin):
 
 @admin.register(HomepageImage)
 class HomepageImageAdmin(admin.ModelAdmin):
-    list_display = ('image_name',)
-    search_fields = ('image_name',)
+    list_display = ['image_name']
+    search_fields = ['image_name']
 
 
 @admin.register(HomepageVideo)
