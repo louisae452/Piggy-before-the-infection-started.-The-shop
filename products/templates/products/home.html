@@ -15,9 +15,9 @@
     {% block extracontent %}
     <div class="extracontent">
         <div class="homeblock" id="top-left">
-            {% if homepage.top_left.image %}
-            <img src="{{ homepage.top_left.image.url }}">
-            {% endif %} 
+            
+            <img {% if homepage.top_left.image %}src="{{ homepage.top_left.image.url }}"{% else %}href=""{% endif %}>
+           
             <div class="homeblock-adds">
                 {% if homepage.top_left_title %}
                 <h1>{{ homepage.top_left_title }}</h1>
@@ -30,9 +30,8 @@
             </div>
         </div>
         <div class="homeblock" id="top-right">
-            {% if homepage.top_right.image %}
-            <img src="{{ homepage.top_right.image.url }}">
-            {% endif %} 
+            <img {% if homepage.top_right.image %}src="{{ homepage.top_right.image.url }}"{% else %}href=""{% endif %}>
+            
             <div class="homeblock-adds">
                 {% if homepage.top_right_title %}
                 <h1>{{ homepage.top_right_title }}</h1>
@@ -45,9 +44,7 @@
             </div>
         </div>
         <div class="homeblock" id="bottom-left">
-            {% if homepage.bottom_left.image %}
-            <img src="{{ homepage.bottom_left.image.url }}">
-            {% endif %} 
+            <img {% if homepage.bottom_left.image %}src="{{ homepage.bottom_left.image.url }}"{% else %}href=""{% endif %}>
             <div class="homeblock-adds">
                 {% if homepage.bottom_left_title %}
                 <h1>{{ homepage.bottom_left_title }}</h1>
@@ -63,9 +60,7 @@
 
         </div>
         <div class="homeblock" id="bottom-right">
-            {% if homepage.bottom_right.image %}
-            <img src="{{ homepage.bottom_right.image.url }}">
-            {% endif %} 
+            <img {% if homepage.bottom_right.image %}src="{{ homepage.bottom_right.image.url }}"{% else %}href=""{% endif %}>
             <div class="homeblock-adds">
                 {% if homepage.bottom_right_title %}
                 <h1>{{ homepage.bottom_right_title }}</h1>
