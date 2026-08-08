@@ -125,7 +125,7 @@ if DEBUG:
     # For local development:
     STORAGES = {
         "default": {
-            "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
+            "BACKEND": "django.core.files.storage.FileSystemStorage"
         },
         "staticfiles": {
             "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
@@ -134,7 +134,7 @@ if DEBUG:
 else:
     STORAGES = {
         "default": {
-            "BACKEND": "cloudinary.storage.storage.MediaCloudinaryStorage"
+            "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
         },
         "staticfiles": {
             "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",
@@ -255,6 +255,6 @@ LOGGING = {
 }
 
 # End of AI generated code.
-STATICFILES_STORAGE = "django.core.files.storage.FileSystemStorage"
+
 # Temporary
 # DEBUG_PROPAGATE_EXCEPTIONS = True
