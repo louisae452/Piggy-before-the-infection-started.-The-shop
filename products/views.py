@@ -1,11 +1,17 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
+from django.db.utils import OperationalError, ProgrammingError
+
 from .models import Homepage
 
 # Create your views here.
 
 
 def home_page(request):
-    homepage = get_object_or_404(Homepage.objects.select_related('top_left_href', 'top_right_href', 'bottom_left_href', 'bottom_right_href'), is_active=True)
+    try:
+        homepage = Homepage.objects.filter(is_active=True).select_related('top_left_href', 'top_right_href', 'bottom_left_href', 'bottom_right_href').first()
+    except (OperationalError, ProgrammingError):
+        homepage = None    
+    
     context = {
         'homepage': homepage,
         }
