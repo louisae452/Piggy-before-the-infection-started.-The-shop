@@ -1,6 +1,7 @@
 import os
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse, NoReverseMatch
 
 
 # Products models.
@@ -84,7 +85,7 @@ class Rating(models.Model):
 class HomepageImage(models.Model):
     """Holds images to be used in the homepage"""
     image_name = models.CharField(max_length=100, null=True, blank=True)
-    image = models.ImageField(upload_to='media/homepage/', default='default_image')
+    image = models.ImageField(upload_to='homepage/', default='default_image')
     
     def __str__(self):
         return self.image_name
@@ -102,7 +103,27 @@ class HomepageVideo(models.Model):
     def __str__(self):
         return self.name
 
+class Href(models.Model):
+    name = models.CharField(max_length=100)
+    url_name = models.CharField(max_length=225, help_text="External path or '<app name>:<page name in path>")
 
+    def __str__(self):
+        return self.name
+    # Written with AI:
+
+    @property
+    def get_url(self):
+        # Uses url_name as is if it is a external path
+        if self.url_name.startswith(('http://', 'https://', '/')):
+            return self.url_name
+        # converts internal path to a clickable link
+        try: 
+            return reverse(self.url_name)
+        except NoReverseMatch:
+            return "/"
+        
+    
+    
 class Homepage(models.Model):
     """ Model to show the homepages."""
     name = models.CharField(max_length=100)
@@ -111,15 +132,35 @@ class Homepage(models.Model):
     top_right = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
                                   null=True, blank=True,
                                   related_name="toprightslot")
+    top_right_title = models.CharField(max_length=100, blank=True, null=True)
+    top_right_button = models.CharField(max_length=50, blank=True, null=True)
+    top_right_href = models.ForeignKey(Href, on_delete=models.SET_NULL,
+                                       blank=True, null=True,
+                                       related_name="toprighthref")
     top_left = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
                                  null=True, blank=True,
                                  related_name="topleftslot")
+    top_left_title = models.CharField(max_length=100, blank=True, null=True)
+    top_left_button = models.CharField(max_length=50, blank=True, null=True)
+    top_left_href = models.ForeignKey(Href, on_delete=models.SET_NULL,
+                                      blank=True, null=True,
+                                      related_name="toplefthref")
     bottom_right = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
                                      null=True, blank=True,
                                      related_name="bottomrightslot")
+    bottom_right_title = models.CharField(max_length=100, blank=True, null=True)
+    bottom_right_button = models.CharField(max_length=50, blank=True, null=True)
+    bottom_right_href = models.ForeignKey(Href, on_delete=models.SET_NULL,
+                                          blank=True, null=True,
+                                          related_name="bottomrighthref")
     bottom_left = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
                                     null=True, blank=True,
                                     related_name="bottomleftslot")
+    bottom_left_title = models.CharField(max_length=100, blank=True, null=True)
+    bottom_left_button = models.CharField(max_length=50, blank=True, null=True)
+    bottom_left_href = models.ForeignKey(Href, on_delete=models.SET_NULL,
+                                         blank=True, null=True,
+                                         related_name="bottomlefthref")
     video1 = models.ForeignKey(HomepageVideo, on_delete=models.SET_NULL,
                                null=True, blank=True,
                                related_name="video1slot")

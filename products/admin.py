@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Category, Group, Product, Image, Video, Rating, Homepage, HomepageImage, HomepageVideo
+from .models import Category, Group, Product, Image, Video, Rating, Homepage, HomepageImage, HomepageVideo, Href
 
 # Products models
 
@@ -53,6 +53,11 @@ class HomepageImageAdmin(admin.ModelAdmin):
 
 @admin.register(HomepageVideo)
 class HomepageVideoAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    
+@admin.register(Href)
+class HrefAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
 
