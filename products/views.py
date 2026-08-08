@@ -5,7 +5,7 @@ from .models import Homepage
 
 
 def home_page(request):
-    homepage = get_object_or_404(Homepage, is_active=True)
+    homepage = get_object_or_404(Homepage.objects.select_related('top_left_href', 'top_right_href', 'bottom_left_href', 'bottom_right_href'), is_active=True)
     context = {
         'homepage': homepage,
         }
