@@ -256,4 +256,4 @@ LOGGING = {
 
 # End of AI generated code.
 # Temporary
-DEBUG_PROPAGATE_EXCEPTIONS = True
+# DEBUG_PROPAGATE_EXCEPTIONS = True
