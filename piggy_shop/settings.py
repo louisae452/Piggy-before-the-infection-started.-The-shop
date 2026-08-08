@@ -255,6 +255,6 @@ LOGGING = {
 }
 
 # End of AI generated code.
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+STATICFILES_STORAGE = "django.core.files.storage.FileSystemStorage"
 # Temporary
 # DEBUG_PROPAGATE_EXCEPTIONS = True
