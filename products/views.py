@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.db.utils import OperationalError, ProgrammingError
 
 from .models import Homepage, Product
@@ -31,5 +31,19 @@ def all_products(request):
             'products_page': products_page,
         }
     )
+    
+    
+# View to show product detail.
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    return render(
+        request,
+        "products/product_detail.html",
+        {
+            'product': product,
+        }
+        
+    )
+    
     
     

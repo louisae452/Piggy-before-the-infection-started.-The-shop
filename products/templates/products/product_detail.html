@@ -1,0 +1,46 @@
+{% extends "products/home.html" %}
+{% load static %}
+
+{% block extracontent %}
+<div class="detail-container">
+    <div class="img-container">
+        
+        <div class="small-imgs">
+            {% for img_obj in product.image_set.all %}
+                <div class="small-pic">
+                    <img class="img-small" src="{{ img_obj.image.url }}" alt="">
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="main-img">
+            <div class="big-pic">
+                <img id="img-big" src="{{ product.main_image.image.url }}" alt="">
+                <a id="enlagre" href="#" target="_blank">See large image</a>
+            </div>
+        </div>
+    </div>
+    <div class="info-container">
+        <h1>{{ product.name }}</h1>
+        <a href="{{ product.link }}" target="_blank" >See character</a>
+        <p>{{ product.rating }}</p>
+        <p>{{ product.description }}</p>
+        <p>£{{ product.price }}</p>
+        <p>Quantity:</p>
+        <div class="quantity-box">
+            <div class="arrow" id="arrow-down">
+                <p><i class="fa-solid fa-arrow-down"></i></p>
+            </div>
+            <div class="qty" id="qty">
+                <p>1</p>
+            </div>
+            <div class="arrow" id="arrow-up">
+                <p><i class="fa-solid fa-arrow-up"></i></p>  
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+{% endblock %}
