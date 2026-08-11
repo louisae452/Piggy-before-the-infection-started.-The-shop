@@ -16,15 +16,17 @@
         <div class="main-img">
             <div class="big-pic">
                 <img id="img-big" src="{{ product.main_image.image.url }}" alt="">
-                <a id="enlagre" href="#" target="_blank">See large image</a>
+                <a id="enlarge" href="" target="_blank">See large image</a>
             </div>
         </div>
     </div>
     <div class="info-container">
         <h1>{{ product.name }}</h1>
-        <a href="{{ product.link }}" target="_blank" >See character</a>
+        {% if product.link %}
+            <a href="{{ product.link }}" target="_blank" >See character</a>
+        {% endif %}
         <p>{{ product.rating }}</p>
-        <p>{{ product.description }}</p>
+        <p>{{ product.description|safe }}</p>
         <p>£{{ product.price }}</p>
         <p>Quantity:</p>
         <div class="quantity-box">
