@@ -144,5 +144,9 @@ to configure the email
 
 - PostgreSQL JSON tutorial [Neon](https://neon.com/postgresql/tutorial/json)
 
+- Model properties [DEV](https://dev.to/doridoro/django-model-properties-28ac)
+
+- Effortless pagination in Django. [Medium]https://medium.com/@pirson/effortless-pagination-in-django-from-basics-to-best-practices-2bd3c0d7d710)
+
 
 

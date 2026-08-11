@@ -1,0 +1,44 @@
+{% extends "products/home.html" %}
+{% load static %}
+
+{% block extracontent %}
+<div class="products-container">
+    {% for product in products_page %}
+    <div class="product-box">
+       
+        {% if product.main_image %}
+            <img src="{{ product.main_image.image.url }}" alt="">
+        {% endif %}
+        
+        <p><strong>{{ product.name }}</strong></p>
+        <p>£{{ product.price }}</p>
+        <p>{{ product.rating }}</p>
+
+    </div>
+    {% endfor %}
+    
+
+
+
+</div>
+
+<div class="pagination">
+    <span>
+        {% if products_page.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ products_page.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ products_page.number }} of {{ products_page.paginator.num_pages }}.
+        </span>
+        {% if products_page.has_next %}
+            <a href="?page={{ products_page.next_page_number }}">next</a>
+            <a href="?page={{ products_page.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+
+</div>
+
+
+
+{% endblock extracontent %}

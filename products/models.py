@@ -38,6 +38,10 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     link = models.URLField(max_length=500, blank=True, null=True)
+    
+    @property
+    def main_image(self):
+        return self.image_set.filter(is_main=True).first()
 
 
 class Image(models.Model):

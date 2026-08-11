@@ -184,6 +184,30 @@ main {
     padding: 10px;
 }
 
+/* All products page */
+.products-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    color: var(--forest-green);
+}
+.product-box {
+    padding: 20px;
+
+    max-width: 90%;
+
+}
+.product-box img {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    color: var(--purple);
+}
+
 /* Footer */
 footer {
     background-color: var(--purple);
