@@ -257,6 +257,7 @@ main {
     width: 70px;
     border: 1px solid var(--forest-green);
     border-radius: 3px;
+    margin-top: 10px;
     
 }
 .quantity-box div {
@@ -270,6 +271,10 @@ main {
 }
 .qty {
     text-align: right;
+}
+.btn-longer {
+    
+    margin-left: 0px;
 }
 
 /* Footer */

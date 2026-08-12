@@ -1,16 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Quantity buttons.
-    let quantity = document.getElementById("qty");
+    let quantityDisplay = document.getElementById("qty");
+    let quantityInput = document.getElementById("qty-input");
     let arrow_up = document.getElementById("arrow-up");
     arrow_up.addEventListener("click", function (){
-        let number = Number(quantity.innerText);
-        quantity.innerText = number + 1;
+        let number = Number(quantityInput.value);
+        let newnumber = number + 1;
+        quantityDisplay.innerText = newnumber;
+        quantityInput.value = newnumber;
     });
     let arrow_down = document.getElementById("arrow-down");
     arrow_down.addEventListener("click", function (){
-        let number = Number(quantity.innerText);
-        if (number > 0) {
-        quantity.innerText = number - 1;
+        let number = Number(quantityInput.value);
+        if (number > 1) {
+            let newnumber = number - 1;
+        quantityDisplay.innerText = newnumber;
+        quantityInput.value = newnumber;
         };
     });
     // Product detail main image display. 

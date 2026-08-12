@@ -2,6 +2,10 @@
 {% load static %}
 
 {% block extracontent %}
+<!-- Temporary debug line to read your Django session data on the screen -->
+<div style="background: #f1c40f; color: #000; padding: 15px; font-weight: bold; text-align: center; font-size: 1.2rem;">
+    Current Live Bag Items: {{ request.session.bag }}
+</div>
 <div class="detail-container">
     <div class="img-container">
         
@@ -29,17 +33,23 @@
         <p>{{ product.description|safe }}</p>
         <p>£{{ product.price }}</p>
         <p>Quantity:</p>
-        <div class="quantity-box">
-            <div class="arrow" id="arrow-down">
-                <p><i class="fa-solid fa-arrow-down"></i></p>
+        <form action="{% url 'shopping_bag:addtobag' product.code %}" method="POST">
+            {% csrf_token %}
+            <div class="quantity-box">
+                <div class="arrow" id="arrow-down">
+                    <p><i class="fa-solid fa-arrow-down"></i></p>
+                </div>
+                <div class="qty">
+                    <span id="qty">1</span>
+                    <input type="hidden" name="quantity" id="qty-input" value="1" data_item_code="{{ product.code }}" id="id_qty_{{ product.code }}">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+                <div class="arrow" id="arrow-up">
+                    <p><i class="fa-solid fa-arrow-up"></i></p>  
+                </div>
             </div>
-            <div class="qty" id="qty">
-                <p>1</p>
-            </div>
-            <div class="arrow" id="arrow-up">
-                <p><i class="fa-solid fa-arrow-up"></i></p>  
-            </div>
-        </div>
+            <button type="submit" class="button btn-transparent btn-longer">Add to bag</button>
+        </form>
         
     </div>
 </div>

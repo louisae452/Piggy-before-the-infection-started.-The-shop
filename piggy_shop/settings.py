@@ -68,6 +68,7 @@ INSTALLED_APPS = [
     
     'products',
     'profiles',
+    'shopping_bag',
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
@@ -99,6 +100,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shopping_bag.context.bag_contents',
             ],
         },
     },
