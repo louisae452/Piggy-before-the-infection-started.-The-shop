@@ -26,18 +26,15 @@ def add_to_bag(request, product_code):
         bag[product_code] = quantity
     # Update bag.
     request.session['bag'] = bag
-    # Test
-    # 2. Add flush=True directly inside print
-    print("🚨 TEST PRINT - BAG STATUS:", request.session['bag'], flush=True)
-    
-    # 3. Force system standard output stream to clear out
-    sys.stdout.flush() 
-    
-    
-    
-    
-    
+        
     return redirect(redirect_url)
     
+def update_bag(request, product_code):
+    quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url', '/')
+    bag = request.session.get('bag')
+    bag[product_code] = quantity
+    request.session.modified = True
+    return redirect(redirect_url)
     
         

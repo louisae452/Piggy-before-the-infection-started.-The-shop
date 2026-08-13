@@ -277,6 +277,31 @@ main {
     margin-left: 0px;
 }
 
+/* Shopping bag */
+.bag-img {
+    height: 50px;
+    width: 50px;
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+.th-code, .th-qty, .th-price, th-subtotal {
+    width: 90px;
+}
+.th-img {
+    width: 70px;
+}
+.th-name {
+    width: auto;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
 /* Footer */
 footer {
     background-color: var(--purple);

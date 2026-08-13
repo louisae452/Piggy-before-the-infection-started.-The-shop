@@ -36,15 +36,15 @@
         <form action="{% url 'shopping_bag:addtobag' product.code %}" method="POST">
             {% csrf_token %}
             <div class="quantity-box">
-                <div class="arrow" id="arrow-down">
+                <div class="arrow arrow-down">
                     <p><i class="fa-solid fa-arrow-down"></i></p>
                 </div>
                 <div class="qty">
-                    <span id="qty">1</span>
-                    <input type="hidden" name="quantity" id="qty-input" value="1" data_item_code="{{ product.code }}" id="id_qty_{{ product.code }}">
+                    <span class="qty-display">1</span>
+                    <input type="hidden" name="quantity" class="qty-input" value="1" data_item_code="{{ product.code }}" id="id_qty_{{ product.code }}">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
-                <div class="arrow" id="arrow-up">
+                <div class="arrow arrow-up">
                     <p><i class="fa-solid fa-arrow-up"></i></p>  
                 </div>
             </div>

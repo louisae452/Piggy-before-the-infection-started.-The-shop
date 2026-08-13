@@ -1,23 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Quantity buttons.
-    let quantityDisplay = document.getElementById("qty");
-    let quantityInput = document.getElementById("qty-input");
-    let arrow_up = document.getElementById("arrow-up");
-    arrow_up.addEventListener("click", function (){
-        let number = Number(quantityInput.value);
-        let newnumber = number + 1;
-        quantityDisplay.innerText = newnumber;
-        quantityInput.value = newnumber;
-    });
-    let arrow_down = document.getElementById("arrow-down");
-    arrow_down.addEventListener("click", function (){
-        let number = Number(quantityInput.value);
-        if (number > 1) {
-            let newnumber = number - 1;
-        quantityDisplay.innerText = newnumber;
-        quantityInput.value = newnumber;
-        };
-    });
+    let quantityDisplay = document.querySelectorAll(".qty-display");
+    let quantityInput = document.querySelectorAll(".qty-input");
+    let arrow_up = document.querySelectorAll(".arrow-up");
+
+    arrow_up.forEach((num, index) =>{
+        num.addEventListener("click", function () {
+                let number = Number(quantityInput[index].value);
+                let newnumber = number + 1;
+                quantityDisplay[index].innerText = newnumber;
+                quantityInput[index].value = newnumber;
+            });
+    })
+
+
+   
+    let arrow_down = document.querySelectorAll(".arrow-down");
+    arrow_down.forEach((num, index) => {
+        num.addEventListener("click", function () {
+            let number = Number(quantityInput[index].value);
+            if (number > 1) {
+                let newnumber = number - 1;
+            quantityDisplay[index].innerText = newnumber;
+            quantityInput[index].value = newnumber;
+            };
+        });
+    })
+    
     // Product detail main image display. 
     let big_img = document.getElementById("img-big");
     let small_imgs = document.querySelectorAll(".img-small");
