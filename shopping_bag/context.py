@@ -15,6 +15,7 @@ def bag_contents(request):
     
     for product_code, quantity in bag.items():
         product = Product.objects.filter(code=product_code).first()
+        product.subtotal = quantity * product.price
         total += quantity * product.price
         product_count += quantity
         main_image = Image.objects.filter(product=product, is_main=True).first()

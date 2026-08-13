@@ -9,14 +9,14 @@
         <th class="th-img"></th>
         <th class="th-name">Name</th>
         <th class="th-qty">Quantity</th>
-        <th class="th-price">Price</th>
-        <th class="th-subtotal">Subtotal</th>
+        <th class="th-price align-right">Price</th>
+        <th class="th-subtotal align-right">Subtotal</th>
 
     </tr>
      {% for item in bag_items %}
     <tr>
        
-        <td> {{ item.product_code }}</td>
+        <td><a href="{% url 'products:productdetail' item.product.slug %}"> {{ item.product_code }}</a></td>
         <td><img class="bag-img" src="{{ item.main_image.image.url }}" alt=""> </td>
         <td >{{ item.product.name }}</td>
         <td>
@@ -43,11 +43,20 @@
 
 
         </td>
-        <td class="align-right"> £{{item.product.price }}</td>
-        <td></td>
+        <td class="align-right"> £{{ item.product.price }}</td>
+        <td class=" align-right">£{{ item.product.subtotal }}</td>
         
     </tr>
     {% endfor %}
 </table>
+<div>
+     <table id="table-total">
+        <tr>
+            <th class="th-total align-right"><strong>Total</strong></th>
+            <td class="td-total align-right"><strong>£{{ total }}</strong></td>
+        </tr>
+    </table>
+</div>
+
 
 {% endblock %}

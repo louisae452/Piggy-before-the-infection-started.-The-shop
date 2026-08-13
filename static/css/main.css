@@ -287,14 +287,17 @@ table {
     table-layout: fixed;
     border-collapse: collapse;
 }
-.th-code, .th-qty, .th-price, th-subtotal {
+.th-code, .th-price, .th-subtotal {
+    width: 70px;
+}
+.th-qty {
     width: 90px;
 }
 .th-img {
     width: 70px;
 }
 .th-name {
-    width: auto;
+    width: 200px;
 }
 th, td {
     padding: 10px;
