@@ -1,0 +1,29 @@
+{% extends "products/home.html" %}
+{% load static %}
+
+{% block extracontent %}
+<div class="form-container">
+    <form method="post">
+        {{ userform }}
+        {% csrf_token %}
+        <button class="button btn-transparent" type="submit">Update</button>
+    </post>
+</div>
+<div class="form-container">
+    <form method="post">
+        {{ profileform }}
+        {% csrf_token %}
+        <button class="button btn-transparent" type="submit">Update</button>
+    </post>
+</div>
+<div class="form-container">
+    <form method="post">
+        {{ emailform }}
+        {% csrf_token %}
+        <button class="button btn-transparent" type="submit">Update</button>
+    </post>
+</div>
+
+
+
+{% endblock %}

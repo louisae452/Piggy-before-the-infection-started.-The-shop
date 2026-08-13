@@ -4,7 +4,7 @@ from.models import Profile, PasswordResetLog
 # Register your models here.
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'phone_number')
+    list_display = ('user', 'country')
     search_fields = ('user__username', 'user__email')
     
 # Code generated with AI to record password reset requests.
