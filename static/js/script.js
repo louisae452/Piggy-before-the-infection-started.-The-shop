@@ -40,12 +40,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     // Enalarge product detail main image.
     let enlarge = document.getElementById("enlarge");
-    enlarge.addEventListener("click", function(){
-        enlarge.href = big_img.src
+    if (enlarge) {
+        enlarge.addEventListener("click", function(){
+            enlarge.href = big_img.src
 
-    })
+        })
+    };
+    // Remove from basket
+    let form = document.getElementById("bag-form");
+    let removebtn = document.getElementById("remove");
+    if (removebtn) {
+        removebtn.addEventListener("click", function() {
+            let newurl = removebtn.getAttribute("data-alt-url")
+            form.action = newurl;
+            form.submit();
+        });
+    };
 
 
 
-
-})
+});

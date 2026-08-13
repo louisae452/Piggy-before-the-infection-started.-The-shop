@@ -36,5 +36,12 @@ def update_bag(request, product_code):
     bag[product_code] = quantity
     request.session.modified = True
     return redirect(redirect_url)
+
+def remove_from_basket(request, product_code):
+    redirect_url = request.POST.get('redirect_url', '/')
+    bag = request.session.get('bag')
+    bag.pop(product_code)
+    request.session.modified = True
+    return redirect(redirect_url)
     
         
