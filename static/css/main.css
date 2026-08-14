@@ -47,6 +47,8 @@ form {
 input {
     border-color: var(--purple);
     border-radius: 5px;
+    color: var(--purple);
+    background-color: var(--barely-there-pink);
 }
 
 
@@ -93,7 +95,7 @@ main {
 .pagemain{
     display: flex;
     flex-direction: row;
-    grid-template-rows: 1fr;
+    
     height: 100%;
 }
 .vertical-bar {
@@ -313,6 +315,23 @@ th, td {
 .align-right {
     text-align: right;
 }
+/* Profile page */
+.profile-container {
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 50% 50%; 
+    
+}
+.form-container {
+  
+    padding: 20px;
+    
+
+}
+label {
+    display: block;
+}
 
 /* Footer */
 footer {
@@ -326,7 +345,9 @@ footer {
     align-items: center;
     justify-content: center;
     height: 100%;
+    margin: auto;
 }
+
 /* Override elements standard settings */
 .center {
     text-align: center;

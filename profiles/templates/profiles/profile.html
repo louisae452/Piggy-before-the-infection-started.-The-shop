@@ -2,28 +2,35 @@
 {% load static %}
 
 {% block extracontent %}
-<div class="form-container">
-    <form method="post">
-        {{ userform }}
-        {% csrf_token %}
-        <button class="button btn-transparent" type="submit">Update</button>
-    </post>
-</div>
-<div class="form-container">
-    <form method="post">
-        {{ profileform }}
-        {% csrf_token %}
-        <button class="button btn-transparent" type="submit">Update</button>
-    </post>
-</div>
-<div class="form-container">
-    <form method="post">
-        {{ emailform }}
-        {% csrf_token %}
-        <button class="button btn-transparent" type="submit">Update</button>
-    </post>
-</div>
+<div class="profile-container">
+    <div class="form-container">
+        <h2>Personal information</h2>
+        <form method="post">
+            {{ userform }}
+            {% csrf_token %}
+            <button class="button btn-transparent" name="personalreset" type="submit">Update</button>
+            
+        </form>
+        <a class="button btn-transparent" href="{% url 'account_change_password' %}">Change Passwod</a>
+        <form method="post">
+            {{ emailform }}
+            {% csrf_token %}
+            
+        </form>
+        
+        <a class="button btn-transparent" href="{% url 'account_email' %}">Change email</a>
+    
+    </div>
+    <div class="form-container">
+        <h2>Shipping details</h2>
+        <form method="post">
+            {{ profileform }}
+            {% csrf_token %}
+            <button class="button btn-transparent" name="shippingreset" type="submit">Update</button>
+        </form>
+    </div>
 
+</div>
 
 
 {% endblock %}

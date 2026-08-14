@@ -8,22 +8,15 @@ class UserForm(forms.ModelForm):
         fields = ('first_name', 'last_name',)
         
 # Form to require password to change email. From AI.
-class EmailChangeForm(forms.ModelForm):
-    current_password = forms.CharField(widget=forms.PasswordInput, label="Confirm Current Password")
+class EmailForm(forms.ModelForm):
+    
 
     class Meta:
         model = User
         fields = ['email']
-
     def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
-
-    def clean_current_password(self):
-        password = self.cleaned_data.get('current_password')
-        if not self.user.check_password(password):
-            raise forms.ValidationError("Incorrect password. Please try again.")
-        return password
+        self.fields['email'].disabled = True
     
 class ProfileForm(forms.ModelForm):
     class Meta:
