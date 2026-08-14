@@ -144,6 +144,9 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
+# Explicitly ensure messages are triggered on account actions
+ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
+
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 AUTHENTICATION_BACKENDS = [

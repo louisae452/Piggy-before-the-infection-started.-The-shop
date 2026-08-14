@@ -50,8 +50,20 @@
         <div class="grid-container">
             
             <div class="pagemain">
+                {% block alerts %}
+                    {% if messages %}
+                        <div>
+                            {% for message in messages %}
+                            <div class="alert-box {{ message.tags }}">
+                                <p>{{ message }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}   
+                {% endblock alerts%}
+            
                 {% block content %}
-                {% endblock %}
+                {% endblock content %}
             </div>
             <div class="vertical-bar">
                 <div class="advert">

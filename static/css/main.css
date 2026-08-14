@@ -342,10 +342,14 @@ footer {
 .content-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     height: 100%;
     margin: auto;
+}
+.email-radio-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }
 
 /* Override elements standard settings */

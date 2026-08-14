@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block alerts %} {% endblock alerts%}
 {% block content %}
 <div class="home">
     <div class="options-bar">
@@ -12,6 +13,17 @@
         <a class="button btn-transparent" href="">Shopping basket</a>
 
     </div>
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert-box {{ message.tags }}">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}   
+    
+       
     {% block extracontent %}
     <div class="extracontent">
         <div class="homeblock" id="top-left">
