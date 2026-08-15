@@ -1,36 +1,39 @@
 from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User
 from products.models import Product, Image
+from .models import ShoppingBasket, ShopItems
 
 
 
 def bag_contents(request):
-    bag_items = []
+    items = []
     total = 0
     product_count = 0
-    bag = request.session.get('bag', {})
-    if bag is None:
-        bag = {}
-    
-    for product_code, quantity in bag.items():
-        product = Product.objects.filter(code=product_code).first()
-        product.subtotal = quantity * product.price
-        total += quantity * product.price
-        product_count += quantity
-        main_image = Image.objects.filter(product=product, is_main=True).first()
-        if not main_image:
-            main_image = Image.objects.filter(product=product).first()
-        bag_items.append({
-            'product_code': product.code,
-            'main_image': main_image,
-            'quantity': quantity,
-            'product': product,
-            
-        })
+    if request.user.is_authenticated:
+        basket, created=ShoppingBasket.objects.get_or_create(user=request.user)
+        db_items = basket.items.all().select_related('product')
+        for item in db_items:
+            product = item.product
+            main_image = Image.objects.filter(product=product, is_main=True).first()
+            total += item.subtotal
+            product_count += item.quantity
+            if not main_image:
+                main_image = Image.objects.filter(product=product).first()
+        
+            items.append({
+                'product_code': product.code,
+                'quantity': item.quantity,
+                'subtotal': item.subtotal, 
+                'product': product,
+               
+                'main_image': main_image,
+            })
+        
     
     context = {
-        'bag_items': bag_items,
+        'items': items,
         'total': total,
         'product_count': product_count,
     }

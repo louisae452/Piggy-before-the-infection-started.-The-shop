@@ -13,11 +13,11 @@
         <th class="th-subtotal align-right">Subtotal</th>
 
     </tr>
-     {% for item in bag_items %}
+     {% for item in items %}
     <tr>
        
-        <td><a href="{% url 'products:productdetail' item.product.slug %}"> {{ item.product_code }}</a></td>
-        <td><img class="bag-img" src="{{ item.main_image.image.url }}" alt=""> </td>
+        <td><a href="{% url 'products:productdetail' item.product.slug %}"> {{ item.product.code }}</a></td>
+        <td><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </td>
         <td >{{ item.product.name }}</td>
         <td>
            <form id="bag-form" action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="qty">
                         <span class="qty-display">{{ item.quantity }}</span>
-                        <input type="hidden" name="quantity" class="qty-input" value="{{ item.quantity }}" data_item_code="{{ product.code }}" id="id_qty_{{ product.code }}">
+                        <input type="hidden" name="quantity" class="qty-input" value="{{ item.quantity }}" data_item_code="{{ item.product.code }}" id="id_qty_{{ item.product.code }}">
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                     <div class="arrow arrow-up">
@@ -44,7 +44,7 @@
 
         </td>
         <td class="align-right"> £{{ item.product.price }}</td>
-        <td class=" align-right">£{{ item.product.subtotal }}</td>
+        <td class="align-right">£{{ item.subtotal }}</td>
         
     </tr>
     {% endfor %}
