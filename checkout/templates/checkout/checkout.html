@@ -1,0 +1,30 @@
+{% extends "products/home.html" %}
+{% load static %}
+
+{% block extracontent %}
+<div id="order-summary">
+    <h2>Order summary</h2>
+    <table>
+        <tr>
+            <th>Items</th>
+            <td>£{{ items_total }}</td>
+        </tr>
+        <tr>
+            <th>Discounts</th>
+            <td>£</td>
+        </tr>
+        <tr>
+            <th>Packing & postage</th>
+            <td>£{{ delivery }}</td>
+        </tr>
+        <tr>
+            <th>Order total</th>
+            <th>£{{ total }}</th>
+        </tr>
+    </table>
+    <a class="button btn-transparent btn-long" href="{% url 'shopping_bag:shoppingbag' %}">Back to shopping basket</a>
+</div>
+<div></div>
+<div></div>
+
+{% endblock extracontent %}

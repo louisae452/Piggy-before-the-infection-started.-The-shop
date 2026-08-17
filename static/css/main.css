@@ -332,6 +332,10 @@ th, td {
 label {
     display: block;
 }
+/* Checkout page */
+.btn-long {
+    width: 200px;
+}
 
 /* Footer */
 footer {
