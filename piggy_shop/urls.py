@@ -26,6 +26,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('shopping-bag/', include('shopping_bag.urls', namespace='shopping_bag')),
     path('profile/', include('profiles.urls', namespace='profiles')),
+    path('checkout/', include('checkout.urls', namespace='checkout')),
     path('', include('products.urls', namespace='products')),
 ]
 

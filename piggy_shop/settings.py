@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'products',
     'profiles',
     'shopping_bag',
+    'checkout',
 ]
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
@@ -237,7 +238,4 @@ LOGGING = {
     },
 }
 
-# End of AI generated code.
-
-# Temporary
-# DEBUG_PROPAGATE_EXCEPTIONS = True
+DELIVERY_CHARGE = 4.99

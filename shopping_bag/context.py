@@ -30,11 +30,15 @@ def bag_contents(request):
                
                 'main_image': main_image,
             })
-        
+        items_total = total
+    delivery = settings.DELIVERY_CHARGE
+    total = total + int(delivery)   
     
     context = {
         'items': items,
+        'items_total': items_total,
         'total': total,
         'product_count': product_count,
+        'delivery': delivery,
     }
     return context

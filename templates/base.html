@@ -34,7 +34,7 @@
                         <a class="button" href="{% url 'products:home'%}">Home</a>
                         <a class="button" href="{% url 'profiles:profile'%}">Account</a>
                         <a class="button" href="{% url 'account_logout' %}">Log out</a>
-                        <a class="button" href="{% url 'shopping_bag:shoppingbag' %}"><i class="fa-solid fa-basket-shopping"></i>£{{ total }}</a>
+                        <a class="button" href="{% url 'shopping_bag:shoppingbag' %}"><i class="fa-solid fa-basket-shopping"></i>£{{ items_total }}</a>
                     {% else %}
                         <a class="button" href="{% url 'products:home'%}">Home</a>
                         <a class="button" href="{% url 'account_login' %}">Log in</a>

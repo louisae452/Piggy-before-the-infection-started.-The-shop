@@ -52,11 +52,19 @@
 <div>
      <table id="table-total">
         <tr>
+            <th class="th-total align-right"><strong>Delivery</strong></th>
+            <td class="td-total align-right"><strong>£{{ delivery }}</strong></td>
+        </tr>
+        <tr>
             <th class="th-total align-right"><strong>Total</strong></th>
             <td class="td-total align-right"><strong>£{{ total }}</strong></td>
         </tr>
     </table>
 </div>
+<div>
+    <a class="button btn-transparent" hreff="#">Proceed to checkout</a>
+</div>
+
 
 
 {% endblock %}
