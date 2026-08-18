@@ -31,7 +31,18 @@ def all_products(request):
             'products_page': products_page,
         }
     )
-    
+def plushes(request):
+    products = Product.objects.filter(group__category__slug='plushes')
+    paginator = Paginator(products, 8)
+    page_number = request.GET.get('page')
+    products_page = paginator.get_page(page_number)
+    return render(
+        request,
+        "products/plushes.html",
+        {
+            'products_page': products_page,
+        }
+    )    
     
 # View to show product detail.
 def product_detail(request, slug):
