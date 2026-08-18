@@ -3,7 +3,7 @@
 
 {% block extracontent %}
 <div class="profile-container">
-    <div class="form-container">
+     <div class="form-container">
         <h2>Personal information</h2>
         <form method="post">
             {{ userform }}
@@ -20,8 +20,9 @@
         
         <a class="button btn-transparent" href="{% url 'account_email' %}">Change email</a>
     
-    </div>
+     </div>
     <div class="form-container">
+        
         <h2>Shipping details</h2>
         <form method="post">
             {{ profileform }}

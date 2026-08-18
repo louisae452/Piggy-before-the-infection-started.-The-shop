@@ -336,6 +336,29 @@ label {
 .btn-long {
     width: 200px;
 }
+.checkout-form {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 30px;
+}
+.shipping-container {
+    display: grid;
+    place-items: center;
+    
+}
+.shipping-container table {
+    max-width: 80%;
+}
+.guest-login {
+    display: flex;
+    flex-direction: row;
+    gap:3px;
+    align-items: center;
+}
+.guest-login p {
+    color: var(--purple);
+}
+
 
 /* Footer */
 footer {

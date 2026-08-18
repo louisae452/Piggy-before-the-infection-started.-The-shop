@@ -148,5 +148,5 @@ to configure the email
 
 - Effortless pagination in Django. [Medium]https://medium.com/@pirson/effortless-pagination-in-django-from-basics-to-best-practices-2bd3c0d7d710)
 
-
+- Accessing and using cleaned data. [Medium](https://awstip.com/accessing-and-using-cleaned-data-making-django-forms-work-for-you-5f32a379e32b)
 
