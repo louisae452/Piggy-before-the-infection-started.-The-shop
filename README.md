@@ -132,6 +132,7 @@ to configure the email
 
 - To serve image files: cloudinary, dj3-cloudinary-storage urllib3
 
+- To handle payments: stripe
 
 
 - Django-environ documentation [https://django-environ.readthedocs.io/en/latest/]

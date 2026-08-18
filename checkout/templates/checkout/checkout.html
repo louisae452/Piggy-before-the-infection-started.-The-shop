@@ -9,10 +9,7 @@
             <th>Items</th>
             <td>£{{ items_total }}</td>
         </tr>
-        <tr>
-            <th>Discounts</th>
-            <td>£</td>
-        </tr>
+        
         <tr>
             <th>Packing & postage</th>
             <td>£{{ delivery }}</td>
@@ -38,7 +35,7 @@
                 {% csrf_token %}
                 {{ user_form }}
                 {{ address_form }}
-                <button class="button btn-transparent" name="personalreset" type="submit">Save</button>
+                <button class="button btn-transparent btn-long" name="personalreset" type="submit">Continue to payments</button>
             </form>
         </div>
     </div>

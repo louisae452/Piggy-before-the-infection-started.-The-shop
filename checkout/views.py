@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.models import User
 from products.models import Product
 from profiles.models import Profile
 from .forms import UserForm, OrderForm
+from .models import Order
+from shopping_bag.context import bag_contents
 # Create your views here.
 
 
@@ -23,7 +25,11 @@ def checkout(request):
             
             if user.is_authenticated:
                 # Save order.
-                order.user = user   
+                order.user = user 
+            current_bag = bag_contents(request)
+            order.basket_total = current_bag['items_total']  
+            order.shipping = current_bag['delivery']
+            order.grand_total = current_bag['total']
             f_name = user_form.cleaned_data['first_name'].strip()
             l_name = user_form.cleaned_data['last_name'].strip()
             order.full_name = f"{f_name} {l_name}"
@@ -47,7 +53,7 @@ def checkout(request):
                     profile.country = address_form.cleaned_data.get('country')
                     profile.save()
             messages.success(request, "Address saved")
-            return redirect('checkout:payment')
+            return redirect('checkout:payment', order_id=order.id)
     else:
         user_initial = {}
         profile_initial = {}
@@ -75,5 +81,11 @@ def checkout(request):
     )
     
     
-def payment(request):
-    return render(request, "checkout/payment.html")
+def payment(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    return render(
+        request,
+        "checkout/payment.html",
+        {
+            'order': order,
+        })

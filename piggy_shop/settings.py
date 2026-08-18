@@ -26,6 +26,7 @@ env = environ.Env(
     ALLOWED_HOSTS=(list, ['127.0.0.1', 'localhost']),
 )
 
+
 env_file = BASE_DIR / '.env'
 if env_file.exists():
     environ.Env.read_env(env_file)
@@ -240,3 +241,5 @@ LOGGING = {
 }
 
 DELIVERY_CHARGE = 4.99
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY', default='')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', default='')
