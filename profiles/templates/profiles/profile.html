@@ -11,7 +11,7 @@
             <button class="button btn-transparent" name="personalreset" type="submit">Update</button>
             
         </form>
-        <a class="button btn-transparent" href="{% url 'account_change_password' %}">Change Passwod</a>
+        <a class="button btn-transparent" href="{% url 'account_change_password' %}">Change Password</a>
         <form method="post">
             {{ emailform }}
             {% csrf_token %}

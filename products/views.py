@@ -44,6 +44,22 @@ def plushes(request):
         }
     )    
     
+def prints(request):
+    products = Product.objects.filter(group__category__slug='3d-prints')
+    paginator = Paginator(products, 8)
+    page_number = request.GET.get('page')
+    products_page = paginator.get_page(page_number)
+    return render(
+        request,
+        "products/prints.html",
+        {
+            'products_page': products_page,
+        }
+    )    
+        
+    
+    
+    
 # View to show product detail.
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)

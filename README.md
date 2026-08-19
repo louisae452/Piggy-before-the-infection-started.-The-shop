@@ -134,6 +134,8 @@ to configure the email
 
 - To handle payments: stripe
 
+- To convert image to webp: [ToWebP](https://towebp.io/)
+
 
 - Django-environ documentation [https://django-environ.readthedocs.io/en/latest/]
 
