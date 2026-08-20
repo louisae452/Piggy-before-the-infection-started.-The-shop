@@ -141,15 +141,7 @@ def checkout(request):
         }
     )
     
-#### Probably delete!!!!  
-def payment(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
-    return render(
-        request,
-        "checkout/payment.html",
-        {
-            'order': order,
-        })
+
     
 def payment_success(request):
     session_id = request.GET.get('session_id')

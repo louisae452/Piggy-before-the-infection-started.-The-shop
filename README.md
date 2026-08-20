@@ -153,3 +153,5 @@ to configure the email
 
 - Accessing and using cleaned data. [Medium](https://awstip.com/accessing-and-using-cleaned-data-making-django-forms-work-for-you-5f32a379e32b)
 
+- Printing queries. [Mmdn](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing)
+

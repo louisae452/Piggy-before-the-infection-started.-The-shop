@@ -28,6 +28,18 @@ class Group(models.Model):
     def __str__(self):
         return self.name
 
+class Video(models.Model):
+    """Model for sidebar videos"""
+    name = models.CharField(max_length=100)
+    
+    link = models.URLField(max_length=500)
+
+    def __str__(self):
+        return f"{self.name} for {self.product.name}"
+
+
+
+
 
 class Product(models.Model):
     """Products model"""
@@ -38,10 +50,13 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     link = models.URLField(max_length=500, blank=True, null=True)
+    videos = models.ManyToManyField(Video, blank=True, related_name='products')
     
     @property
     def main_image(self):
         return self.image_set.filter(is_main=True).first()
+    
+
 
 
 class Image(models.Model):
@@ -56,14 +71,6 @@ class Image(models.Model):
         return f"{self.image_name} for {self.product.name}"
 
 
-class Video(models.Model):
-    """Model for sidebar videos"""
-    name = models.CharField(max_length=100)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    link = models.URLField(max_length=500)
-
-    def __str__(self):
-        return f"{self.name} for {self.product.name}"
 
 
 class Rating(models.Model):
@@ -99,13 +106,6 @@ class HomepageImage(models.Model):
     
 
 
-class HomepageVideo(models.Model):
-    """Holds videos to be used in the homepage"""
-    name = models.CharField(max_length=100)
-    link = models.URLField(max_length=500)
-
-    def __str__(self):
-        return self.name
 
 class Href(models.Model):
     name = models.CharField(max_length=100)
@@ -165,12 +165,12 @@ class Homepage(models.Model):
     bottom_left_href = models.ForeignKey(Href, on_delete=models.SET_NULL,
                                          blank=True, null=True,
                                          related_name="bottomlefthref")
-    video1 = models.ForeignKey(HomepageVideo, on_delete=models.SET_NULL,
-                               null=True, blank=True,
-                               related_name="video1slot")
-    video2 = models.ForeignKey(HomepageVideo, on_delete=models.SET_NULL,
-                               null=True, blank=True,
-                               related_name="video2slot")
+    video1 = models.ForeignKey(Video, on_delete=models.SET_NULL,
+                                    null=True, blank=True,
+                                    related_name="video1slot")
+    video2 = models.ForeignKey(Video, on_delete=models.SET_NULL,
+                                    null=True, blank=True,
+                                    related_name="video2slot")
 
     def __str__(self):
         return self.name

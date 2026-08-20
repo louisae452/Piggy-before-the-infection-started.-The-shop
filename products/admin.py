@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Category, Group, Product, Image, Video, Rating, Homepage, HomepageImage, HomepageVideo, Href
+from .models import Category, Group, Product, Image, Video, Rating, Homepage, HomepageImage, Href
 
 # Products models
 
@@ -15,6 +15,12 @@ class CategoryAdmin(admin.ModelAdmin):
 class GroupAdmin(admin.ModelAdmin):
     list_display = ('name', 'category')
     prepopulated_fields = {'slug': ('name',)}
+    
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    
 
 
 class ProductImageInLine(admin.TabularInline):
@@ -23,7 +29,7 @@ class ProductImageInLine(admin.TabularInline):
 
 
 class ProductVideoInLine(admin.TabularInline):
-    model = Video
+    model = Product.videos.through
     extra = 2
 
 
@@ -51,10 +57,7 @@ class HomepageImageAdmin(admin.ModelAdmin):
     search_fields = ['image_name']
 
 
-@admin.register(HomepageVideo)
-class HomepageVideoAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ('name',)
+
     
 @admin.register(Href)
 class HrefAdmin(admin.ModelAdmin):
