@@ -39,7 +39,7 @@ def bag_contents(request):
         })
     items_total = total
     delivery = settings.DELIVERY_CHARGE
-    total = total + int(delivery)   
+    total = float(total) + float(delivery)   
     
     context = {
         'items': items,

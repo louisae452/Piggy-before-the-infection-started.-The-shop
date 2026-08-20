@@ -31,11 +31,11 @@
                 <p>or continue as a guest</p>
             </div>
             {% endif %}
-            <form class="checkout-form" method="POST", action="">
+            <form class="checkout-form" method="POST" action="">
                 {% csrf_token %}
                 {{ user_form }}
                 {{ address_form }}
-                <button class="button btn-transparent btn-long" name="personalreset" type="submit">Continue to payments</button>
+                <button class="button btn-transparent btn-long" type="submit">Proceed to secure Payment</button>
             </form>
         </div>
     </div>

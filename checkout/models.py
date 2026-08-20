@@ -18,6 +18,9 @@ class Order(models.Model):
     basket_total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     shipping = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    stripe_session_id = models.CharField(max_length=254, blank=True, null=True)
+    stripe_pid = models.CharField(max_length=254, blank=True, null=True)
+    status = models.CharField(max_length=20, default='pending')
     
     
     class Meta:

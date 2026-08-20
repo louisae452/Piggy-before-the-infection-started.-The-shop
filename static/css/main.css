@@ -359,6 +359,43 @@ label {
     color: var(--purple);
 }
 
+/* Success page */
+.address {
+    font-size: 0.5em;
+    margin: 10px;
+    border: 2px solid var(--purple);
+    border-radius:5px;
+    color: var(--purple);
+    padding: 10px;
+    text-align: right;
+
+}
+.bill {
+    font-size: 0.75em;
+    margin: 10px;
+    border: 2px solid var(--purple);
+    border-radius:5px;
+    color: var(--purple);
+}
+.invoice-details {
+    font-size: 0.75em;
+    margin:10px;
+    color: var(--purple);
+    padding: 10px;
+
+}
+.align-center {
+    text-align: center;
+    color: var(--purple);
+}
+.errors {
+    margin: 10px;
+    border: 2px solid var(--purple);
+    border-radius:5px;
+    color: var(--purple);
+    padding: 10px;
+
+}
 
 /* Footer */
 footer {
@@ -431,3 +468,36 @@ footer {
     
     
 }
+
+/* Print the invoice */
+@media print {
+    body * {
+        visibility: hidden !important;
+        background: none !important;
+    }
+    .invoice-details, .invoice-details *, .address, .address *, .bill, .bill *, .table-total, .table-total * {
+        visibility: visible !important;
+    }
+    .no-print {
+        visibility: hidden !important;
+    }
+    .invoice-details, .address, .bill, .table-total {
+        position: relative !important;
+        top: 0 !important;
+        box-sizing: border-box !important;
+    }
+    .invoice-container {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+    }
+    /*
+    @page {
+        size: A4 portrait;
+        margin: 1in;
+    }
+        */
+}
+
+
+
