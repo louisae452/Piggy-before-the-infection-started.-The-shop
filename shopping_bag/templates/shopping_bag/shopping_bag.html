@@ -3,7 +3,7 @@
 
 {% block extracontent %}
 
-<table>
+<table id="table-basket">
     <tr>
         <th class="th-code">Code</th>
         <th class="th-img"></th>
@@ -24,7 +24,7 @@
             {% csrf_token %}
                 <div class="quantity-box">
                     <div class="arrow arrow-down">
-                        <p><i class="fa-solid fa-arrow-down"></i></p>
+                        <i class="fa-solid fa-arrow-down"></i>
                     </div>
                     <div class="qty">
                         <span class="qty-display">{{ item.quantity }}</span>
@@ -32,11 +32,11 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
                     <div class="arrow arrow-up">
-                        <p><i class="fa-solid fa-arrow-up"></i></p>  
+                        <i class="fa-solid fa-arrow-up"></i>
                     </div>
                 </div>
-                <button type="submit" class="button btn-transparent btn-shop">Update</button>
-                <button type="submit" id="remove" class="button btn-transparent btn-shop" data-alt-url="{% url 'shopping_bag:removefrombasket' item.product.code %}">Remove</button>
+                <button type="submit" class="button btn-green-transparent btn-shop">Update</button>
+                <button type="submit" id="remove" class="button btn-green-transparent btn-shop" data-alt-url="{% url 'shopping_bag:removefrombasket' item.product.code %}">Remove</button>
 
             </form> 
 
@@ -62,9 +62,9 @@
     </table>
 </div>
 <div>
-    <a class="button btn-transparent" href="{% url 'checkout:checkout' %}">Proceed to checkout</a>
+    <a class="button btn-green-transparent" href="{% url 'checkout:checkout' %}">Proceed to checkout</a>
 </div>
 
 
 
-{% endblock %}
+{% endblock extracontent %}

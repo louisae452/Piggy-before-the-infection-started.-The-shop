@@ -1,8 +1,10 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 from django.db.utils import OperationalError, ProgrammingError
-
-from .models import Homepage, Product
+from django.contrib import messages
+from .models import Homepage, Product, Rating
+from .forms import RatingForm
 
 # Create your views here.
 
@@ -63,14 +65,47 @@ def prints(request):
 # View to show product detail.
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
+    ratings = Rating.objects.filter(product=product)
+    paginator = Paginator(ratings, 4)
+    page_number = request.GET.get('page')
+    ratings_page = paginator.get_page(page_number)
     return render(
         request,
         "products/product_detail.html",
         {
             'product': product,
+            'ratings': ratings,
+            'ratings_page': ratings_page,
+            
         }
         
     )
     
+# View to create a rating   .
+
+def rate_product(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    if request.method == "POST":
+        rating_form = RatingForm(data=request.POST)
+        if rating_form.is_valid():
+            rating = rating_form.save(commit=False)
+            rating.product = product
+            rating.rating = request.POST.get('rating')
+            if request.user.is_authenticated:
+                rating.user = request.user
+            else:
+                rating.user = None
+            rating.save()
+            messages.success(request, 'Rating added successfully')
+            return redirect('products:productdetail', slug=slug) 
+    rating_form = RatingForm()
+    return render(
+        request,
+        "products/rate_product.html",
+        {
+            'rating_form': rating_form,
+            'product': product
+        }
+    )
     
     

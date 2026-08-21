@@ -114,6 +114,8 @@ heroku config:set EMAIL_HOST_PASSWORD="email-app-pwd" --app heroku-app-name
 
 to configure the email
 
+add stripe keys to heroku. Change local host settings.
+
 ## Use of AI.
 
 The following features were developed using AI assistance:

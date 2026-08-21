@@ -56,6 +56,9 @@ class Product(models.Model):
     def main_image(self):
         return self.image_set.filter(is_main=True).first()
     
+    def __str__(self):
+        return self.name
+    
 
 
 
@@ -71,17 +74,20 @@ class Image(models.Model):
         return f"{self.image_name} for {self.product.name}"
 
 
-
+STARS = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'))
 
 class Rating(models.Model):
     """Rating of the product"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
                              null=True, blank=True)
-    rating = models.IntegerField()
+    
+    rating = models.CharField(choices=STARS, blank=True, null=True)
+    title = models.CharField(max_length=100, null=True)
     comment = models.TextField(null=True, blank=True)
     date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
+
 
     def __str__(self):
         if self.user:
@@ -166,14 +172,15 @@ class Homepage(models.Model):
                                          blank=True, null=True,
                                          related_name="bottomlefthref")
     video1 = models.ForeignKey(Video, on_delete=models.SET_NULL,
-                                    null=True, blank=True,
-                                    related_name="video1slot")
-    video2 = models.ForeignKey(Video, on_delete=models.SET_NULL,
-                                    null=True, blank=True,
-                                    related_name="video2slot")
+                               null=True, blank=True,
+                               related_name="video1slot")
+    video2 = models.ForeignKey(Video, on_delete=models.SET_NULL,                              
+                               null=True, blank=True,
+                               related_name="video2slot")
 
     def __str__(self):
         return self.name
+
 
 
 

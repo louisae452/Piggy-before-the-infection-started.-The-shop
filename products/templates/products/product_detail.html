@@ -45,11 +45,97 @@
                     <p><i class="fa-solid fa-arrow-up"></i></p>  
                 </div>
             </div>
-            <button type="submit" class="button btn-transparent btn-longer">Add to bag</button>
+            <button type="submit" class="button btn-green-transparent btn-longer">Add to bag</button>
         </form>
         
     </div>
 </div>
+<div class="ratings">
+    {% if ratings %}
+        
+            <a href="{% url 'products:rateproduct' product.slug  %}" class="button btn-green-transparent btn-long">Rate this product</a>
+            <div class="rating-content">
+            {% for rating in ratings_page %}
+            <div class="one-rating">
+                <div class="rating-text">
+                    <p>Rating: {{ rating.rating }} </p>
+                        {% if rating.rating == 1 %}
+                            <div class="star-rating-container">    
+                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star2"i class="fa-regular fa-star"></i></p>
+                                <p ><i id="star3" class="fa-regular fa-star"></i></p>
+                                <p ><i id="star4" class="fa-regular fa-star"></i></p>
+                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
+                            </div>
+                        {% elif rating.rating == 2 %}
+                            <div class="star-rating-container">    
+                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star3" class="fa-regular fa-star"></i></p>
+                                <p ><i id="star4" class="fa-regular fa-star"></i></p>
+                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
+                            </div>
+                        {% elif rating.rating == 3 %}
+                            <div class="star-rating-container">    
+                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star3" class="fa-solid fa-star"></i></p>
+                                <p ><i id="star4" class="fa-regular fa-star"></i></p>
+                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
+                            </div>
+                        {% elif rating.rating == 4 %}
+                            <div class="star-rating-container">    
+                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star3" class="fa-solid fa-star"></i></p>
+                                <p ><i id="star4" class="fa-solid fa-star"></i></p>
+                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
+                            </div>
+                        {% elif rating.rating == 5 %}
+                            <div class="star-rating-container">    
+                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
+                                <p ><i id="star3" class="fa-solid fa-star"></i></p>
+                                <p ><i id="star4" class="fa-solid fa-star"></i></p>
+                                <p ><i id="star5" class="fa-solid fa-star"></i></p>
+                            </div>
+                        {% endif %}
+                        <p id="username">By {% if user.is_authenticated %}{{ rating.user.username }}{% else %}guest user{% endif %}</p>
+                        <p><span> {{ rating.title }}</p>
+                        <p> {{ rating.comment | safe }}</p>
+                </div>
+                <div class="rating-btns">
+                    {% if rating.user == request.user %}
+                        <a class="button btn-green-transparent">Update</a>
+                        <a class="button btn-green-transparent">Delete</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+        <div class="ratings-pagination">
+            <span>
+            {% if ratings_page.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ ratings_page.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ ratings_page.number }} of {{ ratings_page.paginator.num_pages }}.
+            </span>
+            {% if ratings_page.has_next %}
+                <a href="?page={{ ratings_page.next_page_number }}">next</a>
+                <a href="?page={{ ratings_page.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
 
+</div>
+    {% else %}
+        <div>
+            <p> No ratings for this product yet. 
+            <a href="{% url 'products:rateproduct' product.slug  %}" class="button btn-green-transparent btn-long">Be the first to rate this product</a>
+            </div>
+    {% endif %}
+</div>
 
 {% endblock %}

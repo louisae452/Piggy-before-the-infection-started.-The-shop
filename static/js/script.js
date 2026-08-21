@@ -57,6 +57,85 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
+    // Satr ratings.
+    let star_input = document.getElementById("star-input");
+    let star1 = document.getElementById("star1");
+    let star2 = document.getElementById("star2");
+    let star3 = document.getElementById("star3");
+    let star4 = document.getElementById("star4");
+    let star5 = document.getElementById("star5");
+    if (star1 && star2 && star3 && star4 && star5 && star_input) {
+        star1.addEventListener("click", function() {
+            star_input.value = 1;
+            star1.classList.remove("fa-regular");
+            star2.classList.remove("fa-solid");
+            star3.classList.remove("fa-solid");
+            star4.classList.remove("fa-solid");
+            star5.classList.remove("fa-solid");
+            star1.classList.add("fa-solid");
+            star2.classList.add("fa-regular");
+            star3.classList.add("fa-regular");
+            star4.classList.add("fa-regular");
+            star5.classList.add("fa-regular");
+        });
+
+        star2.addEventListener("click", function() {
+            star_input.value = 2;
+            star1.classList.remove("fa-regular");
+            star2.classList.remove("fa-regular");
+            star3.classList.remove("fa-solid");
+            star4.classList.remove("fa-solid");
+            star5.classList.remove("fa-solid");
+            star1.classList.add("fa-solid");
+            star2.classList.add("fa-solid");
+            star3.classList.add("fa-regular");
+            star4.classList.add("fa-regular");
+            star5.classList.add("fa-regular");
+        });
+        star3.addEventListener("click", function() {
+            star_input.value = 3;
+            star1.classList.remove("fa-regular");
+            star2.classList.remove("fa-regular");
+            star3.classList.remove("fa-regular");
+            star4.classList.remove("fa-solid");
+            star5.classList.remove("fa-solid");
+            star1.classList.add("fa-solid");
+            star2.classList.add("fa-solid");
+            star3.classList.add("fa-solid");
+            star4.classList.add("fa-regular");
+            star5.classList.add("fa-regular");
+        });
+        star4.addEventListener("click", function() {
+            star_input.value = 4;
+            star1.classList.remove("fa-regular");
+            star2.classList.remove("fa-regular");
+            star3.classList.remove("fa-regular");
+            star4.classList.remove("fa-regular");
+            star5.classList.remove("fa-solid");
+            star1.classList.add("fa-solid");
+            star2.classList.add("fa-solid");
+            star3.classList.add("fa-solid");
+            star4.classList.add("fa-solid");
+            star5.classList.add("fa-regular");
+        });
+        star5.addEventListener("click", function() {
+            star_input.value = 5;
+            star1.classList.remove("fa-regular");
+            star2.classList.remove("fa-regular");
+            star3.classList.remove("fa-regular");
+            star4.classList.remove("fa-regular");
+            star5.classList.remove("fa-regular");
+            star1.classList.add("fa-solid");
+            star2.classList.add("fa-solid");
+            star3.classList.add("fa-solid");
+            star4.classList.add("fa-solid");
+            star5.classList.add("fa-solid");
+        });
+    };
+
+
+
+
 
 
 });
