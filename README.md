@@ -114,6 +114,20 @@ heroku config:set EMAIL_HOST_PASSWORD="email-app-pwd" --app heroku-app-name
 
 to configure the email
 
+## Use of AI.
+
+The following features were developed using AI assistance:
+
+- Products app: Custom template tags to dynamically inject YouTube videos into templates.
+
+- Profiles app: PasswordResetLog model to comply with legal requirements referring to use of forgotten password feature.
+
+- Shopping_bag app : Signals to merge anonymous and logged-in user shopping baskets.
+
+- Shopping_bag app: Helper function to retrieve or create basket.
+
+- settings.py: Code to record reset password requests for Heroku loggins.
+
 ## Frameworks, packages and libraries.
 
 - Django 6.0.7
@@ -137,7 +151,9 @@ to configure the email
 - To convert image to webp: [ToWebP](https://towebp.io/)
 
 
-- Django-environ documentation [https://django-environ.readthedocs.io/en/latest/]
+- [Django-environ documentation](https://django-environ.readthedocs.io/en/latest/)
+
+- [stripe docs](https://docs.stripe.com/get-started?locale=en-GB)
 
 - Passwords in online services. [ico](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/security/a-guide-to-data-security/passwords-in-online-services/)
 

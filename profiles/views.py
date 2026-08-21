@@ -21,20 +21,13 @@ def profile(request):
             if userform.is_valid():
                 userform.save()    
                 return redirect('profiles:profile')
-            #profileform = ProfileForm(instance=user_profile)
-            #emailform = EmailChangeForm(instance=user_instance)
             
-        
-            #userform = UserForm(instance=user_instance)
-            #profileform = ProfileForm(instance=user_profile)
         elif 'shippingreset' in request.POST:
             profileform = ProfileForm(data=request.POST, instance=user_profile)
             if profileform.is_valid():
                 profileform.save()
                 return redirect('profiles:profile')
-            #userform = UserForm(instance=user_instance)
-            #emailform = EmailChangeForm(instance=user_instance)
-    
+            
     return render(
         request,
         "profiles/profile.html",

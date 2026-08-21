@@ -31,11 +31,11 @@ class Group(models.Model):
 class Video(models.Model):
     """Model for sidebar videos"""
     name = models.CharField(max_length=100)
-    
+    thumbnail = models.ImageField(upload_to='media/products/', blank=True, null=True)
     link = models.URLField(max_length=500)
 
     def __str__(self):
-        return f"{self.name} for {self.product.name}"
+        return self.name
 
 
 
