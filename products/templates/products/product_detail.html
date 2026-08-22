@@ -51,62 +51,28 @@
     </div>
 </div>
 <div class="ratings">
-    {% if ratings %}
+    {% if ratings_page %}
         
             <a href="{% url 'products:rateproduct' product.slug  %}" class="button btn-green-transparent btn-long">Rate this product</a>
             <div class="rating-content">
             {% for rating in ratings_page %}
             <div class="one-rating">
                 <div class="rating-text">
-                    <p>Rating: {{ rating.rating }} </p>
-                        {% if rating.rating == 1 %}
-                            <div class="star-rating-container">    
-                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star2"i class="fa-regular fa-star"></i></p>
-                                <p ><i id="star3" class="fa-regular fa-star"></i></p>
-                                <p ><i id="star4" class="fa-regular fa-star"></i></p>
-                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
-                            </div>
-                        {% elif rating.rating == 2 %}
-                            <div class="star-rating-container">    
-                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star3" class="fa-regular fa-star"></i></p>
-                                <p ><i id="star4" class="fa-regular fa-star"></i></p>
-                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
-                            </div>
-                        {% elif rating.rating == 3 %}
-                            <div class="star-rating-container">    
-                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star3" class="fa-solid fa-star"></i></p>
-                                <p ><i id="star4" class="fa-regular fa-star"></i></p>
-                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
-                            </div>
-                        {% elif rating.rating == 4 %}
-                            <div class="star-rating-container">    
-                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star3" class="fa-solid fa-star"></i></p>
-                                <p ><i id="star4" class="fa-solid fa-star"></i></p>
-                                <p ><i id="star5" class="fa-regular fa-star"></i></p>
-                            </div>
-                        {% elif rating.rating == 5 %}
-                            <div class="star-rating-container">    
-                                <p ><i id="star1"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star2"i class="fa-solid fa-star"></i></p>
-                                <p ><i id="star3" class="fa-solid fa-star"></i></p>
-                                <p ><i id="star4" class="fa-solid fa-star"></i></p>
-                                <p ><i id="star5" class="fa-solid fa-star"></i></p>
-                            </div>
-                        {% endif %}
-                        <p id="username">By {% if user.is_authenticated %}{{ rating.user.username }}{% else %}guest user{% endif %}</p>
+                     
+                    <div class="star-rating-container">    
+                        <p ><i id="star1" class="{% if rating.rating >= '1' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star2" class="{% if rating.rating >= '2' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star3" class="{% if rating.rating >= '3' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star4" class="{% if rating.rating >= '4' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star5" class="{% if rating.rating >= '5' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                    </div>
+                        <p id="username">By {% if rating.user %}{{ rating.user.username }}{% else %}guest user{% endif %}</p>
                         <p><span> {{ rating.title }}</p>
                         <p> {{ rating.comment | safe }}</p>
                 </div>
                 <div class="rating-btns">
                     {% if rating.user == request.user %}
-                        <a class="button btn-green-transparent">Update</a>
+                        <a href="{% url 'products:updatereview' rating.pk %}" class="button btn-green-transparent">Update</a>
                         <a class="button btn-green-transparent">Delete</a>
                     {% endif %}
                 </div>

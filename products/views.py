@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.exceptions import PermissionDenied
 from django.db.utils import OperationalError, ProgrammingError
 from django.contrib import messages
 from .models import Homepage, Product, Rating
@@ -109,3 +110,37 @@ def rate_product(request, slug):
     )
     
     
+# View to update review.
+
+def update_review(request, id):
+    rating = get_object_or_404(Rating, id=id)
+    if rating.user != request.user:
+        raise PermissionDenied('You do not have permission to rate this review')
+    product = rating.product
+    
+    if request.method == "POST":
+        rating_form = RatingForm(data=request.POST, instance=rating)
+        if rating_form.is_valid():
+            new_rating = rating_form.save(commit=False)
+            star_value = request.POST.get('rating')
+            if star_value:
+                new_rating.rating = str(star_value).strip()
+            new_rating.save()
+            messages.success(request, 'Review successfully updated')
+            return redirect('products:productdetail', slug=product.slug)
+    else:
+        rating_form = RatingForm(instance=rating)    
+        
+    
+        return render(
+            request,
+            "products/update_review.html",
+            {
+                'procuct': product,
+                'rating': rating,
+                'rating_form': rating_form,
+            }
+        )
+            
+        
+        

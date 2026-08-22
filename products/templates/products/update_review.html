@@ -1,0 +1,34 @@
+{% extends "products/home.html" %}
+{% load static %}
+
+{% block extracontent %}
+<div class="rating-form">
+    <div class="rating-title">
+        <img class="img-bag" src="{{ product.main_image.image.url }}">
+        <h2>{{ product.name }}</h2>
+        
+        
+    </div>
+    
+    <div class="ratings">
+        <form method="post">
+            <div class="star-rating-container">
+                <p ><i id="star1" class="{% if rating.rating >= '1' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star2" class="{% if rating.rating >= '2' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star3" class="{% if rating.rating >= '3' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star4" class="{% if rating.rating >= '4' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star5" class="{% if rating.rating >= '5' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                
+                <input id="star-input" class="star" type="hidden" name="rating" value="">
+            </div>
+    
+            {{ rating_form }}
+            {% csrf_token %}
+            <button type="submit" class="button btn-transparent">Update</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock extracontent %}
