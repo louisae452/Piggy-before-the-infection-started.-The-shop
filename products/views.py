@@ -110,7 +110,7 @@ def rate_product(request, slug):
     )
     
     
-# View to update review.
+# View to update or delete review.
 
 def update_review(request, id):
     rating = get_object_or_404(Rating, id=id)
@@ -119,7 +119,16 @@ def update_review(request, id):
     product = rating.product
     
     if request.method == "POST":
+        action = request.POST.get('action')
+        if action == 'delete':
+            rating.delete()
+            messages.success(request, 'Review successfully deleted')
+            return redirect('products:productdetail', slug=product.slug)
+            
+        
+        
         rating_form = RatingForm(data=request.POST, instance=rating)
+        
         if rating_form.is_valid():
             new_rating = rating_form.save(commit=False)
             star_value = request.POST.get('rating')
@@ -132,15 +141,18 @@ def update_review(request, id):
         rating_form = RatingForm(instance=rating)    
         
     
-        return render(
-            request,
-            "products/update_review.html",
-            {
-                'procuct': product,
-                'rating': rating,
-                'rating_form': rating_form,
-            }
-        )
-            
+    return render(
+        request,
+        "products/update_review.html",
+        {
+            'product': product,
+            'rating': rating,
+            'rating_form': rating_form,
+        }
+    )
+
+
+
+          
         
         

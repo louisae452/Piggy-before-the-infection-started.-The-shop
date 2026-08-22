@@ -73,7 +73,7 @@
                 <div class="rating-btns">
                     {% if rating.user == request.user %}
                         <a href="{% url 'products:updatereview' rating.pk %}" class="button btn-green-transparent">Update</a>
-                        <a class="button btn-green-transparent">Delete</a>
+                        
                     {% endif %}
                 </div>
             </div>

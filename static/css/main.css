@@ -343,6 +343,18 @@ main {
 .ratings-pagination span a {
     color: var(--forest-green);
 }
+.deletebox {
+    visibility: hidden;
+    position: absolute;
+    top: 20vh;
+    left: 10vw;
+    z-index: 3;
+    border: 2px solid var(--forest-green);
+    border-radius: 5px;
+    background-color: var(--barely-there-green);
+    color: var(--forest-green);
+    padding: 10px;
+}
 /* Shopping bag */
 .bag-img {
     height: 50px;

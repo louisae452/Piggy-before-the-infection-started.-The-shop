@@ -2,33 +2,34 @@
 {% load static %}
 
 {% block extracontent %}
-<div class="rating-form">
-    <div class="rating-title">
-        <img class="img-bag" src="{{ product.main_image.image.url }}">
-        <h2>{{ product.name }}</h2>
+<div>
+    <div class="rating-form">
+        <div class="rating-title">
+            <img class="rating-img" src="{{ product.main_image.image.url }}">
+            <h2>{{ product.name }}</h2>
+            
+            
+        </div>
         
+        <div class="ratings">
+            <form method="post">
+                <div class="star-rating-container">
+                    
+                    <i id="star1"i class="fa-regular fa-star"></i>
+                    <i id="star2"i class="fa-regular fa-star"></i>
+                    <i id="star3" class="fa-regular fa-star"></i>
+                    <i id="star4" class="fa-regular fa-star"></i>
+                    <i id="star5" class="fa-regular fa-star"></i>
+                    <input id="star-input" class="star" type="hidden" name="rating" value="">
+                </div>
         
-    </div>
-    
-    <div class="ratings">
-        <form method="post">
-            <div class="star-rating-container">
-                
-                <p ><i id="star1"i class="fa-regular fa-star"></i></p>
-                <p ><i id="star2"i class="fa-regular fa-star"></i></p>
-                <p ><i id="star3" class="fa-regular fa-star"></i></p>
-                <p ><i id="star4" class="fa-regular fa-star"></i></p>
-                <p ><i id="star5" class="fa-regular fa-star"></i></p>
-                <input id="star-input" class="star" type="hidden" name="rating" value="">
-            </div>
-    
-            {{ rating_form }}
-            {% csrf_token %}
-            <button type="submit" class="button btn-transparent">Save</button>
-        </form>
+                {{ rating_form }}
+                {% csrf_token %}
+                <button type="submit" class="button btn-transparent">Save</button>
+            </form>
+        </div>
     </div>
 </div>
-
 
 
 {% endblock extracontent %}

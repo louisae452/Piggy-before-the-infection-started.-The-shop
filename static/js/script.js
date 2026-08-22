@@ -133,6 +133,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
+    // Delete review.
+    
+    let deletereview = document.getElementById("deletereview");
+    let deletebox = document.getElementById("deletebox");
+    let cancelbutton = document.getElementById("cancelbutton");
+    let deletebutton = document.getElementById("deletebutton");
+    let updatereview = document.getElementById("updatereview");
+
+
+
+    if (deletebox && deletereview && cancelbutton && deletebutton && updatereview) {
+        deletereview.addEventListener("click", function(event) {
+            event.preventDefault();
+            deletebox.style.visibility = "visible";
+        });    
+        cancelbutton.addEventListener("click", function(evant) {
+            event.preventDefault();
+            deletebox.style.visibility = "hidden";
+        });
+        deletebutton.addEventListener("click", function(event){
+            event.preventDefault();
+            let newinput = document.createElement("input");
+            newinput.type = "hidden";
+            newinput.name = "action";
+            newinput.value = "delete";
+            updatereview.appendChild(newinput);
+            updatereview.submit();
+        })
+    };
 
 
 
