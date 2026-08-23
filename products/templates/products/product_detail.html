@@ -23,10 +23,58 @@
     </div>
     <div class="info-container">
         <h1>{{ product.name }}</h1>
+        {% if ratings_page %}
+            <div class="star-rating-container">
+            {% if rating_average >= 4.7 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i> 
+            {% elif rating_average >= 4.3 %} 
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+            {% elif rating_average >= 3.7 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            {% elif rating_average >= 3.3 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+            {% elif rating_average >= 2.7 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            {% elif rating_average >= 2.3 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+            {% elif rating_average >= 1.7 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            {% elif rating_average >= 1.3 %}
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+            {% elif rating_average >= 0.7 %}
+                <i class="fa-solid fa-star"></i>
+            {% endif %}
+
+            </div>
+
+            
+        {% else %}
+            <a href="{% url 'products:rateproduct' product.slug  %}">Be the first to rate this product</a>
+        {% endif %}
         {% if product.character_link %}
             <a href="{{ product.character_link.url }}" target="_blank" rel="noopenenr noreferrer">See character</a>
         {% endif %}
-        <p>{{ product.rating }}</p>
+        
         <p>{{ product.description|safe }}</p>
         <p>£{{ product.price }}</p>
         <p>Quantity:</p>

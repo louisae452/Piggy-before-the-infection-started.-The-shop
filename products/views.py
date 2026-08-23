@@ -1,9 +1,11 @@
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
+from django.db.models.functions import Cast
 from django.core.exceptions import PermissionDenied
 from django.db.utils import OperationalError, ProgrammingError
 from django.contrib import messages
+from django.db.models import Avg, FloatField
 from .models import Homepage, Product, Rating
 from .forms import RatingForm
 
@@ -67,6 +69,12 @@ def prints(request):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     ratings = Rating.objects.filter(product=product)
+    average = ratings.aggregate(rating_avg=Avg(Cast('rating', output_field=FloatField())))
+    if average['rating_avg'] is not None:
+        rating_average = round(average['rating_avg'], 1)
+    else:
+        rating_average = 0
+    
     paginator = Paginator(ratings, 4)
     page_number = request.GET.get('page')
     ratings_page = paginator.get_page(page_number)
@@ -75,6 +83,7 @@ def product_detail(request, slug):
         "products/product_detail.html",
         {
             'product': product,
+            'rating_average': rating_average,
             'ratings': ratings,
             'ratings_page': ratings_page,
             
