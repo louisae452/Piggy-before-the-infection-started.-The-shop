@@ -272,9 +272,10 @@ main {
     object-position: center;
     border-radius: 60% 10%;
 }
-.info-container {
+.info-container, .info-container a {
     color: var(--forest-green);
 }
+
 
 .quantity-box {
     height: 20px;

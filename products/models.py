@@ -37,7 +37,15 @@ class Video(models.Model):
     def __str__(self):
         return self.name
 
+class Href(models.Model):
+    name = models.CharField(max_length=100)
+    url_name = models.URLField(max_length=225)
 
+    def __str__(self):
+        return self.name
+   
+
+    
 
 
 
@@ -49,7 +57,8 @@ class Product(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    link = models.URLField(max_length=500, blank=True, null=True)
+    # link = models.URLField(max_length=500, blank=True, null=True)
+    character_link = models.ForeignKey(Href, on_delete=models.SET_NULL, null=True, blank=True)
     videos = models.ManyToManyField(Video, blank=True, related_name='products')
     
     @property
@@ -113,25 +122,7 @@ class HomepageImage(models.Model):
 
 
 
-class Href(models.Model):
-    name = models.CharField(max_length=100)
-    url_name = models.CharField(max_length=225, help_text="External path or '<app name>:<page name in path>")
 
-    def __str__(self):
-        return self.name
-    # Written with AI:
-
-    @property
-    def get_url(self):
-        # Uses url_name as is if it is a external path
-        if self.url_name.startswith(('http://', 'https://', '/')):
-            return self.url_name
-        # converts internal path to a clickable link
-        try: 
-            return reverse(self.url_name)
-        except NoReverseMatch:
-            return "/"
-        
     
     
 class Homepage(models.Model):
