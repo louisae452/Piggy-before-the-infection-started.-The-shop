@@ -120,7 +120,7 @@ add stripe keys to heroku. Change local host settings.
 
 The following features were developed using AI assistance:
 
-- Products app: Custom template tags to dynamically inject YouTube videos into templates.
+- Products app: Custom context processor to dynamically inject YouTube videos into templates.
 
 - Profiles app: PasswordResetLog model to comply with legal requirements referring to use of forgotten password feature.
 

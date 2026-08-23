@@ -104,13 +104,22 @@ main {
     grid-template-rows: 50% 50%;
 
 }
+.advert-container {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--forest-green);
+    text-align: center;
+
+}
 .advert {
-    border: 2px solid var(--dark-purple);
+    
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 .circle {
     border-radius: 50%;
     background-color: var(--forest-green);

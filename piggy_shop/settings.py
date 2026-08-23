@@ -105,6 +105,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shopping_bag.context.bag_contents',
+                'products.context.vertical_bar_videos',
             ],
         },
     },

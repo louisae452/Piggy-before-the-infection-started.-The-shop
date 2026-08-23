@@ -67,14 +67,19 @@
                 {% endblock content %}
             </div>
             <div class="vertical-bar">
-                <div class="advert">
-                    <div class="circle"></div>
-                    <p class="padding-10">Content title</p>
-                </div>
-                <div class="advert">
-                    <div class="circle"></div>
-                    <p class="padding-10">Content title</p>
-                </div>
+                <a class="advert-container" href="{{ side_video_1.link }}" target="_blank" rel="noopener">
+                    <div class="advert">
+                        <div class="circle"></div>
+                        <p class="padding-10" >{{ side_video_1.name }}</p>
+                    </div>
+                </a>
+                <a class="advert-container" href="{{ side_video_2.link }}" target="_blank" rel="noopener">
+                    <div class="advert">
+
+                        <div class="circle"></div>
+                        <p class="padding-10">{{ side_video_2 }}</p>
+                    </div>
+                </a>
             </div>
         </div>
 
