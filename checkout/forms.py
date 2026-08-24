@@ -23,7 +23,7 @@ class OrderForm(forms.ModelForm):
     
     class Meta:
         model = Order
-        fields = ('phone_number', 'street_address1', 'street_address2', 'town', 'postcode', 'country',)
+        fields = ('phone_number', 'email', 'street_address1', 'street_address2', 'town', 'postcode', 'country',)
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

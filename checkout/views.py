@@ -1,6 +1,11 @@
 import stripe
 from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
+from django.utils.html import strip_tags
+from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User
 from products.models import Product
@@ -27,7 +32,8 @@ def checkout(request):
         address_form = OrderForm(request.POST, prefix='address')
         if user_form.is_valid() and address_form.is_valid():
             order = address_form.save(commit=False)
-            if  not user_form.cleaned_data.get('first_name') or not user_form.cleaned_data.get('last_name') or not address_form.cleaned_data.get('street_address1') or not address_form.cleaned_data.get('postcode'):
+            # Make sure all info has been filled in.
+            if not user_form.cleaned_data.get('first_name') or not user_form.cleaned_data.get('last_name') or not address_form.cleaned_data.get('email') or not address_form.cleaned_data.get('street_address1') or not address_form.cleaned_data.get('postcode'):
                 messages.error(request, "Please fill out all required shipping fields.")
                 return render(
                     request, 
@@ -119,7 +125,11 @@ def checkout(request):
         user_initial = {}
         profile_initial = {}
         if user.is_authenticated:
-            user_initial = {'first_name': request.user.first_name, 'last_name': user.last_name, } 
+            user_initial = {
+                'first_name': request.user.first_name,
+                'last_name': user.last_name, 
+                'email': user.email,
+            } 
             profile_initial = {}
             if profile:
                 profile_initial = {
@@ -157,6 +167,37 @@ def payment_success(request):
             order.status = 'paid'
             order.save()
             order_items = order.lineitems.all()
+            
+            
+            
+            # Send confirmation email
+            try:
+                text_info = {
+                    'order': order,
+                    'order_items': order_items,
+                }
+                subject = f"Order Confirmation #{order.id}"
+                html_message = render_to_string("checkout/confirmation_email.html", text_info)
+                plain_message = strip_tags(html_message)
+                
+                email = EmailMultiAlternatives(
+                    subject=subject,
+                    body=plain_message,
+                    from_email=settings.EMAIL_HOST_USER,
+                    to=[order.email],
+                    
+                )
+                email.attach_alternative(html_message, "text/html")
+                
+                email.send()
+                
+            except Exception as email_error:
+                print(f"DEBUG ERROR TRIGGERED: {str(email_error)}")
+            
+                
+                
+                
+                
             if order.user:
                 ShoppingBasket.objects.filter(user_id=order.user.id).delete()
             else:

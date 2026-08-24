@@ -106,6 +106,12 @@ The main area of the homepage is divided into four completely customisable secti
 
 The videos in the vertical section on the other pages will be controlled by their respective models.
 
+## Issues.
+
+The email confirming the order was successfully processed currently ends up in the recipient's junk email. This is probably due to the fact that the email content is business based while the sender's email has been registered as a personal email address.
+
+
+
 ## Deployment.
 
 When setting heorku app must run this from terminal:

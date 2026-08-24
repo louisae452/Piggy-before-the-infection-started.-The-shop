@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html class="h-100" lang="en">
+<head>
+    <title>Piggy the shop confirmation eamil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+     
+    <meta name="description" content="Home page">
+</head>
+<body>
+    
+    <header> 
+        <h1>Piggy before the infection started.The shop.</h1> 
+    </header>
+    <main>
+        
+        <div>
+            <h2> Thank you for your order!</h2>
+            <p> Your order has been received and is now being processed.</p>
+        </div>
+        <div >
+            <h2>Order summary</h2>
+            <p>Order date: {{ order.date }}</p>
+            <p> Order reference: {{ order.id}}
+            <br>
+            <p> You ordered:</p>
+        </div>
+        <div style="font-size:0.75em"> 
+            {% for item in order_items %}
+            <div style="border-bottom: 1px solid black">
+                <p><strong>{{ item.product.name }}</strong></p>
+                <p>Qantity: {{ item.quantity }}</p>
+                <p> £{{ item.product.price }}</td>
+                {% if item.quantity != 1 %}
+                    <p>£{{ item.lineitem_total }}</td>  
+                {% endif %}  
+            </div>    
+            {% endfor %}
+            <div>
+                <p><strong>Delivery:</strong>£{{ order.shipping }}</p>
+                <p><strong>Total: £{{ order.grand_total }}</strong></th>
+            </div>
+        </div>
+        <div>
+            <p> Your order will be will you shortly</p>
+            <br>
+            <P> Any issues, please, don't hesitate to contact us at: </strong><a href="mailto:piggy.before.the.shop@gmail.com">&nbsp;Piggy before the infection started.The shop</a></strong></p>
+            <br>
+            <p> The team at</p>
+            <p><strong> Piggy before the infection started. The shop<strong></p>
+        </div>      
+            
+    </main>
+    
+</body>
+</html>
