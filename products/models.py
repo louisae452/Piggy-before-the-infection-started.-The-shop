@@ -92,8 +92,8 @@ class Rating(models.Model):
                              null=True, blank=True)
     
     rating = models.CharField(choices=STARS, blank=True, null=True)
-    title = models.CharField(max_length=100, null=True)
-    comment = models.TextField(null=True, blank=True)
+    title = models.CharField(max_length=100, null=False)
+    comment = models.TextField(null=False, blank=False)
     date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
 
@@ -116,15 +116,7 @@ class HomepageImage(models.Model):
     def __str__(self):
         return self.image_name
 
-    
 
-    
-
-
-
-
-    
-    
 class Homepage(models.Model):
     """ Model to show the homepages."""
     name = models.CharField(max_length=100)

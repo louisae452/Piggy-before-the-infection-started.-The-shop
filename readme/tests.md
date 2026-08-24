@@ -21,3 +21,16 @@ The following tests were carried out:
 |24/08/2026|OrderForm|Form is not valid when postcode is missing|Pass||
 
 
+
+#### Products app.
+
+##### Forms
+
+|Date|Form|Test|Result|Follow-up|
+|:----|:----|:------|:------|:-------|
+|24/08/2026|RatingForm|Form is valid when all fields are filled in correctly|Pass||
+|24/08/2026|RatingForm|Form is not valid when title is missing|Pass||
+|24/08/2026|RatingForm|Form ia not valid when comment is missing|Pass||
+
+
+
