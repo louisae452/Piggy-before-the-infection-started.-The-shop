@@ -1,0 +1,26 @@
+{% extends "products/home.html" %}
+{% load static %}
+
+{% block extracontent %}
+<div class="order-history pading-10">
+    <h2 class="padding-10"> Order history for {{ user.first_name }} {{ user.last_name }}</h2>
+    <table>
+        <tr>
+            <th>Order id</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+        </tr>
+        {% for order in order_list %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td><a href="{% url 'profiles:pastorderdetail' order.id %}">{{ order.date }}</a></td>
+            <td>{{ order.grand_total }}</td>
+            <td>{{ order.status }}</td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock extracontent %}

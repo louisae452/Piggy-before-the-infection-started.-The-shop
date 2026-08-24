@@ -68,6 +68,8 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - As a user I want to be able to pay for my items securely so that my personal information is not compromised.
 
+- As a user, I want to be able to see my order history so that I can Keep track of what I have ordered.
+
 - As the creator I want to be able to  add, remove and modify products so that my offer is always up to date.
 
 - As the creator I want to be able to  see a list of the items that have been sold and the state of the orders so that I can ensure a fast service.

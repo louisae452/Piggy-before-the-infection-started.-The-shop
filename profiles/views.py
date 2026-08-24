@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import UserForm, ProfileForm, EmailForm
 from .models import Profile
+from checkout.models import Order
 
 
 
@@ -38,5 +39,41 @@ def profile(request):
         }
     )
 
+# View to see user's order history.
+@login_required
+def order_history(request, user_id):
+    user = request.user
+    
+        
+    order_list = Order.objects.filter(user_id=user_id).order_by('-date')
+    return render(
+        request,
+        "profiles/order_history.html",
+        {
+            'order_list': order_list,
+            'user': user,
+            
+        }
+        
+    )
+    
+@login_required
+def past_order_detail(request, order_id, ):
+    user = request.user  
+    order = get_object_or_404(Order, id=order_id)
+    order_items = order.lineitems.all()
+    
+    return render(
+        request,
+        "profiles/past_order_detail.html",
+        {
+            'user': user,
+            'order': order,
+            'order_items': order_items,
+        }
+    )
+     
+    
+     
 
                

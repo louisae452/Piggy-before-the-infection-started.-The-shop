@@ -19,7 +19,8 @@
         </form>
         
         <a class="button btn-transparent" href="{% url 'account_email' %}">Change email</a>
-    
+
+        
      </div>
     <div class="form-container">
         
@@ -29,6 +30,7 @@
             {% csrf_token %}
             <button class="button btn-transparent" name="shippingreset" type="submit">Update</button>
         </form>
+        <a href="{% url 'profiles:orderhistory' request.user.id %}">Order history</a>
     </div>
 
 </div>
