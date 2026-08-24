@@ -18,7 +18,7 @@ class TestUserForm(TestCase):
         """Tests the form is not valid if first_name is missing"""
         data = {
             'first_name': '',
-            'last-name': 'Strauss',
+            'last_name': 'Strauss',
         }
         user_form = UserForm(data)
         self.assertFalse(user_form.is_valid())
@@ -26,7 +26,7 @@ class TestUserForm(TestCase):
     def test_form_is_not_valid_last_name(self):
         """Tests the form is not valid if last_name is missing"""
         data = {
-            'fisrt_name': 'Johan',
+            'first_name': 'Johan',
             'last_name': '',
         }
         user_form = UserForm(data)

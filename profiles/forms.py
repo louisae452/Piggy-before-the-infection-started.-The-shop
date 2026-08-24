@@ -7,6 +7,11 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('first_name', 'last_name',)
         
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['first_name'].required = True
+        self.fields['last_name'].required = True
+        
 # Form to require password to change email. From AI.
 class EmailForm(forms.ModelForm):
     
