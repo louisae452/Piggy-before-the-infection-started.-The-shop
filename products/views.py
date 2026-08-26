@@ -36,6 +36,8 @@ def all_products(request):
             'products_page': products_page,
         }
     )
+    
+    
 def plushes(request):
     products = Product.objects.filter(group__category__slug='plushes')
     paginator = Paginator(products, 8)

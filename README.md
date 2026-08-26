@@ -96,13 +96,13 @@ The shopping basket will show the products, quantity and final price and will al
 
 On the creator’s side of the site, there will be features to add, modify and delete products and offers and see list of product sold on a period of time.
 
-The account link will lead to a page where the user can see and modify their personal information, as well as see their purchase history and the status of their current order.
+The account link will lead to a page where the user can see and modify their personal information, as well as see their purchase history and details about any specific order.
 
 ## Features
 
 ### Customisable homepage. 
 
-The homepage has a structure which continues over the products templates, featuring a navigation bar at the top with links to all products, plushes, 3d prints and shopping basket and a search feature(to be added) and a vertical section which contains links to content related videos. 
+The homepage has a structure which continues over the products templates, featuring a navigation bar at the top with links to all products, plushes, 3d prints and shopping basket and a vertical section which contains links to content related videos. 
 
 The main area of the homepage is divided into four completely customisable sections, with the option to include a picture, a title and a link. The content of these sections is controlled by the Homepage model, which also controls the video links in the vertical section.
 
@@ -158,6 +158,8 @@ The following features were developed using AI assistance:
 
 - To handle payments: stripe
 
+- To run automated tests: pytest
+
 - To convert image to webp: [ToWebP](https://towebp.io/)
 
 
@@ -181,3 +183,4 @@ The following features were developed using AI assistance:
 
 - Printing queries. [Mmdn](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing)
 
+- Testing pagination. [BrowserStack](https://www.browserstack.com/guide/test-cases-for-pagination-functionality)

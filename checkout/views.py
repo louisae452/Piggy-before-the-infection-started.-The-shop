@@ -41,9 +41,6 @@ def checkout(request):
                     {
                         'user_form': user_form, 
                         'address_form': address_form})
-            
-            
-            
             if user.is_authenticated:
                 # Save order.
                 order.user = user 
@@ -117,10 +114,6 @@ def checkout(request):
                     'address_form': address_form,
                 }
             )        
-                
-                
-                
-           
     else:
         user_initial = {}
         profile_initial = {}
@@ -152,7 +145,6 @@ def checkout(request):
     )
     
 
-    
 def payment_success(request):
     session_id = request.GET.get('session_id')
     order_id = request.GET.get('order_id')
@@ -167,9 +159,6 @@ def payment_success(request):
             order.status = 'paid'
             order.save()
             order_items = order.lineitems.all()
-            
-            
-            
             # Send confirmation email
             try:
                 text_info = {
@@ -193,11 +182,6 @@ def payment_success(request):
                 
             except Exception as email_error:
                 print(f"DEBUG ERROR TRIGGERED: {str(email_error)}")
-            
-                
-                
-                
-                
             if order.user:
                 ShoppingBasket.objects.filter(user_id=order.user.id).delete()
             else:

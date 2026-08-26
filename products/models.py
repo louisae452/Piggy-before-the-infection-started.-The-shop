@@ -57,7 +57,6 @@ class Product(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    # link = models.URLField(max_length=500, blank=True, null=True)
     character_link = models.ForeignKey(Href, on_delete=models.SET_NULL, null=True, blank=True)
     videos = models.ManyToManyField(Video, blank=True, related_name='products')
     
