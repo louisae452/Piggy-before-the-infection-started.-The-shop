@@ -94,6 +94,23 @@ The following tests were carried out:
 |24/08/2026|ProfileForm|Form is not valid when town is missing|Pass||
 |24/08/2026|ProfileForm|Form is not valid when postcode is missing|Pass||
 
+##### Views
+
+|Date|View|Test|Result|Follow-up|
+|:----|:----|:------|:------|:-------|
+|26/08/2026|profile|Unathenticated users are redirected to login screen|Pass||
+|26/08/2026|profile|Authenticated users can access the page|Pass||
+|26/08/2026|profile|Personal information is saved|Pass||
+|26/08/2026|profile|Shipping information is saved|Pass||
+|26/08/2026|order_history|Page requires login|Pass||
+|26/08/2026|order_history|Logged in users get a list of their orders form newest to oldest|Pass||
+|26/08/2026|past_order_detail|Page requires login|Pass||
+|26/08/2026|past_order_detail|Order owner can see the order|Pass||
+|26/08/2026|past_order_detail|Logged in user cannot access someone else's order|Pass||
+|26/08/2026|past_order_detail|Logged in user cannot access guest orders|Pass||
+|26/08/2026|past_order_detail|Invalid order throws 404 error|Pass||
+
+
 
 
 

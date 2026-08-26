@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+from django.core.exceptions import PermissionDenied
 from .forms import UserForm, ProfileForm, EmailForm
 from .models import Profile
 from checkout.models import Order
@@ -42,6 +42,8 @@ def profile(request):
 # View to see user's order history.
 @login_required
 def order_history(request, user_id):
+    if request.user.id != int(user_id):
+        raise PermissionDenied
     user = request.user
     
         
@@ -61,6 +63,9 @@ def order_history(request, user_id):
 def past_order_detail(request, order_id, ):
     user = request.user  
     order = get_object_or_404(Order, id=order_id)
+    if not order.user or order.user != user:
+        raise PermissionDenied
+    
     order_items = order.lineitems.all()
     
     return render(
@@ -73,6 +78,7 @@ def past_order_detail(request, order_id, ):
         }
     )
      
+    
     
      
 
