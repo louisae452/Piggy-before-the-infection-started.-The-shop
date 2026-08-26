@@ -181,7 +181,8 @@ def payment_success(request):
                 email.send()
                 
             except Exception as email_error:
-                print(f"DEBUG ERROR TRIGGERED: {str(email_error)}")
+                pass
+                
             if order.user:
                 ShoppingBasket.objects.filter(user_id=order.user.id).delete()
             else:

@@ -20,6 +20,16 @@ The following tests were carried out:
 |24/08/2026|OrderForm|Form is not valid when town is missing|Pass||
 |24/08/2026|OrderForm|Form is not valid when postcode is missing|Pass||
 
+##### Views
+
+|Date|View|Test|Result|Follow-up|
+|:----|:----|:------|:------|:-------|
+|26/08/2026|checkout|Checkout populates form data from authenticated user|Pass||
+|26/08/2026|checkout|Checkout serves empty form for unauthenticated user|Pass||
+|26/08/2026|payment_success|Missing session id and order id redirects with error|Pass||
+
+
+
 
 
 #### Products app.

@@ -184,3 +184,7 @@ The following features were developed using AI assistance:
 - Printing queries. [Mmdn](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Printing)
 
 - Testing pagination. [BrowserStack](https://www.browserstack.com/guide/test-cases-for-pagination-functionality)
+
+- Mock object library. [Real Python](https://realpython.com/python-mock-library/) 
+
+- Mock and MagicMock. [Medium](https://medium.com/@snehagiranje05/unveiling-the-magic-understanding-mock-and-magicmock-in-python-ecadf1f1013c)
