@@ -111,6 +111,16 @@ The following tests were carried out:
 |26/08/2026|past_order_detail|Invalid order throws 404 error|Pass||
 
 
+### Shopping_bag app.
+
+#### Views
+
+|Date|View|Test|Result|Follow-up|
+|:----|:----|:------|:------|:-------|
+|26/08/2026|shopping_bag|Shopping bag loads and show the bag items|Pass||
+|26/08/2026|add_to_basket|View redirects to the original page|Pass||
+|26/08/2026|add_to_basket|A new ShopItems record is created|Pass||
+|26/08/2026|update_bag|New quantity is saved|Pass||
 
 
 

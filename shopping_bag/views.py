@@ -66,5 +66,4 @@ def remove_from_basket(request, product_code):
     item = get_object_or_404(ShopItems, basket=basket, product=product)
     item.delete()
     return redirect(redirect_url)
-    
         
