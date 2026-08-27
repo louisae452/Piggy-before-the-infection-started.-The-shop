@@ -532,6 +532,13 @@ label {
 footer {
     background-color: var(--purple);
     color: var(--mid-green);
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.footer-link {
+    color: var(--mid-green);
 }
 /* Allauth pages */
 .content-container{
