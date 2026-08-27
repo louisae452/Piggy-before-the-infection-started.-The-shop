@@ -23,13 +23,13 @@
 <body>
     <header>
         <nav class="navbar">
-            <div class="left-align">
-                <img src="" alt="superjakejosecat logo">
+            <div class="left-align nav-logo">
+                <img class="logo" src="{% static 'images/sjjc1.svg' %}" alt="superjakejosecat logo" width="45", height="36">
                 <h1>Piggy before the infection started. The shop</h1>
             </div>
             <div class="right-align">
-                
                 <div class="nav-links">
+                    
                     {% if user.is_authenticated %}
                         <a class="button" href="{% url 'products:home'%}">Home</a>
                         <a class="button" href="{% url 'profiles:profile'%}">Account</a>
@@ -70,14 +70,18 @@
                 <a class="advert-container" href="{{ side_video_1.link }}" target="_blank" rel="noopener">
                     <div class="advert">
                         <div class="circle"></div>
-                        <p class="padding-10" >{{ side_video_1.name }}</p>
+                        <div class="video-title">
+                            <p class="padding-10" >{{ side_video_1.name }}</p>
+                        </div>
                     </div>
                 </a>
                 <a class="advert-container" href="{{ side_video_2.link }}" target="_blank" rel="noopener">
                     <div class="advert">
 
                         <div class="circle"></div>
-                        <p class="padding-10">{{ side_video_2 }}</p>
+                        <div class="video-title">
+                            <p class="padding-10">{{ side_video_2 }}</p>
+                        </div>
                     </div>
                 </a>
             </div>
