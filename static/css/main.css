@@ -489,6 +489,13 @@ label {
 /* Order history page*/
 .order-history {
     margin:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order-table {
+    width: 80%;
 }
 
 /* Checkout page */
@@ -615,6 +622,12 @@ footer {
 .align-left {
     text-align: left;
 }
+.width-75 {
+    width: 75px;
+}
+.width-100 {
+    width: 100px;
+}
 
 /* Media queries */
 
@@ -726,6 +739,7 @@ footer {
     .form-container h2 {
         width: 250px;
     }
+    
 
 
 }
