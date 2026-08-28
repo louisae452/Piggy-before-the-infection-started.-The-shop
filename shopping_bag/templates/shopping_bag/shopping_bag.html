@@ -3,69 +3,82 @@
 
 {% block extracontent %}
 
-<table id="table-basket">
-    <tr>
-        <th class="th-code">Code</th>
-        <th class="th-img"></th>
-        <th class="th-name">Name</th>
-        <th class="th-qty">Quantity</th>
-        <th class="th-price align-right">Price</th>
-        <th class="th-subtotal align-right">Subtotal</th>
 
-    </tr>
-     {% for item in items %}
-    <tr>
-       
-        <td><a href="{% url 'products:productdetail' item.product.slug %}"> {{ item.product.code }}</a></td>
-        <td><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </td>
-        <td >{{ item.product.name }}</td>
-        <td>
-           <form id="bag-form" action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
-            {% csrf_token %}
-                <div class="quantity-box">
-                    <div class="arrow arrow-down">
-                        <i class="fa-solid fa-arrow-down"></i>
-                    </div>
-                    <div class="qty">
-                        <span class="qty-display">{{ item.quantity }}</span>
-                        <input type="hidden" name="quantity" class="qty-input" value="{{ item.quantity }}" data_item_code="{{ item.product.code }}" id="id_qty_{{ item.product.code }}">
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                    <div class="arrow arrow-up">
-                        <i class="fa-solid fa-arrow-up"></i>
-                    </div>
+<div class="basket-content padding-10">
+{% if items%}
+    <div class="table">
+        <h2 class="padding-10"> Your shopping basket</h2>
+        <div id="table-basket">
+            <div class="title-row">
+                <p class="th-code">Code</p>
+                <p class="th-img"></p>
+                <p class="th-name">Name</p>
+                
+                <p class="th-qty">Quantity</p>
+                <p class="th-price">Price</p>
+                <p class="th-subtotal">Subtotal</p>
+            </div>
+            {% for item in items %}
+            <div class="data-row data-row-1">
+                <div class="th-code div-code ">
+                    <a class="greentext" href="{% url 'products:productdetail' item.product.slug %}"> {{ item.product.code }}</a>
                 </div>
-                <button type="submit" class="button btn-green-transparent btn-shop">Update</button>
-                <button type="submit" id="remove" class="button btn-green-transparent btn-shop" data-alt-url="{% url 'shopping_bag:removefrombasket' item.product.code %}">Remove</button>
-
-            </form> 
-
-
-
-        </td>
-        <td class="align-right"> £{{ item.product.price }}</td>
-        <td class="align-right">£{{ item.subtotal }}</td>
-        
-    </tr>
-    {% endfor %}
-</table>
-<div>
-     <table id="table-total">
-        <tr>
-            <th class="th-total align-right"><strong>Delivery</strong></th>
-            <td class="td-total align-right"><strong>£{{ delivery }}</strong></td>
-        </tr>
-        <tr>
-            <th class="th-total align-right"><strong>Total</strong></th>
-            <td class="td-total align-right"><strong>£{{ total }}</strong></td>
-        </tr>
-    </table>
+                <div class="th-img div-img"><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </div>
+                <div class="th-name div-name">{{ item.product.name }}</div>
+                
+                <div class="th-qty div-qty">
+                    <form id="bag-form" action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
+                        {% csrf_token %}
+                            <div class="quantity-box">
+                                <div class="arrow arrow-down">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </div>
+                                <div class="qty">
+                                    <span class="qty-display">{{ item.quantity }}</span>
+                                    <input type="hidden" name="quantity" class="qty-input" value="{{ item.quantity }}" data_item_code="{{ item.product.code }}" id="id_qty_{{ item.product.code }}">
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </div>
+                                <div class="arrow arrow-up">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </div>
+                            </div>
+                            <div class="qty-update">
+                                <button type="submit" class="button btn-green-transparent btn-shop">Update</button>
+                                <button type="submit" id="remove" class="button btn-green-transparent btn-shop" data-alt-url="{% url 'shopping_bag:removefrombasket' item.product.code %}">Remove</button>
+                            </div>
+                        </form> 
+                </div>
+                <div class="th-price div-price"> £{{ item.product.price }}</div>
+                <div class="th-subtotal div-subtotal">£{{ item.subtotal }}</div>    
+            </div>
+            {% endfor %}
+            <div class="data-row data-row-2">
+                <p class="th-code"></p>
+                <p class="th-img"></p>
+                <p class="th-name"><strong>Delivery</strong></p>
+                <p class="th-qty"></p>
+                <p class="th-price"></p>
+                <p class="th-subtotal"><strong>£{{ delivery }}</strong></p>   
+            </div>
+            <div class="data-row data-row-2">
+                <p class="th-code"></p>
+                <p class="th-img"></p>
+                <p class="th-name"><strong>Total</strong></p>
+                <p class="th-qty"></p>
+                <p class="th-price"></p>
+                <p class="th-subtotal"><strong>£{{ total }}</strong></p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="button btn-green-transparent" href="{% url 'checkout:checkout' %}">Proceed to checkout</a>
+        <a href="{% url 'products:allproducts' %}" class="button btn-green-transparent btn-longer">Continue shopping</a>
+    </div>
+{% else %}
+    <div class="empty-bag">
+        <h2>There are no items in your basket</h2>
+         <a href="{% url 'products:allproducts' %}" class="button btn-transparent btn-long">Continue shopping</a>
+    </div>
+{% endif %}
 </div>
-<div>
-    <a class="button btn-green-transparent" href="{% url 'checkout:checkout' %}">Proceed to checkout</a>
-    <a href="{% url 'products:allproducts' %}" class="button btn-green-transparent btn-longer">Continue shopping</a>
-</div>
-
-
-
 {% endblock extracontent %}

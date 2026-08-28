@@ -399,6 +399,23 @@ main {
     padding: 10px;
 }
 /* Shopping bag */
+
+.basket-content {
+    min-height: 95%;
+   
+    max-width: 100%;
+    color: var(--forest-green);
+}
+.table{
+    width: 100%;
+    
+}
+.title-row, .data-row, .data-row-1 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 10px;
+}
+
 .bag-img {
     height: 50px;
     width: 50px;
@@ -413,31 +430,43 @@ table {
 .th-code, .th-price, .th-subtotal {
     width: 70px;
 }
+
+
 .th-qty {
     width: 90px;
 }
+
 .th-img {
     width: 70px;
 }
 .th-name {
     width: 200px;
 }
-th, td {
-    padding: 10px;
-    text-align: left;
-    vertical-align: middle;
-}
-td a {
-    color: var(--forest-green);
-}
+
 .btn-shop {
     margin-left: 0px;
     margin-bottom: 0px;
     height: 20px;
     width: 50px;
 }
+.qty-update {
+    display: flex;
+}
 .align-right {
     text-align: right;
+}
+.empty-bag {
+    display:grid;
+    grid-template-rows: 50% 50%;
+    align-items: center;
+    justify-content: center;
+    min-height: 70%;
+}
+.empty-bag h2 {
+    color: var(--purple);
+}
+.empty-bag a {
+    justify-self: center;
 }
 
 /* Profile page */
@@ -570,6 +599,9 @@ footer {
 .purpletext{
     color: var(--purple);
 }
+.greentext {
+    color: var(--forest-green);
+}
 
 /* Media queries */
 
@@ -587,9 +619,17 @@ footer {
         justify-content: center;
     }
     .grid-container {
-        grid-template-columns: auto;
+        /* grid-template-columns: auto;*/
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+
     }
+    
     .vertical-bar {
+        position: relative;
+        
+        height:300px;
         grid-template-columns: 50% 50%;
         grid-template-rows: auto;
     }
@@ -605,9 +645,37 @@ footer {
     }
 
     /* Product detail page */
+    .title-row {
+        display: none;
+    }
     .detail-container {
         grid-template-columns: 100%;
     }
+    /* Shopping basket */
+    .data-row-1, .data-row-2 {
+        grid-template-columns: 25% 75%;
+        grid-auto-flow: row dense;
+    }
+
+    .div-code, .div-img {
+        grid-column: 1;
+        
+    }
+    .div-name, .div-price, .div-qty, .div-subtotal {
+        grid-column: 2;
+        
+    }
+    .data-row-1 .th-code{
+        padding-bottom: 10px;
+    }
+    .data-row-2 .th-code,
+    .data-row-2 .th-img,
+    .data-row-2 .th-qty,
+    .data-row-2 .th-price {
+        display: none;
+    }
+    
+    
     
     
     
@@ -619,6 +687,9 @@ footer {
         height: 30px;
         padding: 0;
         font-size: 0.75em;
+    }
+    .btn-long {
+        width: 125px;
     }
 
 
