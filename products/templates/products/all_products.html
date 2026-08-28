@@ -5,17 +5,18 @@
 <div class="products-container">
     {% for product in products_page %}
     <div class="product-box">
+        <a class="no-decoration greentext" href="{% url 'products:productdetail' product.slug %}">
        
-        {% if product.main_image %}
-            <a href="{% url 'products:productdetail' product.slug %}">
+            {% if product.main_image %}
+                
                 <img src="{{ product.main_image.image.url }}" alt="">
-            </a>
-        {% endif %}
-        
-        <p><strong>{{ product.name }}</strong></p>
-        <p>£{{ product.price }}</p>
-        <p>{{ product.rating }}</p>
-
+                
+            {% endif %}
+            
+            <p><strong>{{ product.name }}</strong></p>
+            <p>£{{ product.price }}</p>
+            <p>{{ product.rating }}</p>
+        </a>
     </div>
     {% endfor %}
     

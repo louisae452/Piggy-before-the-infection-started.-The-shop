@@ -253,10 +253,10 @@ main {
 .pagination {
     display: flex;
     justify-content: center;
-    color: var(--purple);
+    color: var(--forest-green);
 }
 .pagination span a {
-    color: var(--purple);
+    color: var(--forest-green);
 }
 
 /* Product detail page */
@@ -601,6 +601,9 @@ footer {
 }
 .greentext {
     color: var(--forest-green);
+}
+.no-decoration {
+    text-decoration: none;
 }
 
 /* Media queries */
