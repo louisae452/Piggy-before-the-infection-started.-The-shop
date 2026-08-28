@@ -719,6 +719,13 @@ footer {
     .order-sum {
         width: 100%;
     }
+    /* Profile page */
+    .profile-container {
+        grid-template-columns: auto;
+    }
+    .form-container h2 {
+        width: 250px;
+    }
 
 
 }
