@@ -2,48 +2,51 @@
 {% load static %}
 
 {% block extracontent %}
-<div  class="shipping-container" id="order-summary">
-    <h2>Order summary</h2>
-    <table>
-        <tr>
-            <th>Items</th>
-            <td>£{{ items_total }}</td>
-        </tr>
+<div class="checkout-page greentext">
+    <div  class="shipping-container" id="order-summary">
         
-        <tr>
-            <th>Packing & postage</th>
-            <td>£{{ delivery }}</td>
-        </tr>
-        <tr>
-            <th>Order total</th>
-            <th>£{{ total }}</th>
-        </tr>
-    </table>
-    <a class="button btn-transparent btn-long" href="{% url 'shopping_bag:shoppingbag' %}">Back to shopping basket</a>
-</div>
-<div id="order-shipping">
-    <div class="shipping-container">
-        <div >
-            <h2> Shipping information</h2>
-            {% if not user.is_authenticated %}
-            <div class="guest-login">
-                <a class="button btn-transparent" href="{% url 'account_login' %}?next={{ request.path }}">Log in</a>
-                <p>or continue as a guest</p>
-            </div>
-            {% endif %}
-            <form class="checkout-form" method="POST" action="">
-                {% csrf_token %}
-                {{ user_form }}
-                {{ address_form }}
-                <button class="button btn-transparent btn-long" type="submit">Proceed to secure Payment</button>
-            </form>
-        </div>
+            <h2 class="padding-bottom-10">Order summary</h2>
+            <table class="order-sum">
+                <tr>
+                    <th class="align-left">Items</th>
+                    <td class="align-left">£{{ items_total }}</td>
+                </tr>
+                
+                <tr>
+                    <th class="align-left">Packing & postage</th>
+                    <td class="align-left">£{{ delivery }}</td>
+                </tr>
+                <tr>
+                    <th class="align-left">Order total</th>
+                    <th class="align-left">£{{ total }}</th>
+                </tr>
+            </table>
+            <a class="button btn-green-transparent btn-long" href="{% url 'shopping_bag:shoppingbag' %}">Back to shopping basket</a>
+        
     </div>
+    <div id="order-shipping">
+        <div class="shipping-container">
+            <div >
+                <h2 class="padding-bottom-10"> Shipping information</h2>
+                {% if not user.is_authenticated %}
+                <div class="guest-login">
+                    <a class="button btn-green-transparent" href="{% url 'account_login' %}?next={{ request.path }}">Log in</a>
+                    <p>or continue as a guest</p>
+                </div>
+                {% endif %}
+                <form class="checkout-form" method="POST" action="">
+                    {% csrf_token %}
+                    {{ user_form }}
+                    {{ address_form }}
+                    <button class="button btn-green-transparent btn-long" type="submit">Proceed to secure Payment</button>
+                </form>
+            </div>
+        </div>
 
 
 
 
+    </div>
 </div>
-<div></div>
 
 {% endblock extracontent %}
