@@ -2,20 +2,20 @@
 {% load static %}
 
 
-@media print
+
 
 
 {% block extracontent %}
 <div id="invoice-container">
-    <div class="align-center">
+    <div class="align-center greentext">
         <h2> Thank you for your order!</h2>
         <p> Your secure payment has been processed</p>
-        <p> A confirmation email was sent. Please, check your juck mail if you can't find it</p>
+        <p> A confirmation email was sent. Please, check your junk mail if you can't find it</p>
     </div>
     <div class="invoice-details">
-        <h2 class="align-center">Order summary</h2>
+        <h2 class="align-center greentext">Order summary</h2>
         <p>Order date: {{ order.date }}</p>
-        <p> Order reference: {{ order.id}}
+        <p> Order reference: {{ order.id}}</p>
     </div>
 
     <div class="address">
@@ -27,48 +27,47 @@
         <p>{{ order.postcode }}</p>
         <p>{{ order.country }}</p>
         <br>
-
-
     </div>
     <div class="bill">
-        <table>
-            <tr>
-                <th class="th-code">Code</th>
-                <th class="th-name">Name</th>
-                <th class="th-qty">Quantity</th>
-                <th class="th-price align-right">Price</th>
-                <th class="th-subtotal align-right">Subtotal</th>
-
-            </tr>
-            {% for item in order_items %}
-            <tr>
-            
-                <td>{{ item.product.code }}</td>
-                <td >{{ item.product.name }}</td>
-                <td>{{ item.quantity }}</td>
-                <td class="align-right"> £{{ item.product.price }}</td>
-                <td class="align-right">£{{ item.lineitem_total }}</td>    
-            </tr>
-            {% endfor %}
-        </table>
-        <div>
-            <table id="table-total">
-                <tr>
-                    <th class="th-total align-right"><strong>Delivery</strong></th>
-                    <td class="td-total align-right"><strong>£{{ order.shipping }}</strong></td>
-                </tr>
-                <tr>
-                    <th class="th-total align-right"><strong>Total</strong></th>
-                    <td class="td-total align-right"><strong>£{{ order.grand_total }}</strong></td>
-                </tr>
-            </table>
+        <div class="title-row greentext">
+                <p class="th-code">Code</p>
+                <p class="th-name">Name</p>
+                <p class="th-qty">Quantity</p>
+                <p class="th-price">Price</p>
+                <p class="th-subtotal">Subtotal</p>
         </div>
-
-
-
+        {% for item in order_items %}
+            <div class="data-row data-row-1 greentext">
+                <div class="th-code div-code ">{{ item.product.code }}</div>
+                <div class="th-name div-name">{{ item.product.name }}</div>
+                <div class="th-qty div-qty">{{ item.quantity }}</div>
+                <div class="th-price div-price"> £{{ item.product.price }}</div>
+                <div class="th-subtotal div-subtotal">£{{ item.lineitem_total }}</div>    
+            </div>
+        {% endfor %}
     </div>
-    <button class="button btn-transparent no-print" onclick="window.print()">Print Invoice</button>
-    <a class="button btn-transparent btn-long no-print" href="{% url 'products:allproducts' %}">Continue shopping</a>
+    <div >
+      
+        <div class="data-row data-row-2 greentext">
+            <p class="th-code"></p>
+            <p class="th-name"><strong>Delivery</strong></p>
+            <p class="th-qty"></p>
+            <p class="th-price"></p>
+            <p class="th-subtotal"><strong>£{{ order.shipping }}</strong></p>   
+        </div>
+        <div class="data-row data-row-2 greentext">
+            <p class="th-code"></p>
+            <p class="th-name"><strong>Total</strong></p>
+            <p class="th-qty"></p>
+            <p class="th-price"></p>
+            <p class="th-subtotal"><strong>£{{ order.grand_total }}</strong></p>
+        </div>
+        
+    </div>
+    <div class="invoice-btns">
+        <button class="button btn-green-transparent no-print" onclick="window.print()">Print Invoice</button>
+        <a class="button btn-green-transparent btn-long no-print" href="{% url 'products:allproducts' %}">Continue shopping</a>
+    </div>
 </div>
 
 {% endblock extracontent %}
