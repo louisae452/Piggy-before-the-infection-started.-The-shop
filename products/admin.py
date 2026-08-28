@@ -15,12 +15,12 @@ class CategoryAdmin(admin.ModelAdmin):
 class GroupAdmin(admin.ModelAdmin):
     list_display = ('name', 'category')
     prepopulated_fields = {'slug': ('name',)}
-    
+
+
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
-    
 
 
 class ProductImageInLine(admin.TabularInline):
@@ -57,8 +57,6 @@ class HomepageImageAdmin(admin.ModelAdmin):
     search_fields = ['image_name']
 
 
-
-    
 @admin.register(Href)
 class HrefAdmin(admin.ModelAdmin):
     list_display = ('name',)

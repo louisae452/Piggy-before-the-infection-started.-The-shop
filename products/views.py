@@ -1,5 +1,4 @@
 from django.core.paginator import Paginator
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models.functions import Cast
 from django.core.exceptions import PermissionDenied
@@ -9,19 +8,23 @@ from django.db.models import Avg, FloatField
 from .models import Homepage, Product, Rating
 from .forms import RatingForm
 
-# Create your views here.
+
 
 # Show homepage. Ensure that homepage loads even if not active homepage.
 def home_page(request):
     try:
-        homepage = Homepage.objects.filter(is_active=True).select_related('top_left_href', 'top_right_href', 'bottom_left_href', 'bottom_right_href').first()
+        homepage = Homepage.objects.filter(is_active=True).select_related(
+            'top_left_href',
+            'top_right_href',
+            'bottom_left_href',
+            'bottom_right_href').first()
     except (OperationalError, ProgrammingError):
-        homepage = None    
-    
+        homepage = None
     context = {
         'homepage': homepage,
         }
     return render(request, "products/home.html", context)
+
 
 # Showsa listing of all products.
 def all_products(request):
@@ -36,8 +39,8 @@ def all_products(request):
             'products_page': products_page,
         }
     )
-    
-    
+
+
 def plushes(request):
     products = Product.objects.filter(group__category__slug='plushes')
     paginator = Paginator(products, 8)
@@ -49,8 +52,9 @@ def plushes(request):
         {
             'products_page': products_page,
         }
-    )    
-    
+    )
+
+
 def prints(request):
     products = Product.objects.filter(group__category__slug='3d-prints')
     paginator = Paginator(products, 8)
@@ -62,21 +66,19 @@ def prints(request):
         {
             'products_page': products_page,
         }
-    )    
-        
-    
-    
-    
+    )
+
+
 # View to show product detail.
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     ratings = Rating.objects.filter(product=product)
-    average = ratings.aggregate(rating_avg=Avg(Cast('rating', output_field=FloatField())))
+    average = ratings.aggregate(rating_avg=Avg(Cast('rating',
+                                output_field=FloatField())))
     if average['rating_avg'] is not None:
         rating_average = round(average['rating_avg'], 1)
     else:
         rating_average = 0
-    
     paginator = Paginator(ratings, 4)
     page_number = request.GET.get('page')
     ratings_page = paginator.get_page(page_number)
@@ -88,11 +90,10 @@ def product_detail(request, slug):
             'rating_average': rating_average,
             'ratings': ratings,
             'ratings_page': ratings_page,
-            
         }
-        
     )
-    
+
+
 # View to create a rating   .
 
 def rate_product(request, slug):
@@ -109,7 +110,7 @@ def rate_product(request, slug):
                 rating.user = None
             rating.save()
             messages.success(request, 'Rating added successfully')
-            return redirect('products:productdetail', slug=slug) 
+            return redirect('products:productdetail', slug=slug)
     rating_form = RatingForm()
     return render(
         request,
@@ -119,8 +120,8 @@ def rate_product(request, slug):
             'product': product
         }
     )
-    
-    
+
+
 # View to update or delete review.
 
 def update_review(request, id):
@@ -128,18 +129,13 @@ def update_review(request, id):
     if rating.user != request.user:
         raise PermissionDenied('You do not have permission to rate this review')
     product = rating.product
-    
     if request.method == "POST":
         action = request.POST.get('action')
         if action == 'delete':
             rating.delete()
             messages.success(request, 'Review successfully deleted')
             return redirect('products:productdetail', slug=product.slug)
-            
-        
-        
         rating_form = RatingForm(data=request.POST, instance=rating)
-        
         if rating_form.is_valid():
             new_rating = rating_form.save(commit=False)
             star_value = request.POST.get('rating')
@@ -149,9 +145,7 @@ def update_review(request, id):
             messages.success(request, 'Review successfully updated')
             return redirect('products:productdetail', slug=product.slug)
     else:
-        rating_form = RatingForm(instance=rating)    
-        
-    
+        rating_form = RatingForm(instance=rating)
     return render(
         request,
         "products/update_review.html",
@@ -161,9 +155,3 @@ def update_review(request, id):
             'rating_form': rating_form,
         }
     )
-
-
-
-          
-        
-        

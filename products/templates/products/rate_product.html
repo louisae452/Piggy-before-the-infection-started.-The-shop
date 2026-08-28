@@ -7,14 +7,10 @@
         <div class="rating-title">
             <img class="rating-img" src="{{ product.main_image.image.url }}">
             <h2>{{ product.name }}</h2>
-            
-            
         </div>
-        
         <div class="ratings">
             <form method="post">
                 <div class="star-rating-container">
-                    
                     <i id="star1"i class="fa-regular fa-star"></i>
                     <i id="star2"i class="fa-regular fa-star"></i>
                     <i id="star3" class="fa-regular fa-star"></i>
@@ -22,7 +18,6 @@
                     <i id="star5" class="fa-regular fa-star"></i>
                     <input id="star-input" class="star" type="hidden" name="rating" value="">
                 </div>
-        
                 {{ rating_form }}
                 {% csrf_token %}
                 <button type="submit" class="button btn-transparent">Save</button>
@@ -30,6 +25,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock extracontent %}

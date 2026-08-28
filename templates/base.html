@@ -69,7 +69,11 @@
             <div class="vertical-bar">
                 <a class="advert-container" href="{{ side_video_1.link }}" target="_blank" rel="noopener">
                     <div class="advert">
-                        <div class="circle"></div>
+                        <div class="circle">
+                            {% if side_video_1.thumbnail %}
+                                <img src="{{ side_video_1.thumbnail.url }}" alt="{{ side_video_1.name }}">
+                            {% endif %}
+                        </div>
                         <div class="video-title">
                             <p class="padding-10" >{{ side_video_1.name }}</p>
                         </div>
@@ -78,7 +82,11 @@
                 <a class="advert-container" href="{{ side_video_2.link }}" target="_blank" rel="noopener">
                     <div class="advert">
 
-                        <div class="circle"></div>
+                        <div class="circle">
+                            {% if side_video_2.thumbnail %}
+                                <img src="{{ side_video_2.thumbnail.url }}" alt="{{ side_video_2.name }}">
+                            {% endif %}
+                            </div>
                         <div class="video-title">
                             <p class="padding-10">{{ side_video_2 }}</p>
                         </div>

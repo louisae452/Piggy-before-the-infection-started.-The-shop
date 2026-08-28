@@ -1,18 +1,20 @@
 from django.urls import resolve
-from. models import Homepage, Product
+from .models import Homepage, Product
 
 
 # Written with AI
 def vertical_bar_videos(request):
     video_1 = None
     video_2 = None
-    # Step 1: Check if we are on a Product Detail page using the URL slug
+    # Check if we are on a Product Detail page using the URL slug
     try:
         match = resolve(request.path_info)
         if 'slug' in match.kwargs:
-            product = Product.objects.filter(slug=match.kwargs['slug']).prefetch_related('videos').first()
+            product = Product.objects.filter(
+                slug=match.kwargs['slug']).prefetch_related('videos').first()
             if product:
-                product_videos = list(product.videos.all()[:2])  # Slice to get max 2 videos
+                 # Slice to get max 2 videos
+                product_videos = list(product.videos.all()[:2])
                 if len(product_videos) >= 1:
                     video_1 = product_videos[0]
                 if len(product_videos) >= 2:
@@ -20,7 +22,8 @@ def vertical_bar_videos(request):
     except Exception:
         pass
 
-    # Step 2: Fallback to Homepage layout videos if product videos aren't present
+    # Step 2: Fallback to Homepage layout videos if
+    # product videos aren't present
     if not video_1 and not video_2:
         active_homepage = Homepage.objects.filter(is_active=True).first()
         if active_homepage:

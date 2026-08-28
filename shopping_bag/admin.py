@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import ShopItems, ShoppingBasket
 
 # Register your models here.
+
+
 class ShopItemsInline(admin.TabularInline):
     model = ShopItems
     extra = 2

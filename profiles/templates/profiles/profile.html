@@ -9,21 +9,15 @@
             {{ userform }}
             {% csrf_token %}
             <button class="button btn-green-transparent" name="personalreset" type="submit">Update</button>
-            
         </form>
         <a class="button btn-green-transparent" href="{% url 'account_change_password' %}">Change Password</a>
         <form method="post">
             {{ emailform }}
             {% csrf_token %}
-            
         </form>
-        
         <a class="button btn-green-transparent" href="{% url 'account_email' %}">Change email</a>
-
-        
      </div>
     <div class="form-container greentext">
-        
         <h2 class="padding-bottom-10">Shipping details</h2>
         <form method="post">
             {{ profileform }}
@@ -32,8 +26,5 @@
         </form>
         <a class="greentext" href="{% url 'profiles:orderhistory' request.user.id %}">Order history</a>
     </div>
-
 </div>
-
-
 {% endblock %}

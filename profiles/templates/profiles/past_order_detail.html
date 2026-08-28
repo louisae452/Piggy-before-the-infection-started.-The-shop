@@ -2,20 +2,14 @@
 {% load static %}
 
 
-@media print
-
-
 {% block extracontent %}
 <div id="invoice-container">
-    
     <div class="invoice-details">
         <h2 class="align-center">Order summary</h2>
         <p>Order date: {{ order.date }}</p>
         <p> Order reference: {{ order.id}}
     </div>
-
     <div class="address">
-        
         <p>{{ order.full_name }}</p>
         <p>{{ order.street_address1 }}</p>
         <p>{{ order.street_address2 }}</p>
@@ -23,8 +17,6 @@
         <p>{{ order.postcode }}</p>
         <p>{{ order.country }}</p>
         <br>
-
-
     </div>
     <div class="bill">
         <table>
@@ -34,11 +26,9 @@
                 <th class="th-qty">Quantity</th>
                 <th class="th-price align-right">Price</th>
                 <th class="th-subtotal align-right">Subtotal</th>
-
             </tr>
             {% for item in order_items %}
             <tr>
-            
                 <td>{{ item.product.code }}</td>
                 <td >{{ item.product.name }}</td>
                 <td>{{ item.quantity }}</td>
@@ -59,9 +49,6 @@
                 </tr>
             </table>
         </div>
-
-
-
     </div>
     <button class="button btn-transparent no-print" onclick="window.print()">Print Invoice</button>
     <a class="button btn-transparent no-print" href="{% url 'products:allproducts' %}">Continue shopping</a>

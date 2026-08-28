@@ -6,7 +6,6 @@ from .models import Profile
 from checkout.models import Order
 
 
-
 # Create your views here.
 @login_required
 def profile(request):
@@ -15,20 +14,17 @@ def profile(request):
     userform = UserForm(instance=user_instance)
     profileform = ProfileForm(instance=user_profile)
     emailform = EmailForm(instance=user_instance)
-    
     if request.method == "POST":
         if 'personalreset' in request.POST:
             userform = UserForm(data=request.POST, instance=user_instance)
             if userform.is_valid():
-                userform.save()    
+                userform.save()
                 return redirect('profiles:profile')
-            
         elif 'shippingreset' in request.POST:
             profileform = ProfileForm(data=request.POST, instance=user_profile)
             if profileform.is_valid():
                 profileform.save()
                 return redirect('profiles:profile')
-            
     return render(
         request,
         "profiles/profile.html",
@@ -45,8 +41,6 @@ def order_history(request, user_id):
     if request.user.id != int(user_id):
         raise PermissionDenied
     user = request.user
-    
-        
     order_list = Order.objects.filter(user_id=user_id).order_by('-date')
     return render(
         request,
@@ -54,20 +48,17 @@ def order_history(request, user_id):
         {
             'order_list': order_list,
             'user': user,
-            
         }
-        
     )
-    
+
+
 @login_required
 def past_order_detail(request, order_id, ):
-    user = request.user  
+    user = request.user
     order = get_object_or_404(Order, id=order_id)
     if not order.user or order.user != user:
         raise PermissionDenied
-    
     order_items = order.lineitems.all()
-    
     return render(
         request,
         "profiles/past_order_detail.html",
@@ -77,9 +68,3 @@ def past_order_detail(request, order_id, ):
             'order_items': order_items,
         }
     )
-     
-    
-    
-     
-
-               

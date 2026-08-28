@@ -7,10 +7,7 @@
         <div class="rating-title">
             <img class="rating-img" src="{{ product.main_image.image.url }}">
             <h2>{{ product.name }}</h2>
-            
-            
         </div>
-        
         <div class="ratings">
             <form method="post" id="updatereview">
                 <div class="star-rating-container">
@@ -22,7 +19,6 @@
                     
                     <input id="star-input" class="star" type="hidden" name="rating" value="{{ rating.rating }}">
                 </div>
-        
                 {{ rating_form }}
                 {% csrf_token %}
                 <button type="submit" name="action" value="update" class="button btn-transparent">Update</button>
@@ -41,6 +37,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock extracontent %}

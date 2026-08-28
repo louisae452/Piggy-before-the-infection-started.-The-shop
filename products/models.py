@@ -1,10 +1,5 @@
-import os
 from django.contrib.auth.models import User
 from django.db import models
-from django.urls import reverse, NoReverseMatch
-
-
-# Products models.
 
 
 class Category(models.Model):
@@ -24,18 +19,21 @@ class Group(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.name
+
 
 class Video(models.Model):
     """Model for sidebar videos"""
     name = models.CharField(max_length=100)
-    thumbnail = models.ImageField(upload_to='media/products/', blank=True, null=True)
+    thumbnail = models.ImageField(upload_to='media/products/',
+                                  blank=True, null=True)
     link = models.URLField(max_length=500)
 
     def __str__(self):
         return self.name
+
 
 class Href(models.Model):
     name = models.CharField(max_length=100)
@@ -43,10 +41,6 @@ class Href(models.Model):
 
     def __str__(self):
         return self.name
-   
-
-    
-
 
 
 class Product(models.Model):
@@ -57,17 +51,16 @@ class Product(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    character_link = models.ForeignKey(Href, on_delete=models.SET_NULL, null=True, blank=True)
+    character_link = models.ForeignKey(Href, on_delete=models.SET_NULL,
+                                       null=True, blank=True)
     videos = models.ManyToManyField(Video, blank=True, related_name='products')
-    
+
     @property
     def main_image(self):
         return self.image_set.filter(is_main=True).first()
-    
+
     def __str__(self):
         return self.name
-    
-
 
 
 class Image(models.Model):
@@ -76,7 +69,6 @@ class Image(models.Model):
     image_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='media/products/')
     is_main = models.BooleanField(default=False)
-    
 
     def __str__(self):
         return f"{self.image_name} for {self.product.name}"
@@ -84,18 +76,17 @@ class Image(models.Model):
 
 STARS = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'))
 
+
 class Rating(models.Model):
     """Rating of the product"""
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
                              null=True, blank=True)
-    
     rating = models.CharField(choices=STARS, blank=True, null=True)
     title = models.CharField(max_length=100, null=False)
     comment = models.TextField(null=False, blank=False)
     date = models.DateField(auto_now_add=True)
     updated_on = models.DateField(auto_now=True)
-
 
     def __str__(self):
         if self.user:
@@ -111,7 +102,7 @@ class HomepageImage(models.Model):
     """Holds images to be used in the homepage"""
     image_name = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(upload_to='homepage/', default='default_image')
-    
+
     def __str__(self):
         return self.image_name
 
@@ -140,8 +131,10 @@ class Homepage(models.Model):
     bottom_right = models.ForeignKey(HomepageImage, on_delete=models.SET_NULL,
                                      null=True, blank=True,
                                      related_name="bottomrightslot")
-    bottom_right_title = models.CharField(max_length=100, blank=True, null=True)
-    bottom_right_button = models.CharField(max_length=50, blank=True, null=True)
+    bottom_right_title = models.CharField(max_length=100, blank=True,
+                                          null=True)
+    bottom_right_button = models.CharField(max_length=50, blank=True,
+                                           null=True)
     bottom_right_href = models.ForeignKey(Href, on_delete=models.SET_NULL,
                                           blank=True, null=True,
                                           related_name="bottomrighthref")
@@ -156,13 +149,9 @@ class Homepage(models.Model):
     video1 = models.ForeignKey(Video, on_delete=models.SET_NULL,
                                null=True, blank=True,
                                related_name="video1slot")
-    video2 = models.ForeignKey(Video, on_delete=models.SET_NULL,                              
+    video2 = models.ForeignKey(Video, on_delete=models.SET_NULL,
                                null=True, blank=True,
                                related_name="video2slot")
 
     def __str__(self):
         return self.name
-
-
-
-
