@@ -6,7 +6,7 @@
 
 
 {% block extracontent %}
-<div id="invoice-container">
+<div class="invoice-container">
     <div class="align-center greentext">
         <h2> Thank you for your order!</h2>
         <p> Your secure payment has been processed</p>
@@ -30,37 +30,37 @@
     </div>
     <div class="bill">
         <div class="title-row greentext">
-                <p class="th-code">Code</p>
-                <p class="th-name">Name</p>
-                <p class="th-qty">Quantity</p>
-                <p class="th-price">Price</p>
-                <p class="th-subtotal">Subtotal</p>
+                <p class="div-code">Code</p>
+                <p class="div-name">Name</p>
+                <p class="div-qty">Quantity</p>
+                <p class="div-price">Price</p>
+                <p class="div-subtotal">Subtotal</p>
         </div>
         {% for item in order_items %}
             <div class="data-row data-row-1 greentext">
-                <div class="th-code div-code ">{{ item.product.code }}</div>
-                <div class="th-name div-name">{{ item.product.name }}</div>
-                <div class="th-qty div-qty">{{ item.quantity }}</div>
-                <div class="th-price div-price"> £{{ item.product.price }}</div>
-                <div class="th-subtotal div-subtotal">£{{ item.lineitem_total }}</div>    
+                <div class="div-code ">{{ item.product.code }}</div>
+                <div class="div-name">{{ item.product.name }}</div>
+                <div class="div-qty">{{ item.quantity }}</div>
+                <div class="div-price"> £{{ item.product.price }}</div>
+                <div class="div-subtotal">£{{ item.lineitem_total }}</div>    
             </div>
         {% endfor %}
     </div>
     <div >
       
         <div class="data-row data-row-2 greentext">
-            <p class="th-code"></p>
-            <p class="th-name"><strong>Delivery</strong></p>
-            <p class="th-qty"></p>
-            <p class="th-price"></p>
-            <p class="th-subtotal"><strong>£{{ order.shipping }}</strong></p>   
+            <p class="div-code"></p>
+            <p class="div-name"><strong>Delivery</strong></p>
+            <p class="div-qty"></p>
+            <p class="div-price"></p>
+            <p class="div-subtotal"><strong>£{{ order.shipping }}</strong></p>   
         </div>
         <div class="data-row data-row-2 greentext">
-            <p class="th-code"></p>
-            <p class="th-name"><strong>Total</strong></p>
-            <p class="th-qty"></p>
-            <p class="th-price"></p>
-            <p class="th-subtotal"><strong>£{{ order.grand_total }}</strong></p>
+            <p class="div-code"></p>
+            <p class="div-name"><strong>Total</strong></p>
+            <p class="div-qty"></p>
+            <p class="div-price"></p>
+            <p class="div-subtotal"><strong>£{{ order.grand_total }}</strong></p>
         </div>
         
     </div>

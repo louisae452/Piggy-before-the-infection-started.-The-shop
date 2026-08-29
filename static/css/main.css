@@ -428,19 +428,19 @@ table {
     color: var(--forest-green);
 }
 
-.th-code, .th-price, .th-subtotal {
+.div-code, .div-price, .div-subtotal {
     width: 70px;
 }
 
 
-.th-qty {
+.div-qty {
     width: 90px;
 }
 
-.th-img {
+.div-img {
     width: 70px;
 }
-.th-name {
+.div-name {
     width: 200px;
 }
 
@@ -461,11 +461,10 @@ table {
     justify-content: center;
     min-height: 70%;
 }
-.empty-bag h2 {
-    color: var(--purple);
-}
+
 .empty-bag a {
     justify-self: center;
+    
 }
 
 /* Profile page */
@@ -530,6 +529,11 @@ label {
 
 
 /* Success page */
+.invoice-container {
+    width: 95%;
+    display: grid;
+    justify-content:center;
+}
 .address {
     font-size: 0.5em;
     margin: 10px;
@@ -554,6 +558,10 @@ label {
     color: var(--forest-green);
     padding: 10px;
 
+}
+.invoice-btns {
+    display:flex;
+    align-items: center;
 }
 .align-center {
     text-align: center;
@@ -622,6 +630,9 @@ footer {
 }
 .align-left {
     text-align: left;
+}
+.align-center {
+    text-align: center;
 }
 .width-75 {
     width: 75px;
@@ -695,10 +706,10 @@ footer {
     .data-row-1 .th-code{
         padding-bottom: 10px;
     }
-    .data-row-2 .th-code,
-    .data-row-2 .th-img,
-    .data-row-2 .th-qty,
-    .data-row-2 .th-price {
+    .data-row-2 .div-code,
+    .data-row-2 .div-img,
+    .data-row-2 .div-qty,
+    .data-row-2 .div-price {
         display: none;
     }
     /* Checkout page */

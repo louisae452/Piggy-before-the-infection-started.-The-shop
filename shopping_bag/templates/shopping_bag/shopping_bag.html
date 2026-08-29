@@ -10,23 +10,23 @@
         <h2 class="padding-10"> Your shopping basket</h2>
         <div id="table-basket">
             <div class="title-row">
-                <p class="th-code">Code</p>
-                <p class="th-img"></p>
-                <p class="th-name">Name</p>
+                <p class="div-code">Code</p>
+                <p class="div-img"></p>
+                <p class="div-name">Name</p>
                 
-                <p class="th-qty">Quantity</p>
-                <p class="th-price">Price</p>
-                <p class="th-subtotal">Subtotal</p>
+                <p class="div-qty">Quantity</p>
+                <p class="div-price">Price</p>
+                <p class="div-subtotal">Subtotal</p>
             </div>
             {% for item in items %}
             <div class="data-row data-row-1">
-                <div class="th-code div-code ">
+                <div class="div-code ">
                     <a class="greentext" href="{% url 'products:productdetail' item.product.slug %}"> {{ item.product.code }}</a>
                 </div>
-                <div class="th-img div-img"><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </div>
-                <div class="th-name div-name">{{ item.product.name }}</div>
+                <div class="div-img"><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </div>
+                <div class="div-name">{{ item.product.name }}</div>
                 
-                <div class="th-qty div-qty">
+                <div class="div-qty">
                     <form id="bag-form" action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
                         {% csrf_token %}
                             <div class="quantity-box">
@@ -48,25 +48,25 @@
                             </div>
                         </form> 
                 </div>
-                <div class="th-price div-price"> £{{ item.product.price }}</div>
-                <div class="th-subtotal div-subtotal">£{{ item.subtotal }}</div>    
+                <div class="div-price"> £{{ item.product.price }}</div>
+                <div class="div-subtotal">£{{ item.subtotal }}</div>    
             </div>
             {% endfor %}
             <div class="data-row data-row-2">
-                <p class="th-code"></p>
-                <p class="th-img"></p>
-                <p class="th-name"><strong>Delivery</strong></p>
-                <p class="th-qty"></p>
-                <p class="th-price"></p>
-                <p class="th-subtotal"><strong>£{{ delivery }}</strong></p>   
+                <p class="div-code"></p>
+                <p class="div-img"></p>
+                <p class="div-name"><strong>Delivery</strong></p>
+                <p class="div-qty"></p>
+                <p class="div-price"></p>
+                <p class="div-subtotal"><strong>£{{ delivery }}</strong></p>   
             </div>
             <div class="data-row data-row-2">
-                <p class="th-code"></p>
-                <p class="th-img"></p>
-                <p class="th-name"><strong>Total</strong></p>
-                <p class="th-qty"></p>
-                <p class="th-price"></p>
-                <p class="th-subtotal"><strong>£{{ total }}</strong></p>
+                <p class="div-code"></p>
+                <p class="div-img"></p>
+                <p class="div-name"><strong>Total</strong></p>
+                <p class="div-qty"></p>
+                <p class="div-price"></p>
+                <p class="div-subtotal"><strong>£{{ total }}</strong></p>
             </div>
         </div>
     </div>
@@ -76,8 +76,8 @@
     </div>
 {% else %}
     <div class="empty-bag">
-        <h2>There are no items in your basket</h2>
-         <a href="{% url 'products:allproducts' %}" class="button btn-transparent btn-long">Continue shopping</a>
+        <h2 class="greentext align-center">There are no items in your basket</h2>
+         <a href="{% url 'products:allproducts' %}" class="button btn-green-transparent btn-long">Continue shopping</a>
     </div>
 {% endif %}
 </div>
