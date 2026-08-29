@@ -82,7 +82,7 @@ class Rating(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
                              null=True, blank=True)
-    rating = models.CharField(choices=STARS, blank=True, null=True)
+    rating = models.CharField(choices=STARS, blank=False, null=False)
     title = models.CharField(max_length=100, null=False)
     comment = models.TextField(null=False, blank=False)
     date = models.DateField(auto_now_add=True)

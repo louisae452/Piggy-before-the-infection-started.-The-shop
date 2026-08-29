@@ -6,13 +6,13 @@
     <div class="rating-form">
         <div class="rating-title">
             <img class="rating-img" src="{{ product.main_image.image.url }}">
-            <h2>{{ product.name }}</h2>
+            <h2 class="greentext">{{ product.name }}</h2>
         </div>
         <div class="ratings">
             <form method="post">
                 <div class="star-rating-container">
-                    <i id="star1"i class="fa-regular fa-star"></i>
-                    <i id="star2"i class="fa-regular fa-star"></i>
+                    <i id="star1" class="fa-regular fa-star"></i>
+                    <i id="star2" class="fa-regular fa-star"></i>
                     <i id="star3" class="fa-regular fa-star"></i>
                     <i id="star4" class="fa-regular fa-star"></i>
                     <i id="star5" class="fa-regular fa-star"></i>
@@ -20,7 +20,7 @@
                 </div>
                 {{ rating_form }}
                 {% csrf_token %}
-                <button type="submit" class="button btn-transparent">Save</button>
+                <button type="submit" class="button btn-green-transparent">Save</button>
             </form>
         </div>
     </div>

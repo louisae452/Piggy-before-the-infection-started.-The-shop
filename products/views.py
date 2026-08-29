@@ -100,10 +100,21 @@ def rate_product(request, slug):
     product = get_object_or_404(Product, slug=slug)
     if request.method == "POST":
         rating_form = RatingForm(data=request.POST)
+        stars = request.POST.get('rating')
+        if not stars or stars == "":
+            messages.error(request, 'Please select a star rating')
+            return render(
+                request,
+                "products/rate_product.html",
+                {
+                    'rating_form': rating_form,
+                    'product': product
+                }
+            )
         if rating_form.is_valid():
             rating = rating_form.save(commit=False)
             rating.product = product
-            rating.rating = request.POST.get('rating')
+            rating.rating = stars
             if request.user.is_authenticated:
                 rating.user = request.user
             else:
@@ -111,7 +122,9 @@ def rate_product(request, slug):
             rating.save()
             messages.success(request, 'Rating added successfully')
             return redirect('products:productdetail', slug=slug)
-    rating_form = RatingForm()
+        
+    else:        
+        rating_form = RatingForm()
     return render(
         request,
         "products/rate_product.html",
@@ -119,7 +132,8 @@ def rate_product(request, slug):
             'rating_form': rating_form,
             'product': product
         }
-    )
+        
+        )
 
 
 # View to update or delete review.

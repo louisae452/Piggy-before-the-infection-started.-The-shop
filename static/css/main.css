@@ -49,6 +49,7 @@ input {
     border-radius: 5px;
     color: var(--forest-green);
     background-color: var(--barely-there-pink);
+    padding-left: 5px;
 }
 
 
@@ -111,6 +112,15 @@ main {
     
     height: 100%;
 }
+.alert-box {
+    border: 2px solid var(--forest-green);
+    margin: 10px;
+    padding: 2px;
+    width: fit-content;
+    background-color: var(--barely-there-green);
+    border-radius: 5px;
+}
+
 .vertical-bar {
     background-color: var(--pink);;
     display: grid;
@@ -340,12 +350,7 @@ main {
     
     margin-left: 0px;
 }
-.ratings {
-    margin: 10px;
-    color: var(--forest-green);
-    padding: 10px;
-    
-}
+
 .rating-content {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -359,6 +364,21 @@ main {
     font-size: 0.75em;
 }
 /* Rating page */
+.rating-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ratings {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--forest-green);
+    padding: 10px;
+}
+textarea {
+     padding: 10px;
+}
 .rating-img {
     height: 50px;
     width: 50px;
