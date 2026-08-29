@@ -378,6 +378,8 @@ main {
 }
 textarea {
      padding: 10px;
+     border-color: var(--forest-green);
+     color: var(--forest-green);
 }
 .rating-img {
     height: 50px;

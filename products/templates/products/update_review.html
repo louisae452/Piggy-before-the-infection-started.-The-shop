@@ -6,7 +6,7 @@
     <div class="rating-form">
         <div class="rating-title">
             <img class="rating-img" src="{{ product.main_image.image.url }}">
-            <h2>{{ product.name }}</h2>
+            <h2 class="greentext">{{ product.name }}</h2>
         </div>
         <div class="ratings">
             <form method="post" id="updatereview">
@@ -21,8 +21,8 @@
                 </div>
                 {{ rating_form }}
                 {% csrf_token %}
-                <button type="submit" name="action" value="update" class="button btn-transparent">Update</button>
-                <button type="button" id = "deletereview" class="button btn-transparent">Delete</button>
+                <button type="submit" name="action" value="update" class="button btn-green-transparent">Update</button>
+                <button type="button" id = "deletereview" class="button btn-green-transparent">Delete</button>
             </form>
         </div>
         <div id="deletebox" class="deletebox">
