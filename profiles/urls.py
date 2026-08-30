@@ -10,4 +10,5 @@ urlpatterns = [
          name='orderhistory'),
     path('order-detail/<int:order_id>/', views.past_order_detail,
          name='pastorderdetail'),
+    path('password-changed/', views.password_success_redirect, name='passwordsuccess'),
 ]

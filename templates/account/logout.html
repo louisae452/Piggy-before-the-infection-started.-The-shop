@@ -1,20 +1,20 @@
-{% extends "base.html" %}
+{% extends "products/home.html" %}
 {% load static %}
 {% load allauth i18n %}
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
-{% block content %}
+{% block extracontent %}
 <div class="content-container">
     <div>
-        <h1 class="padding-10">{% trans "Sign Out" %}</h1>
-        <p class="padding-10">Are you sure you want to leave this site?</p>
+        <h1 class="padding-10 greentext">{% trans "Sign Out" %}</h1>
+        <p class="padding-10 greentext">Are you sure you want to leave this site?</p>
     </div>
     <div>
         <form class="padding-10" method="post" action="{% url 'account_logout' %}"> 
             {% csrf_token %}   
-            <button class="button margin-0" type="submit">{% trans "Log out" %}</button>
+            <button class="button btn-green-transparent margin-0" type="submit">{% trans "Log out" %}</button>
         </form>            
     </div>
 </div>
-{% endblock content %}
+{% endblock extracontent %}

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "products/home.html" %}
 {% load static %}
 {% load i18n %}
 {% load allauth account %}
@@ -7,23 +7,23 @@
     {% trans "Email Address" %}
 {% endblock head_title %}
 
-{% block content %}
+{% block extracontent %}
 
 <div class="content-container">
     <div>
-        <h1 class="">{% trans "Email Address" %}</h1>
+        <h1 class="padding-bottom-10 greentext">{% trans "Email Address" %}</h1>
         
         
     </div>
     <div>
         {% if user.emailaddress_set.all  %}
-            <p>{% trans "The following adresses are associated with your account" %}</p>
+            <p class="padding-bottom-10 greentext">{% trans "The following adresses are associated with your account" %}</p>
             <!-- Form written with AI help -->
             <form class="" method="post" action="{% url 'account_email' %}">
                 {% csrf_token %}
                 <div class="">
                     {% for emailaddress in user.emailaddress_set.all %}
-                    <div class="email-radio-row">
+                    <div class="email-radio-row2 ">
                         <input id="email_radio_{{ forloop.counter }}" type="radio" name="email"
                             {% if emailaddress.primary or user.emailadress_set.count == 1 %} checked="checked" {% endif %}
                             value="{{ emailaddress.email }}">
@@ -34,19 +34,19 @@
                     </div>
                     {% endfor %}
                     <div class="action-buttons">
-                        <button class="button"  type="submit" name="action_primary" formaction="{% url 'account_email' %}">{% trans "Make Primary" %}</button>
-                        <button class="button" type="submit" name="action_send" formaction="{% url 'account_email' %}">{% trans "Re-send Verification" %}</button>
-                        <button class="button" type="submit" name="action_remove" formaction="{% url 'account_email' %}">{% trans "Remove email" %}</button>
+                        <button class="button btn-green-transparent"  type="submit" name="action_primary" formaction="{% url 'account_email' %}">{% trans "Make Primary" %}</button>
+                        <button class="button btn-green-transparent" type="submit" name="action_send" formaction="{% url 'account_email' %}">{% trans "Re-send Verification" %}</button>
+                        <button class="button btn-green-transparent" type="submit" name="action_remove" formaction="{% url 'account_email' %}">{% trans "Remove email" %}</button>
                     </div>
                 </div>
             </form>
             <!-- End of AI help-->
         {% else %}
-            <p><strong>{% trans "Warning:" %}</strong>{% trans "You currently do not have any email address set up." %}</p>
+            <p class="padding-bottom-10 greentext"><strong>{% trans "Warning:" %}</strong>{% trans "You currently do not have any email address set up." %}</p>
         {% endif %}
     </div>
     <div>
-        <h2>{% trans "Add email address" %}
+        <h2 class="padding-bottom-10 greentext">{% trans "Add email address" %}</h2>
     </div>
     <div>
         <form method="post" action="{% url 'account_email' %}">
@@ -57,12 +57,12 @@
             <input type="email" name="email"  id="id_email" value="{{ new_emailaddress.email }}" required>
             
             <br>
-            <button class="button" name="action_add" type="submit">{% trans "Add Email" %}</button>
+            <button class="button btn-green-transparent" name="action_add" type="submit">{% trans "Add Email" %}</button>
         
         </form>
     </div>
 </div>
-{% endblock %}
+{% endblock extracontent %}
 
 
 

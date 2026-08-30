@@ -1,9 +1,16 @@
-{% extends "account/email/base_message.txt" %}
-{% load account %}
+
 {% load i18n %}
 
-{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktranslate with site_name=current_site.name site_domain=current_site.domain %}You're receiving this email because user {{ user_display }} has given your email address to register an account on {{ site_domain }}.{% endblocktranslate %}
+Dear {{ username }},
 
-{% if code %}{% blocktranslate %}Your email verification code is listed below. Please enter it in your open browser window.{% endblocktranslate %}
+{% trans "Thank you for registering an account with Piggy Before The Infection Started. The Shop!" %}
 
-{{ code }}{% else %}{% blocktranslate %}To confirm this is correct, go to {{ activate_url }}{% endblocktranslate %}{% endif %}{% endautoescape %}{% endblock content %}
+{% trans "Please, click on the link below to confirm your email address and activate your account." %}"
+
+{{ activate_url }}
+
+{% trans "If you did not create an account, please ignore this email." %}"
+
+{% trans "Thank you for registering," %}
+
+The Piggy Before The Infection Started. The Shop. Team.

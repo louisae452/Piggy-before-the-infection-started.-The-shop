@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 from .forms import UserForm, ProfileForm, EmailForm
 from .models import Profile
@@ -68,3 +69,13 @@ def past_order_detail(request, order_id, ):
             'order_items': order_items,
         }
     )
+
+### AI sort out in readme
+@login_required
+def password_success_redirect(request):
+    """
+    Intercepts allauth's post-password change loop and 
+    forces a clean redirect back to the profile page.
+    """
+    messages.success(request, 'Your password was successfully updated!')
+    return redirect('profiles:profile') 

@@ -18,8 +18,18 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from django.shortcuts import render
+
+
+def test_error_view(request):
+    return render(
+        request, 
+        "checkout/error.html", 
+        {"message": "This is a live visual test of the payment failure layout."}
+    )
 
 urlpatterns = [
+    path('test-error-page/', test_error_view, name='test_error_page'),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),
@@ -27,6 +37,7 @@ urlpatterns = [
     path('profile/', include('profiles.urls', namespace='profiles')),
     path('checkout/', include('checkout.urls', namespace='checkout')),
     path('', include('products.urls', namespace='products')),
+    
 ]
 
 # Allow django to serve local images while developing.

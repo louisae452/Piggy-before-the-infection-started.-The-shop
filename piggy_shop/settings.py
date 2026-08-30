@@ -145,13 +145,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = True
 
 ACCOUNT_LOGIN_METHODS = {'username', 'email'}
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 # Explicitly ensure messages are triggered on account actions
 ACCOUNT_ADAPTER = 'allauth.account.adapter.DefaultAccountAdapter'
-
+ACCOUNT_PASSWORD_CHANGE_REDIRECT_URL = 'profiles:passwordsuccess'
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 AUTHENTICATION_BACKENDS = [
@@ -243,5 +244,5 @@ LOGGING = {
 }
 
 DELIVERY_CHARGE = 4.99
-STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY', default='')
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY', default='')
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')

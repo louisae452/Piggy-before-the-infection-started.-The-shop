@@ -83,10 +83,7 @@ nav {
 .nav-links a {
     text-decoration: none;
 }
-.hamburger {
-    display:none;
-    cursor: pointer;
-}
+
 
 /* main */
 main {
@@ -119,6 +116,8 @@ main {
     width: fit-content;
     background-color: var(--barely-there-green);
     border-radius: 5px;
+    text-align: center;
+    color: var(--forest-green);
 }
 
 .vertical-bar {
@@ -242,6 +241,19 @@ main {
     right: 0;
     padding: 10px;
 }
+/* Allauth pages */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+input[type="radio"] {
+    accent-color: var(--forest-green);
+}
+.email-radio-row2 {
+    display: flex;
+    gap: 10px;
+}
+
 
 /* All products page */
 .products-container {
@@ -591,7 +603,7 @@ label {
 }
 .errors {
     margin: 10px;
-    border: 2px solid var(--purple);
+    border: 2px solid var(--forest-green);
     border-radius:5px;
     color: var(--purple);
     padding: 10px;
@@ -635,8 +647,14 @@ footer {
 .padding-bottom-10 {
     padding-bottom: 10px;
 }
+.padding-top-10 {
+    padding-top: 10px;
+}
 .margin-0 {
     margin: 0;
+}
+.margin-top-10 {
+    margin-top: 10px;
 }
 .purpletext{
     color: var(--purple);

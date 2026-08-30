@@ -1,4 +1,5 @@
 import stripe
+from django.urls import reverse
 from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
@@ -67,6 +68,8 @@ def checkout(request):
                     user.first_name = f_name
                     user.last_name = l_name
                     user.save()
+                    messages.success(request, "Personal information saved")
+                    
                 if address_form.cleaned_data.get('save_profile'):
                     try:
                         profile = Profile.objects.get(user=user)
@@ -79,9 +82,13 @@ def checkout(request):
                     profile.postcode = address_form.cleaned_data['postcode']
                     profile.country = address_form.cleaned_data.get('country')
                     profile.save()
-            messages.success(request, "Address saved")
+                    
+                    messages.success(request, "Address saved")
             try:
                 stripe_total = int(float(order.grand_total * 100))
+                base_success_url = request.build_absolute_uri(reverse('checkout:payment_success'))
+                base_cancel_url = request.build_absolute_uri(reverse('checkout:payment_cancel'))
+                
                 checkout_session = stripe.checkout.Session.create(
                     payment_method_types=['card'],
                     line_items=[{
@@ -97,8 +104,10 @@ def checkout(request):
                     mode='payment',
                     
                     # For localhost environment:
-                    success_url=f'http://localhost:8000/checkout/success/?session_id={{CHECKOUT_SESSION_ID}}&order_id={order.id}',
-                    cancel_url=f'http://localhost:8000/checkout/cancel/?order_id={order.id}',   
+                    #success_url=f'http://localhost:8000/checkout/success/?session_id={{CHECKOUT_SESSION_ID}}&order_id={order.id}',
+                    #cancel_url=f'http://localhost:8000/checkout/cancel/?order_id={order.id}',   
+                    success_url=f'{base_success_url}?session_id={{CHECKOUT_SESSION_ID}}&order_id={order.id}',
+                    cancel_url=f'{base_cancel_url}?order_id={order.id}',   
                 )
                 return redirect(checkout_session.url, code=303)
             except Exception as e:
@@ -178,9 +187,8 @@ def payment_success(request):
                 )
                 email.attach_alternative(html_message, "text/html")
                 
-                email.send()
-                
-            except Exception as email_error:
+                email.send() 
+            except Exception:
                 pass
                 
             if order.user:
@@ -204,7 +212,8 @@ def payment_success(request):
             order.status = 'failed'
             order.save()
             return render(
-                request, "checkout/error.html",
+                request, 
+                "checkout/error.html",
                 {
                     'message': 'Payment authorisation failed',
                 }
@@ -217,5 +226,14 @@ def payment_success(request):
                 'message': str(e),
             }
         )
+        
+def payment_cancel(request):
+    order_id = request.GET.get('order_id')
+    if order_id:
+        order = get_object_or_404(Order, id=order_id)
+        order.status = 'cancelled'
+        order.save()
+    messages.warning(request, "Your check out payment was cancelled")
+    return redirect('chekout:checkout')
       
         
