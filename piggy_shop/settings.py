@@ -74,6 +74,11 @@ INSTALLED_APPS = [
     'shopping_bag',
     'checkout',
 ]
+
+MIGRATION_MODULES = {
+    'django_summernote': None,
+}
+
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
