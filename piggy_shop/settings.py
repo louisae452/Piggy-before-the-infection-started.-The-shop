@@ -198,7 +198,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-WHITENOISE_ROOT = BASE_DIR / 'static'
+# WHITENOISE_ROOT = BASE_DIR / 'static'
 # Django 5.1/6.0+ replacement for the deprecated STATICFILES_STORAGE setting
 if DEBUG:
     # For local development:
