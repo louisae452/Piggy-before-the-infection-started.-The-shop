@@ -253,7 +253,11 @@ The following tests were carried out:
 
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
-|31/08/2026|Update button.| After logging in, navigate to a rating written by the user.|
+|31/08/2026|Update button.| After logging in, navigate to a rating written by the user. Click on the update button. Change some of the fields. Click on update.|The review is updated on the ratings section of the product.|Pass| |
+|31/08/2026|Delete button/ cancel.|After loggin in, navigate to a rating written by the user .Click on update. Click on delete. Cancel delete.| Delete is cancelled.|Pass| |
+|31/08/2026|Delete button/ delete.|After loggin in, navigate to a rating witten by the user. Click on update. Click on delete. Confirm delete.|The review is deleted. Product page loads with success message.|Pass| |
+|3108/2026|Unauthorised user.|After logging in, navigate to a rating written by the user. Click on the update button. Copy the url address. Log out. Paste the url address onto a new browser page.|403 error displays.|Pass|  |
+
 
 
 
