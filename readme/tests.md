@@ -259,6 +259,15 @@ The following tests were carried out:
 |3108/2026|Unauthorised user.|After logging in, navigate to a rating written by the user. Click on the update button. Copy the url address. Log out. Paste the url address onto a new browser page.|403 error displays.|Pass|  |
 
 
+#### Shopping basket.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Empty basket|Log onto the site. Before adding any items, click on the shopping basket button on the main navigation bar.|Empty basket page displays.|Pass| |
+|31/08/2026|Empty basket continue shopping button|On the empty basket page, click on continue shopping button.|All products page loads.|Pass| |
+|31/08/2026|
+
+
 
 
 

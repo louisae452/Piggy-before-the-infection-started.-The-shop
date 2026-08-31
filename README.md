@@ -108,6 +108,25 @@ The main area of the homepage is divided into four completely customisable secti
 
 The videos in the vertical section on the other pages will be controlled by their respective models.
 
+
+## Models and views.
+
+This is the entity relationship diagram of the models used in this project. The different colour areas show how the models are distributed through the different appications.
+
+![erd](readme/images/erd.jpg)
+
+The product app contains all the models related to the products. This includes the Product model for all the different products and its associated models, Category and Group to divide the different groups of products, Image to contain the product images, Href to contain the links to information about the product character in wikipedia, Video for the suggested videos featuring the character and the Rating modiel for reviews of the products. It also contains The Homepage model with the information that will be shown in the homepage and its associated HomepageImage model.
+
+The shopping_bag app contains the ShoppingBasket and ShopItems models, while checkout contains the Order and OrderLineItem models.
+
+The profiles app contains the Profile model as well as he PasswordResetLog model to record password changes as required by legal regulations.
+
+
+
+
+
+
+
 ## Issues.
 
 The email confirming the order was successfully processed currently ends up in the recipient's junk email. This is probably due to the fact that the email content is business based while the sender's email has been registered as a personal email address.
