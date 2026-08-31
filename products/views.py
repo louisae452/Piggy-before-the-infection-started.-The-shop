@@ -79,7 +79,7 @@ def product_detail(request, slug):
         rating_average = round(average['rating_avg'], 1)
     else:
         rating_average = 0
-    paginator = Paginator(ratings, 4)
+    paginator = Paginator(ratings, 2)
     page_number = request.GET.get('page')
     ratings_page = paginator.get_page(page_number)
     return render(
