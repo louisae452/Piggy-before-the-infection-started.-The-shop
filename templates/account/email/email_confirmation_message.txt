@@ -1,7 +1,7 @@
 
 {% load i18n %}
 
-Dear {{ username }},
+Dear {{ user_display }},
 
 {% trans "Thank you for registering an account with Piggy Before The Infection Started. The Shop!" %}
 

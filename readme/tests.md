@@ -142,4 +142,17 @@ The following tests were carried out:
 |31/08/2026|New user registers with already registered email address|In register page, fill the email with an already existing email address. Fill the other fields and Register.| Verify your email address page loads with message. An email is sent to the email address. The email advises the email address is already in use and prompts the user to follow forgotten password protocol if needed.The link leads to password reset link.|Pass| |
 
 
+##### Sign in page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Sign in page loads|Navigate to site. Click on Log in  button|Sign in  page loads|Pass| |
+|31/08/2026|Register link in sign in page|On sign in page, click on register link.|Register page loads.|Pass| |
+|31/08/2026|Registered user log in|On sign in page, fill in fields for a registered, verified user and sign in.|Home page loads with success message. Navigator bar shows Account and Log out buttons.|Pass| |
+|31/08/2026|Unverified user log in|On sign in page, fill in fields for a registered, unverified user and sign in.|Verify your email address page loads with confirmation email sent message. User receives a verify your email address message.|Pass| |
+|31/08/2026|Wrong username|On sign in page, fill in username with a wrong username and right password. Sign in.|Sign in page reloads.|Pass| |
+|31/08/2026|Wrong password|On sign in page, fill in correct username with a wrong password.|Sign in page reloads.|Pass| |
+
+
+
 
