@@ -35,7 +35,7 @@
                 <h1>{{ homepage.top_left_title }}</h1>
                 {% endif %}
                 {% if homepage.top_left_button %}
-                <a class="button btn-green" {% if homepage.top_left_href %}href="{{ homepage.top_left_href.get_url }}"{% else %}href=""{% endif %}>
+                <a class="button btn-green" {% if homepage.top_left_href %}href="{{ homepage.top_left_href }}"{% else %}href=""{% endif %}>
                     {{ homepage.top_left_button }}
                 </a>
                 {% endif %}
@@ -49,20 +49,20 @@
                 <h1>{{ homepage.top_right_title }}</h1>
                 {% endif %}
                 {% if homepage.top_right_button %}
-                <a class="button btn-green" {% if homepage.top_right_href %}href="{{ homepage.top_right_href.get_url }}"{% else %}href=""{% endif %}>
+                <a class="button btn-green" {% if homepage.top_right_href %}href="{{ homepage.top_right_href }}"{% else %}href=""{% endif %}>
                     {{ homepage.top_right_button }}
                 </a>
                 {% endif %}
             </div>
         </div>
         <div class="homeblock" id="bottom-left">
-            <img {% if homepage.bottom_left.image %}src="{{ homepage.bottom_left.image.url }}"{% else %}href=""{% endif %}>
+            <img {% if homepage.bottom_left.image %}src="{{ homepage.bottom_left.image.url }}"{% else %}href="#"{% endif %}>
             <div class="homeblock-adds">
                 {% if homepage.bottom_left_title %}
                 <h1>{{ homepage.bottom_left_title }}</h1>
                 {% endif %}
                 {% if homepage.bottom_left_button %}
-                <a class="button btn-green" {% if homepage.bottom_left_href %}href="{{ homepage.bottom_left_href.get_url }}"{% else %}href=""{% endif %}>
+                <a class="button btn-green" {% if homepage.bottom_left_href %}href="{{ homepage.bottom_left_href }}"{% else %}href="#"{% endif %}>
                     {{ homepage.bottom_left_button }}
                 </a>
                 {% endif %}
@@ -78,7 +78,7 @@
                 <h1>{{ homepage.bottom_right_title }}</h1>
                 {% endif %}
                 {% if homepage.bottom_right_button %}
-                <a class="button btn-green" {% if homepage.bottom_right_href %}href="{{ homepage.bottom_right_href.get_url }}"{% else %}href=""{% endif %}>
+                <a class="button btn-green" {% if homepage.bottom_right_href %}href="{{ homepage.bottom_right_href }}"{% else %}href=""{% endif %}>
                     {{ homepage.bottom_right_button }}
                 </a>
                 {% endif %}
