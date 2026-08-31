@@ -148,10 +148,46 @@ The following tests were carried out:
 |:--|:--|:--|:--|:--|:--|
 |31/08/2026|Sign in page loads|Navigate to site. Click on Log in  button|Sign in  page loads|Pass| |
 |31/08/2026|Register link in sign in page|On sign in page, click on register link.|Register page loads.|Pass| |
-|31/08/2026|Registered user log in|On sign in page, fill in fields for a registered, verified user and sign in.|Home page loads with success message. Navigator bar shows Account and Log out buttons.|Pass| |
+|31/08/2026|Registered user log in|On sign in page, fill in fields for a registered, verified user and sign in.|Home page loads with success message. Main navigator bar shows Account and Log out buttons.|Pass| |
 |31/08/2026|Unverified user log in|On sign in page, fill in fields for a registered, unverified user and sign in.|Verify your email address page loads with confirmation email sent message. User receives a verify your email address message.|Pass| |
 |31/08/2026|Wrong username|On sign in page, fill in username with a wrong username and right password. Sign in.|Sign in page reloads.|Pass| |
 |31/08/2026|Wrong password|On sign in page, fill in correct username with a wrong password.|Sign in page reloads.|Pass| |
+|31/08/2026|Forgotten password|On sign in page, click on forgot your password.|Password reset loads. On filling the email address and clicking on Reset my password, Password reset email sent loads. The user receives an email prompting them to change their password. On clicking on the link, the user is directed to the change password page. On choosing a new password, change password loads with success message. The change of password is logged in the Password Reset Log model.|Pass| |
+
+##### Log out page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026| Sign out page loads|Navigate to site. While loggef in, click on Log out button|Sign out   page loads. On clicking on log out button, home page loads with success button. Log in and register buttons appear on main navigator bar.|Pass| |
+
+
+#### Home page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Home button|On any page, click on the home button on the main navigator bar.|Home page loads.|Pass| |
+
+##### Home navigator.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|All products button|On any page, click on all products button.|All products page loads.|Pass| |
+|31/08/2026|Plushes button|On any page, click on plushes button.|Plushes page loads.|Pass| |
+|31/08/2026|3d prints button|On any page, click on 3d prints button.|Prints page loads.|Pass| |
+
+##### Vertical bar.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Video 1 link|On any page, click on the top video in the vertical bar.|Video loads on a new window.|Pass| |
+|31/08/2026|Video 2 link|On any page, click on the bottom video in the vertical bar.|Video loads on a new window.|Pass| |
+
+##### Main panels.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Top left panel|On home page, click on the button on the top left panel|Page gets redirected as indicated in the button|Pass|| |
+|23/08/2026|Top right panel|On home page, click on the button on the top right panel|Page gets redirected as indicated in the button|Pass| |
 
 
 
