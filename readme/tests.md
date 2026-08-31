@@ -218,3 +218,25 @@ The following tests were carried out:
 |31/08/2026|Pagination. Previous button.|On prints page 2, click on previous page link.|Page 1 loads.|Pass| |
 |31/08/2026|Pagination. Last button.|On prints page 1, click on last page.|Last page loads.|Pass| |
 |31/08/2026|Pagination. First button|On prints last page, click on first page|Page 1 loads.|Pass| |
+
+#### Product page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Change main image|On product page, click on one of the smaller images.|The smaller image shows in the main image display.|Pass| |
+|31/08/2026|See large image link|On product page, click on see large image link.|The image in the main image display opens in a new window.|Pass| |
+|31/08/2026|See character link.|On product page, click on see character link.|Character's link in wikipediea opens in new window.|Pass| |
+|31/08/2026|Be first to rate this product link|On product page, click on Be the first to rate this product link if available|Rate page loads.|Pass| |
+|31/08/2026|Quantity arrow up|On product page, click the up arrow.|Quantity goes up by 1|Pass| |
+|31/08/2026|Quantity arrow down|On product page, click on the down arrow.|Quantity goes down by 1 until the quantiy is 1.|Pass| |
+|31/08/2026|Add to bag button|On product page, click on add to bag button.|The product is added to the basket. The quantity on the basket button on the main navigator bar goes up by the required amount|Pass| |
+|31/08/2026|Be the first to rate this product button.|On producy page, click on be the first to rate this product if available.|Rate product page loads.|Pass| |
+|31/08/2026|Rate this product button|On product page, click on rate this product button if available.|Rate page loads.|Pass| |
+|31/08/2026|Update button.|Log into the site. On the product page for a products you have rated, click on update button.|Only the user's ratings show the update button. When update is clicked on, update rating page loads.|Pass| |
+|31/08/2026|Pagination. Next button.|On ratings section page 1, click on next page link.|Page 2 loads.|Pass| |
+|31/08/2026|Pagination. Previous button.|On ratings section page 2, click on previous page link.|Page 1 loads.|Pass| |
+|31/08/2026|Pagination. Last button.|On ratings section page 1, click on last page.|Last page loads.|Pass| |
+|31/08/2026|Pagination. First button|On ratings section last page, click on first page|Page 1 loads.|Pass| |
+
+
+
