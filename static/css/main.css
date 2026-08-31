@@ -40,6 +40,10 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-decoration: none;
+}
+.btn-long {
+    width:100px;
 }
 form {
     color: var(--forest-green);
@@ -661,6 +665,9 @@ footer {
 }
 .greentext {
     color: var(--forest-green);
+}
+.dkpurpletext {
+    color: var(--dark-purple);
 }
 .no-decoration {
     text-decoration: none;
