@@ -238,5 +238,25 @@ The following tests were carried out:
 |31/08/2026|Pagination. Last button.|On ratings section page 1, click on last page.|Last page loads.|Pass| |
 |31/08/2026|Pagination. First button|On ratings section last page, click on first page|Page 1 loads.|Pass| |
 
+#### Rate page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Star rating required|On a rate page, add a title and a comment. Clik on save.|Page reloads wiht message to add a star rating.|Pass| |
+|31/08/2026|Title required| On a rate page, add a star rating and a comment. Click on save.|A prompt to fill the title appears.|Pass| |
+|31/08/2026|Comment required.|On a rate page, add a star rating and a title. Click on save.|A prompt to fill the comment appears.|Pass| |
+|31/08/2026|Logged in user rating save.|After signing in, on a rate page, add a star rating, a title and a comment. Click on save.|Rating is saved. Rating appears in rating area of product image with user name.|Pass| |
+|31/08/2026|Guest user rating save.|Without signing in, on a rate page, add a star rating, a title and a comment. Click on save.|Rating is saved. Rating appears in rating area of product image credited to guest user.|Pass| |
+
+
+#### Update rating page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Update button.| After logging in, navigate to a rating written by the user.|
+
+
+
+
 
 
