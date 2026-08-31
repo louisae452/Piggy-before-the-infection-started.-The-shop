@@ -66,8 +66,8 @@
         {% else %}
             <a href="{% url 'products:rateproduct' product.slug  %}">Be the first to rate this product</a>
         {% endif %}
-        {% if product.character_link.url_name %}
-            <a href="{{ product.character_link.url }}" target="_blank" rel="noopenenr noreferrer">See character</a>
+        {% if product.character_link %}
+            <a href="{{ product.character_link.url_name }}" target="_blank" rel="noopener noreferrer">See character</a>
         {% endif %}
         <p>{{ product.description|safe }}</p>
         <p>£{{ product.price }}</p>
