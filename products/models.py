@@ -37,7 +37,7 @@ class Video(models.Model):
 
 class Href(models.Model):
     name = models.CharField(max_length=100)
-    url_name = models.URLField(max_length=225)
+    url_name = models.CharField(max_length=500)
 
     def __str__(self):
         return self.name
