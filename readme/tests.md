@@ -123,4 +123,23 @@ The following tests were carried out:
 |26/08/2026|update_bag|New quantity is saved|Pass||
 
 
+### Manual testing.
+
+#### Authentiction.
+
+##### Register page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Register page loads|Navigate to site. Click on Register button|Register page loads|Pass| |
+|31/08/2026|log in link on register page works|In register page, click on log in link|Log in page loads|Pass| |
+|31/08/2026|Register account|In register page, fill in fields with suitable information.|Verify your email address page loads with sent email message. Admin panel shows email address as unverified. Email is sent to user with a link to verify password. Link leads to verify password link. On clicking, log in page loads with success message. Email address appears as verified in admin panel|Pass| |
+|31/08/2026|No username|In register page, fill in all fields except username. Click on register.|User is prompted to fill username field|Pass| |
+|31/08/2026|No email address|In register page, fill in all fields except email. Click on register.|User is prompted to fill email field.|Pass| |
+|31/08/2026|No password|In register page, fill in all fields except password. Click on register. |User is prompted to fill password field.|Pass| |
+|31/08/2026|Password does not match|In register page, fill the fields. Ensure the confirm password field does not match the original password.|The register page loads again with the filled in username and email.|Pass| |
+|31/08/2206|New user registers with an already registered username|In register page, fill in user name with an already existing user's username. Fill in the rest of the fields and save.|A user with that user name already exists message apperars|Pass| |
+|31/08/2026|New user registers with already registered email address|In register page, fill the email with an already existing email address. Fill the other fields and Register.| Verify your email address page loads with message. An email is sent to the email address. The email advises the email address is already in use and prompts the user to follow forgotten password protocol if needed.The link leads to password reset link.|Pass| |
+
+
 
