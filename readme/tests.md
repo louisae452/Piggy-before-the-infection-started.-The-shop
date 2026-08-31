@@ -189,6 +189,32 @@ The following tests were carried out:
 |31/08/2026|Top left panel|On home page, click on the button on the top left panel|Page gets redirected as indicated in the button|Pass|| |
 |23/08/2026|Top right panel|On home page, click on the button on the top right panel|Page gets redirected as indicated in the button|Pass| |
 
+#### All products page.
 
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Product link|On all products page, click on a link for a product.|Product page loads.|Pass| |
+|31/08/2026|Pagination. Next button.|On all products page 1, click on next page link.|Page 2 loads.|Pass| |
+|31/08/2026|Pagination. Previous button.|On all products page 2, click on previous page link.|Page 1 loads.|Pass| |
+|31/08/2026|Pagination. Last button.|On all products page 1, click on last page.|Last page loads.|Pass| |
+|31/08/2026|Pagination. First button|On all products last page, click on first page|Page 1 loads.|Pass| |
 
+#### Plushes page.
 
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Product link|On plushes page, click on a link for a product.|Product page loads.|Pass| |
+|31/08/2026|Pagination. Next button.|On plushes page 1, click on next page link.|Page 2 loads.|Pass| |
+|31/08/2026|Pagination. Previous button.|On plushes page 2, click on previous page link.|Page 1 loads.|Pass| |
+|31/08/2026|Pagination. Last button.|On plushes page 1, click on last page.|Last page loads.|Pass| |
+|31/08/2026|Pagination. First button|On plushes last page, click on first page|Page 1 loads.|Pass| |
+
+#### Prints page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|31/08/2026|Product link|On prints page, click on a link for a product.|Product page loads.|Pass| |
+|31/08/2026|Pagination. Next button.|On prints page 1, click on next page link.|Page 2 loads.|Pass| |
+|31/08/2026|Pagination. Previous button.|On prints page 2, click on previous page link.|Page 1 loads.|Pass| |
+|31/08/2026|Pagination. Last button.|On prints page 1, click on last page.|Last page loads.|Pass| |
+|31/08/2026|Pagination. First button|On prints last page, click on first page|Page 1 loads.|Pass| |
