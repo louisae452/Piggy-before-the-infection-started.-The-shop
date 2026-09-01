@@ -323,7 +323,15 @@ The following tests were carried out:
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
 |01/09/2026|Pagelloads|Log on to the site. Click on the account button on the main navigator bar|Profilee page loads with uses's saved information|Pass| |
-|01/-9/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Page loads with new information. No success message.|Fail|Add success message|
+|01/09/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Page loads with new information. No success message.Fail|Add success message|
+|01/09/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Pass| |
+|01/09/2026|Change shipping information.|Log on to site. Navigate to profile page. Add or change shipping information. Click on update button.|Page reloads with new information and success message.|Pass| |
+|01/09/2026|Change password button|Log onto the site and navigate to profile page. Click on change password button.|Change password page loads.|Pass| |
+
+
+
+
+
 
 
 

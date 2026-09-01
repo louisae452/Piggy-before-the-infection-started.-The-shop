@@ -248,7 +248,7 @@ LOGGING = {
         },
     },
 }
-
+ACCOUNT_ADAPTER = 'profiles.adapters.CustomAccountAdapter'
 DELIVERY_CHARGE = 4.99
 STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')

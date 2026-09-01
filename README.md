@@ -151,11 +151,15 @@ The following features were developed using AI assistance:
 
 - Profiles app: PasswordResetLog model to comply with legal requirements referring to use of forgotten password feature.
 
+- Profiles app: Adapter to redirect allauth change_password template to profile page.
+
 - Shopping_bag app : Signals to merge anonymous and logged-in user shopping baskets.
 
 - Shopping_bag app: Helper function to retrieve or create basket.
 
 - settings.py: Code to record reset password requests for Heroku loggins.
+
+
 
 ## Frameworks, packages and libraries.
 
