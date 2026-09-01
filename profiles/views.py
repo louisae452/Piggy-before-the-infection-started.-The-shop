@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from allauth.account.views import EmailView
+from django.urls import reverse
 from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 from .forms import UserForm, ProfileForm, EmailForm
@@ -76,12 +77,16 @@ def past_order_detail(request, order_id, ):
 # View to redirect allauth email template after adding a new email.
 class CustomEmailView(EmailView):
     def post(self, request, *args, **kwargs):
-        # 1. Run Allauth's normal validation and saving logic
+        # 1. Instantiate the form classes using Allauth's built-in methods
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        
+        # 2. Run Allauth's normal view post logic
         response = super().post(request, *args, **kwargs)
         
-        # 2. If they clicked "Add Email" and the form was valid, send them to the profile
-        if "action_add" in request.POST and not self.get_form().errors:
+        # 3. Securely check if "Add Email" was clicked and the form passed validation
+        if "action_add" in request.POST and form.is_valid():
             return redirect(reverse('profiles:profile'))
             
-        # 3. For all other actions, use standard Allauth behavior
+        # 4. Fallback to normal behavior for making primary, removing, or if errors occur
         return response
