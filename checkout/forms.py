@@ -5,8 +5,9 @@ from .models import Order
 
 class UserForm(forms.ModelForm):
     save_name = forms.BooleanField(required=False, initial=False, label='Save name to my profile')
-
+    required_css_class = 'required'
     class Meta:
+        
        
         model = User
         fields = ('first_name', 'last_name',)
@@ -20,7 +21,7 @@ class UserForm(forms.ModelForm):
         
 class OrderForm(forms.ModelForm):
     save_profile = forms.BooleanField(required=False, initial=False, label='Save address to my profile')
-    
+    required_css_class = 'required'
     class Meta:
         model = Order
         fields = ('phone_number', 'email', 'street_address1', 'street_address2', 'town', 'postcode', 'country',)

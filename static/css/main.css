@@ -540,6 +540,11 @@ label {
 .btn-long {
     width: 200px;
 }
+.required label::after {
+    content: "*";
+    color: var(--forest-green);
+
+}
 .checkout-form {
     display: grid;
     grid-template-columns: 30% 30% 30%;

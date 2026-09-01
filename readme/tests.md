@@ -259,7 +259,7 @@ The following tests were carried out:
 |3108/2026|Unauthorised user.|After logging in, navigate to a rating written by the user. Click on the update button. Copy the url address. Log out. Paste the url address onto a new browser page.|403 error displays.|Pass|  |
 
 
-#### Shopping basket.
+#### Shopping basket page.
 
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
@@ -274,10 +274,55 @@ The following tests were carried out:
 |01/09/2026|Proceed to checkout button.|On a populated basket page, click on proceed to to checkout button.|Checkout page loads.|
 |01/09/2026|Continue shopping.|On a populated basket page, click on continue shopping button.|All products page loads.|Pass| |
 
+#### Checkout page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|01/09/2026|Back to shopping basket button.|Add some items to the basket and navigate to the checkout page. Click on Back to shopping basket button.|Shopping basket page loads.|Pass| |
+|01/09/2026|Guest check out.|Without logging in, add some items to the basket and navigate to the checkout page. Fill in the fields with suitable information and click on proceed to secure Payment button.|Stripe page loads.|Pass|  |
+|01/09/2026|First name missing |Add some items to the basket and navigate to the checkout page. Fill in all the required fields except First name. Click on proceed to checkout button.|A prompt to fill in the first name appears.|Pass| |
+|01/09/2026|Last name missing.|Add some items to the basket and navigate to the checkout page. Fill in all the required fields except Last name. Click on proceed to checkout button.|A prompt to fill in the last name appears.|Pass| |
+|01/09/2026|email missing.|Add some items to the basket and navigate to the checkout page. Fill in all the required fields except email. Click on proceed to checkout button.|A prompt to fill in the last email appears.|Pass| |
+|01/09/2026|Street address 1 missing.|Add some items to the basket and navigate to the checkout page. Fill in all the required fields except street address 1. Click on proceed to checkout button.|A prompt to fill in street address 1 appears.|Pass| |
+|01/09/2026|Town missing.|Add some items to the basket and navigate to the checkout page. Fill in all the required fields except town. Click on proceed to checkout button.|A prompt to fill in the town appears.|Pass| |
+|01/09/2026|Postcode missing.|Add some items to the basket and navigate to the checkout page. Fill in all the required fields except postcode. Click on proceed to checkout button.|A prompt to fill in the last postcode appears.|Pass| |
+|01/09/2026|Log in on page.| Add some items to the basket and navigate to the checkout page. Click on log in button and log in.|The checkout page loads in with saverd profile information.|Pass|  |
+|01/09/2026|Deliver to a different address|Add some items to the basket  and navigate to the checkout page. Log in. Change the address the order is delivered to. Do not click on save address to my profile. Proceed to checkout.|Order is recorded with new address. Address on user's profile remains unchanged.|Pass| |
+|01/09/2026|Save profile information.|Add some items to the basket  and navigate to the checkout page. Log in as a user with no profile. Fill in the form with the required fields. Click on save name and save address to my profile. Proceed to checkout.|Order is recorded. Information is saved on user's profile is.|Pass| |
+|01/09/2026|Deliver to a different address and change address on profile|Add some items to the basket  and navigate to the checkout page. Log in. Change the address the order is delivered to. Click on save address to my profile. Proceed to checkout.|Order is recorded with new address. Address on user's profile is changed.|Pass| |
+|01/09/2026|Change name on profile|Add some items to the basket  and navigate to the checkout page. Log in. Change the name the order is delivered to. Click on save save to my profile. Proceed to checkout.|Order is recorded with new address. Address on user's profile is changed.|Pass| |
 
 
 
 
 
 
+
+
+
+
+
+
+#### Stripe page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|01/09/2026|Payment goes through.|Add some items to the basket. Navigate to the checkout page and fill the form with suitable information.Click on proceed to secure payment button. On Stripe page,fill in the tester credit card information. Click on pay.|Thank you for your order page loads . An email is sent to inform the usesr the order has been successful. A new record is created in the Order model.|Pass|  |
+
+
+#### Thank you page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|01/09/2026|Print invoice button|Add some items to the basket and proceed to checkout. On the thank you for your order page, click on print invoice button.|The printer page on your device loads ready to print the invoice.|Pass| |
+|01/09/2026|Continue shopping button.|Add some items to the basket and proceed to checkout. On the thank you for your order page, click on continue shopping button.|All products page loads.|
+
+
+
+
+### User experience.
+
+|Date|Issue|Template|View/Form|Action taken|
+|:--|:--|:--|:--|:--|
+|01/09/2026|It is not clear which fields are required.|checkout/checkout.html|checkout:UserForm, checkout:OrderForm|Added required class to forms.|
 
