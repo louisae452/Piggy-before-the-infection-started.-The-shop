@@ -327,6 +327,10 @@ The following tests were carried out:
 |01/09/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Pass| |
 |01/09/2026|Change shipping information.|Log on to site. Navigate to profile page. Add or change shipping information. Click on update button.|Page reloads with new information and success message.|Pass| |
 |01/09/2026|Change password button|Log onto the site and navigate to profile page. Click on change password button.|Change password page loads.|Pass| |
+|01/09/2026|Change password.|Log onto site and navigate to profile page. Click on change password button. Enter current and new passwords. Click on change passoword|Profile page loads with success message.|Change password loads again with no message.Fail.|Add adapter to redirect change_password to profile page.|
+|01/09/2026|Change password.|Log onto site and navigate to profile page. Click on change password button. Enter current and new passwords. Click on change passoword|Profile page loads with success message.|Pass||
+|01/09/2026|change email button|Log onto site and navigate to profile page. Click onchange email button.|email address page loads.|Pass| |
+|01/09/2026|Add new email address|Log onto site and navigate to profile page. Click on change email buton. Add a new email address and click on add email.|Profile page loads with confirmation email sent message.|Email address reloads with confirmation message.Fail|Add redirect to profiles.adapter|
 
 
 
@@ -340,4 +344,5 @@ The following tests were carried out:
 |Date|Issue|Template|View/Form|Action taken|
 |:--|:--|:--|:--|:--|
 |01/09/2026|It is not clear which fields are required.|checkout/checkout.html|checkout:UserForm, checkout:OrderForm|Added required class to forms.|
+|01/09/2026|Change password template redirects back to itself after saving new password.|allauth change_password.html|---|Add adapter to redirect template back to profile template.|
 
