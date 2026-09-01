@@ -1,9 +1,9 @@
-from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from django.test import Client, TestCase
 from django.urls import reverse
-from .models import Profile
 from checkout.models import Order, OrderLineItem
-from products.models import Product, Category, Group
+from products.models import Category, Group, Product
+from .models import Profile
 
 
 class TestProfile(TestCase):
@@ -75,6 +75,7 @@ class TestProfile(TestCase):
         self.assertEqual(self.profile.street_address1, '3 Mapple Avenue')
         self.assertEqual(self.profile.town, 'Doveport')
         self.assertEqual(self.profile.postcode, 'DO6 1PN')
+
 
 class TestOrderHistory(TestCase):
     """Tests order_history"""
@@ -229,4 +230,3 @@ class TestPastOrderDetail(TestCase):
         self.client.login(username='philip204', password='password1')
         response = self.client.get(self.invalid_order_url)
         self.assertEqual(response.status_code, 404)
-

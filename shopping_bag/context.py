@@ -5,6 +5,21 @@ from .models import ShoppingBasket
 
 
 def bag_contents(request):
+    """
+    Makes shopping basket details available across the site.
+    ***Context**
+    ``items``
+        a dictionary list of instances of :model:`proucts.Product`
+    ``items_total``
+        the cost of all the items in the basket
+    ``total``
+        the cost of all the items in the basket plus the delivery cost.
+    ``product_count``
+        the total number of items in the basket
+    ``delivery``
+        the cost of delivery.
+    """
+
     items = []
     total = 0
     items_total = Decimal('0.00')

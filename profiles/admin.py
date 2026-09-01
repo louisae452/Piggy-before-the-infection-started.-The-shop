@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Profile, PasswordResetLog
+from .models import PasswordResetLog, Profile
 
 
 @admin.register(Profile)
@@ -7,9 +7,8 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'country')
     search_fields = ('user__username', 'user__email')
 
+
 # Code generated with AI to record password reset requests.
-
-
 @admin.register(PasswordResetLog)
 class PasswordResetLogAdmin(admin.ModelAdmin):
     list_display = ('requested_email', 'ip_address', 'timestamp')

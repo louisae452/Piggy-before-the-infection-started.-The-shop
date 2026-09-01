@@ -15,26 +15,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.contrib import admin
-from django.urls import path, include
 from django.conf.urls.static import static
-
-
-
-
+from django.contrib import admin
+from django.urls import include, path
 
 urlpatterns = [
-    
-    path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
-    path('summernote/', include('django_summernote.urls')),
-    path('shopping-bag/', include('shopping_bag.urls', namespace='shopping_bag')),
-    path('profile/', include('profiles.urls', namespace='profiles')),
+    path('admin/', admin.site.urls),
     path('checkout/', include('checkout.urls', namespace='checkout')),
+    path('profile/', include('profiles.urls', namespace='profiles')),
+    path(
+        'shopping-bag/',
+        include('shopping_bag.urls', namespace='shopping_bag')
+    ),
+    path('summernote/', include('django_summernote.urls')),
     path('', include('products.urls', namespace='products')),
-    
 ]
 
 # Allow django to serve local images while developing.
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(
+        settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

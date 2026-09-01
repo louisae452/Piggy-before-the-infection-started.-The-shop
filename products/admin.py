@@ -1,6 +1,16 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Category, Group, Product, Image, Video, Rating, Homepage, HomepageImage, Href
+from .models import (
+    Category,
+    Group,
+    Product,
+    Image,
+    Video,
+    Rating,
+    Homepage,
+    HomepageImage,
+    Href
+)
 
 # Products models
 

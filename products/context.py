@@ -13,7 +13,7 @@ def vertical_bar_videos(request):
             product = Product.objects.filter(
                 slug=match.kwargs['slug']).prefetch_related('videos').first()
             if product:
-                 # Slice to get max 2 videos
+                # Slice to get max 2 videos
                 product_videos = list(product.videos.all()[:2])
                 if len(product_videos) >= 1:
                     video_1 = product_videos[0]

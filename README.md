@@ -151,6 +151,8 @@ The following features were developed using AI assistance:
 
 - Profiles app: PasswordResetLog model to comply with legal requirements referring to use of forgotten password feature.
 
+- Profiles app: EmailForm form to require password to change the email address.
+
 - Profiles app: Adapter to redirect allauth change_password template to profile page.
 
 - Shopping_bag app : Signals to merge anonymous and logged-in user shopping baskets.

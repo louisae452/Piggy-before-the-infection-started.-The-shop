@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
-from .models import ShoppingBasket, ShopItems
-from products.models import Product, Category, Group
+from products.models import Category, Group, Product
+from .models import ShopItems, ShoppingBasket
 
 
 class TestShoppingBag(TestCase):
@@ -70,7 +70,9 @@ class TestAddToBag(TestCase):
         self.assertRedirects(response, current_page_url)
 
     def test_add_to_bag_new_item(self):
-        """Tests a new ShopItems record is created when a new product is added"""
+        """
+        Tests a new ShopItems record is created when a new product is added
+        """
         self.client.login(username='Philip204', password='password1')
         payload = {'quantity': 3, 'redirect_url': '/'}
         self.client.post(self.url, data=payload)
@@ -81,7 +83,9 @@ class TestAddToBag(TestCase):
 class TestUpdateBag(TestCase):
     """Tests update_bag view"""
     def setUp(self):
-        """Create user. Create product. Create basket and add product. Set up url"""
+        """
+        Create user. Create product. Create basket and add product. Set up ur
+        l"""
         self.user = User.objects.create_user(
             username='Philip204', password='password1')
         category = Category.objects.create(
@@ -115,7 +119,9 @@ class TestUpdateBag(TestCase):
 class TestRemoveFromBasket(TestCase):
     """Tests remove_from_basket view"""
     def setUp(self):
-        """Creates user. Creates product. Creates basket and item. Sets up url"""
+        """
+        Creates user. Creates product. Creates basket and item. Sets up url
+        """
         self.user = User.objects.create_user(
             username='Philip204', password='password')
         category = Category.objects.create(name="Things", slug="3d-prints")

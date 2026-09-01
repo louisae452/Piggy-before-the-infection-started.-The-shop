@@ -5,15 +5,18 @@ from django.conf import settings
 from allauth.account.signals import password_reset
 from . models import Profile, PasswordResetLog
 
-# Code generated with AI to listen to Sdjango-allauth and log reset request data.
+# Code generated with AI to listen to Sdjango-allauth and log reset request
+# data.
 
 logger = logging.getLogger('ecommerce.security')
+
 
 # Automatically create a Profile whenever a new Allauth user registers
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
+
 
 # Triggers securely when a user successfully resets their password
 @receiver(password_reset)
@@ -28,7 +31,10 @@ def log_allauth_password_reset(sender, request, user, **kwargs):
     email = user.email if user else "Unknown Email"
 
     # Log operational status to Heroku stdout console streams
-    logger.info(f"Allauth password reset event executed for: {email} from IP: {ip_addr}")
+    logger.info(
+        f"Allauth password reset event executed for: {email}"
+        "from IP: {ip_addr}"
+        )
 
     # Commit audit log securely to database
     PasswordResetLog.objects.create(

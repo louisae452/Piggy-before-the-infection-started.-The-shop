@@ -368,3 +368,52 @@ The following tests were carried out:
 |01/09/2026|It is not clear which fields are required.|checkout/checkout.html|checkout:UserForm, checkout:OrderForm|Added required class to forms.|
 |01/09/2026|Change password template redirects back to itself after saving new password.|allauth change_password.html|---|Add adapter to redirect template back to profile template.|
 
+
+### Validation.
+
+#### Python.
+
+The Python code was validated with [Code Institute CI Python Linter](https://pep8ci.herokuapp.com/#).
+
+- chekout/admin.py
+- checkout/apps.py
+- checkout/forms.py
+- checkout/models.py
+- checkout/test_forms.py
+- checkout/test_views.py
+- checkout/urls.py
+- checkot/views.py
+
+- piggy_shop/settings.py
+- piggy_shop/urls.py
+
+- products/admin.py
+- products/apps.py
+- products/context.py
+- products/test_forms.py
+- products/test_views.py
+- products/ursl.py
+- products/views.py
+
+- profiles/adapters.py
+- profiles/admin.py
+- profiles/apps.py
+- profiles/forms.py
+- profiles/models.py
+- profiles/signals.py
+- profiles/test_forms.py
+- profiles/test_views.py
+- profiles/urls.py
+- profiles/views.py
+
+- shopping_bag/admin.py
+- shopping_bag/apps.py
+- shopping_bag/context.py
+- shopping_bag/models.py
+- shopping_bag/signals.py
+- shopping_bag/test_views.py
+- shopping_bag/urls.py
+- shopping_bag/views.py 
+
+
+

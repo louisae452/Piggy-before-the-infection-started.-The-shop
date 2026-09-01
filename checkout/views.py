@@ -1,26 +1,33 @@
 import stripe
-from django.urls import reverse
 from django.conf import settings
-from django.shortcuts import render, redirect, get_object_or_404
-from django.template.loader import render_to_string
-from django.core.mail import EmailMessage
-from django.core.mail import EmailMultiAlternatives
-from django.utils.html import strip_tags
-from django.core.mail import send_mail
 from django.contrib import messages
-from django.contrib.auth.models import User
-from products.models import Product
+from django.core.mail import EmailMultiAlternatives
+from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
+from django.urls import reverse
+from django.utils.html import strip_tags
 from profiles.models import Profile
-from .forms import UserForm, OrderForm
-from .models import Order, OrderLineItem
-from shopping_bag.models import ShoppingBasket
 from shopping_bag.context import bag_contents
-# Create your views here.
+from shopping_bag.models import ShoppingBasket
+from .forms import OrderForm, UserForm
+from .models import Order, OrderLineItem
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 def checkout(request):
+    """
+    Displays the totals in an instance of :model:`shopping_bag.ShoppingBasket`
+    Displays an instance of :form:`checkout.UserForm` and
+    :form:`checkout.OrderForm`
+    **Context**
+    ``user_form
+        an instance of :form:`checkout.UserForm`
+    ``address_form``
+        an instance of :form:`checkout.OrderForm`
+    **Template**
+    :template:`checkout/checkout.html`
+    """
     user = request.user
     profile = None
     if request.user.is_authenticated:
@@ -34,19 +41,28 @@ def checkout(request):
         if user_form.is_valid() and address_form.is_valid():
             order = address_form.save(commit=False)
             # Make sure all info has been filled in.
-            if not user_form.cleaned_data.get('first_name') or not user_form.cleaned_data.get('last_name') or not address_form.cleaned_data.get('email') or not address_form.cleaned_data.get('street_address1') or not address_form.cleaned_data.get('postcode'):
-                messages.error(request, "Please fill out all required shipping fields.")
+            if (
+                not user_form.cleaned_data.get('first_name')
+                or not user_form.cleaned_data.get('last_name')
+                or not address_form.cleaned_data.get('email')
+                or not address_form.cleaned_data.get('street_address1')
+                or not address_form.cleaned_data.get('postcode')
+            ):
+                messages.error(
+                    request,
+                    "Please fill out all required shipping fields."
+                )
                 return render(
-                    request, 
+                    request,
                     "checkout/checkout.html",
                     {
-                        'user_form': user_form, 
+                        'user_form': user_form,
                         'address_form': address_form})
             if user.is_authenticated:
                 # Save order.
-                order.user = user 
+                order.user = user
             current_bag = bag_contents(request)
-            order.basket_total = current_bag['items_total']  
+            order.basket_total = current_bag['items_total']
             order.shipping = current_bag['delivery']
             order.grand_total = current_bag['total']
             f_name = user_form.cleaned_data['first_name'].strip()
@@ -69,26 +85,28 @@ def checkout(request):
                     user.last_name = l_name
                     user.save()
                     messages.success(request, "Personal information saved")
-                    
                 if address_form.cleaned_data.get('save_profile'):
                     try:
                         profile = Profile.objects.get(user=user)
                     except Profile.DoesNotExist:
                         profile = Profile(user=user)
-                    profile.phone_number = address_form.cleaned_data['phone_number']
-                    profile.street_address1 = address_form.cleaned_data['street_address1']
-                    profile.street_address2 = address_form.cleaned_data.get('street_address2')
+                    profile.phone_number = address_form.cleaned_data[
+                        'phone_number']
+                    profile.street_address1 = address_form.cleaned_data[
+                        'street_address1']
+                    profile.street_address2 = address_form.cleaned_data.get(
+                        'street_address2')
                     profile.town = address_form.cleaned_data['town']
                     profile.postcode = address_form.cleaned_data['postcode']
                     profile.country = address_form.cleaned_data.get('country')
                     profile.save()
-                    
                     messages.success(request, "Address saved")
             try:
                 stripe_total = int(float(order.grand_total * 100))
-                base_success_url = request.build_absolute_uri(reverse('checkout:payment_success'))
-                base_cancel_url = request.build_absolute_uri(reverse('checkout:payment_cancel'))
-                
+                base_success_url = request.build_absolute_uri(
+                    reverse('checkout:payment_success'))
+                base_cancel_url = request.build_absolute_uri(
+                    reverse('checkout:payment_cancel'))
                 checkout_session = stripe.checkout.Session.create(
                     payment_method_types=['card'],
                     line_items=[{
@@ -102,19 +120,22 @@ def checkout(request):
                         'quantity': 1,
                     }],
                     mode='payment',
-                    
-                    # For localhost environment:
-                    #success_url=f'http://localhost:8000/checkout/success/?session_id={{CHECKOUT_SESSION_ID}}&order_id={order.id}',
-                    #cancel_url=f'http://localhost:8000/checkout/cancel/?order_id={order.id}',   
-                    success_url=f'{base_success_url}?session_id={{CHECKOUT_SESSION_ID}}&order_id={order.id}',
-                    cancel_url=f'{base_cancel_url}?order_id={order.id}',   
+                    success_url=(
+                        f'{base_success_url}?session_id='
+                        f'{{CHECKOUT_SESSION_ID}}&order_id={order.id}'
+                    ),
+                    cancel_url=f'{base_cancel_url}?order_id={order.id}',
                 )
                 return redirect(checkout_session.url, code=303)
             except Exception as e:
                 messages.error(request, f"Stripe error:{str(e)}")
                 return redirect('checkout:checkout')
-        else: 
-            messages.error(request, "Form verification failed. Please, fill all the required fiedls")
+        else:
+            messages.error(
+                request,
+                "Form verification failed. Please, fill all"
+                "the required fiedls"
+            )
             return render(
                 request,
                 "checkout/checkout.html",
@@ -122,16 +143,16 @@ def checkout(request):
                     'user_form': user_form,
                     'address_form': address_form,
                 }
-            )        
+            )
     else:
         user_initial = {}
         profile_initial = {}
         if user.is_authenticated:
             user_initial = {
                 'first_name': request.user.first_name,
-                'last_name': user.last_name, 
+                'last_name': user.last_name,
                 'email': user.email,
-            } 
+            }
             profile_initial = {}
             if profile:
                 profile_initial = {
@@ -140,7 +161,7 @@ def checkout(request):
                     'town': profile.town,
                     'postcode': profile.postcode,
                     'country': profile.country,
-                }                        
+                }
         user_form = UserForm(initial=user_initial, prefix='user')
         address_form = OrderForm(initial=profile_initial, prefix='address')
     return render(
@@ -149,16 +170,31 @@ def checkout(request):
         {
             'user_form': user_form,
             'address_form': address_form,
-                    
         }
     )
-    
+
 
 def payment_success(request):
+    """
+    Displays success or failed status of the order after checkout has been
+    completed.
+    **Context**
+    ``order``
+        an instance of :model:`checkout.Order`
+    ``order_items``
+        a queryset of instances of :model:`checkout.OrderLineItem referring to
+        the order
+    **Templates*
+    :template:`checkout/success.html`
+    :template:`checkout/error.html`
+    """
     session_id = request.GET.get('session_id')
     order_id = request.GET.get('order_id')
     if not session_id or not order_id:
-        messages.error(request, "Invalid payment confirmation parameter string.")
+        messages.error(
+            request,
+            "Invalid payment confirmation parameter string."
+        )
         return redirect('products:allproducts')
     order = get_object_or_404(Order, id=order_id)
     try:
@@ -175,29 +211,26 @@ def payment_success(request):
                     'order_items': order_items,
                 }
                 subject = f"Order Confirmation #{order.id}"
-                html_message = render_to_string("checkout/confirmation_email.html", text_info)
+                html_message = render_to_string(
+                    "checkout/confirmation_email.html", text_info)
                 plain_message = strip_tags(html_message)
-                
                 email = EmailMultiAlternatives(
                     subject=subject,
                     body=plain_message,
                     from_email=settings.EMAIL_HOST_USER,
                     to=[order.email],
-                    
                 )
                 email.attach_alternative(html_message, "text/html")
-                
-                email.send() 
+                email.send()
             except Exception:
                 pass
-                
             if order.user:
                 ShoppingBasket.objects.filter(user_id=order.user.id).delete()
             else:
                 session_key = request.session.session_key
                 if session_key:
-                    ShoppingBasket.objects.filter(session_key=session_key).delete()
-            
+                    ShoppingBasket.objects.filter(
+                        session_key=session_key).delete()
             if 'bag' in request.session:
                 del request.session['bag']
             return render(
@@ -212,7 +245,7 @@ def payment_success(request):
             order.status = 'failed'
             order.save()
             return render(
-                request, 
+                request,
                 "checkout/error.html",
                 {
                     'message': 'Payment authorisation failed',
@@ -226,14 +259,22 @@ def payment_success(request):
                 'message': str(e),
             }
         )
-        
+
+
 def payment_cancel(request):
+    """
+    Handles cancelled Stripe checkout sessions and updates order status
+    **Parameters**
+    ``order_id``
+        order_id for an insance of :model:`checkout.Order`
+    **Template**
+    :template:`checkout/checkout.html`
+    """
+
     order_id = request.GET.get('order_id')
     if order_id:
         order = get_object_or_404(Order, id=order_id)
         order.status = 'cancelled'
         order.save()
-    messages.warning(request, "Your check out payment was cancelled")
+    messages.warning(request, "Your checkout payment was cancelled")
     return redirect('chekout:checkout')
-      
-        

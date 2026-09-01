@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    """Categories model"""
+    """Creates a Category entry."""
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
 
@@ -15,7 +15,10 @@ class Category(models.Model):
 
 
 class Group(models.Model):
-    """Groups inside each category"""
+    """
+    Creates a group entry.
+    Related to :model:`products.Category`
+    """
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -25,7 +28,7 @@ class Group(models.Model):
 
 
 class Video(models.Model):
-    """Model for sidebar videos"""
+    """Creates a video entry."""
     name = models.CharField(max_length=100)
     thumbnail = models.ImageField(upload_to='media/products/',
                                   blank=True, null=True)
@@ -44,7 +47,12 @@ class Href(models.Model):
 
 
 class Product(models.Model):
-    """Products model"""
+    """
+    Creates a product entry.
+    Related to :model:`products.Group`
+    Related to :model;`products.Href`
+    Related to :model:`products.Video`
+    """
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     code = models.CharField(max_length=10)
@@ -64,7 +72,10 @@ class Product(models.Model):
 
 
 class Image(models.Model):
-    """Model for products images"""
+    """
+    Creates an instance of image.
+    Related to :model:`products.Product`
+    """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     image_name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='media/products/')
@@ -78,7 +89,10 @@ STARS = (('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'))
 
 
 class Rating(models.Model):
-    """Rating of the product"""
+    """
+    Creates an instance of rating.
+    Related to :model:`products.Product`
+    """
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
                              null=True, blank=True)
@@ -99,7 +113,7 @@ class Rating(models.Model):
 
 
 class HomepageImage(models.Model):
-    """Holds images to be used in the homepage"""
+    """Creates instances of homepage images."""
     image_name = models.CharField(max_length=100, null=True, blank=True)
     image = models.ImageField(upload_to='homepage/', default='default_image')
 
@@ -108,7 +122,12 @@ class HomepageImage(models.Model):
 
 
 class Homepage(models.Model):
-    """ Model to show the homepages."""
+    """
+    Creates instances of homepages.
+    Related to :model:`products.Href`
+    Related to :model:`products.HomepageImage`
+    Related to :model:`products.Video`
+    """
     name = models.CharField(max_length=100)
     created_on = models.DateField(auto_now_add=True)
     is_active = models.BooleanField(default=False)

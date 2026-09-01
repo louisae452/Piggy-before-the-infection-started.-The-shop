@@ -125,7 +125,6 @@ def product_detail(request, slug):
         {
             'product': product,
             'rating_average': rating_average,
-            # 'ratings': ratings,
             'ratings_page': ratings_page,
         }
     )
@@ -192,7 +191,9 @@ def update_review(request, id):
     """
     rating = get_object_or_404(Rating, id=id)
     if rating.user != request.user:
-        raise PermissionDenied('You do not have permission to rate this review')
+        raise PermissionDenied(
+            'You do not have permission to rate this review'
+            )
     product = rating.product
     if request.method == "POST":
         action = request.POST.get('action')

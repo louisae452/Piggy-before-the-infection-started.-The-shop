@@ -1,7 +1,7 @@
-from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from django.test import Client, TestCase
 from django.urls import reverse
-from .models import Homepage, Product, Category, Group, Rating
+from .models import Category, Group, Homepage, Product, Rating
 
 
 class TestHomePage(TestCase):
@@ -44,9 +44,15 @@ class TestAllProducts(TestCase):
     def test_all_products_first_page_pagination(self):
         """Test that the first page displays 8 items."""
         category = Category.objects.create(name="Things", slug="things")
-        group = Group.objects.create(name="small", category=category, slug="small")
+        group = Group.objects.create(
+            name="small", category=category, slug="small")
         for i in range(10):
-            Product.objects.create(name=f"Product {i}", price=10.00, group=group, slug=f"procuct{i}")
+            Product.objects.create(
+                name=f"Product {i}",
+                price=10.00,
+                group=group,
+                slug=f"procuct{i}"
+            )
         url = reverse('products:allproducts')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
@@ -57,9 +63,15 @@ class TestAllProducts(TestCase):
     def test_all_products_next_page(self):
         """Tests next page will load page 2"""
         category = Category.objects.create(name="Things", slug="things")
-        group = Group.objects.create(name="small", category=category, slug="small")
+        group = Group.objects.create(
+            name="small", category=category, slug="small")
         for i in range(10):
-            Product.objects.create(name=f"Product {i}", price=10.00, group=group, slug=f"procuct{i}")
+            Product.objects.create(
+                name=f"Product {i}",
+                price=10.00,
+                group=group,
+                slug=f"procuct{i}"
+            )
         url = reverse('products:allproducts')
         response = self.client.get(url, {'page': 2})
         self.assertEqual(response.status_code, 200)
@@ -70,9 +82,15 @@ class TestAllProducts(TestCase):
     def test_all_products_invalid_page(self):
         """Tests messing up the url defalts back to page 1"""
         category = Category.objects.create(name="Things", slug="things")
-        group = Group.objects.create(name="small", category=category, slug="small")
+        group = Group.objects.create(
+            name="small", category=category, slug="small")
         for i in range(10):
-            Product.objects.create(name=f"Product {i}", price=10.00, group=group, slug=f"procuct{i}")
+            Product.objects.create(
+                name=f"Product {i}",
+                price=10.00,
+                group=group,
+                slug=f"procuct{i}"
+            )
         url = reverse('products:allproducts')
         response = self.client.get(url, {'page': 'rubbish'})
         self.assertEqual(response.status_code, 200)
@@ -102,7 +120,6 @@ class TestPlushes(TestCase):
         self.assertEqual(len(response.context['products_page']), 8)
         self.assertTrue(response.context['products_page'].has_next())
         self.assertFalse(response.context['products_page'].has_previous())
-
 
     def test_plushes_next_page(self):
         """Tests next page will load page 2"""
