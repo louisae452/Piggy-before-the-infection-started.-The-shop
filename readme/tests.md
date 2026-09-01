@@ -263,9 +263,17 @@ The following tests were carried out:
 
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
-|31/08/2026|Empty basket|Log onto the site. Before adding any items, click on the shopping basket button on the main navigation bar.|Empty basket page displays.|Pass| |
-|31/08/2026|Empty basket continue shopping button|On the empty basket page, click on continue shopping button.|All products page loads.|Pass| |
-|31/08/2026|
+|31/08/2026|Empty basket|Go onto the site. Before adding any items, click on the shopping basket button on the main navigation bar.|Empty basket page displays.|Pass| |
+|31/08/2026|Empty basket-  continue shopping button|On the empty basket page, click on continue shopping button.|All products page loads.|Pass| |
+|31/08/2026|Populated basket.| Add some items to the basket . Click on basket icon on main navigator bar.|Shopping basket page loads with items added to basket.|Pass| |
+|01/09/2026|Arrow up|Add some items to the basket. Naviagte to basket page. On one of the items, click on the up arrow.|The quantity goes up by one.|Pass| |
+|01/09/2026|Down arrow.|Add some items to the basket. Click on basket icon on main navigator. On one of the items with a quantity higher than one, click on the down arrow.|The quantity goes down by 1 until it is 1.|Pass| |
+|01/09/2026|Update button|Add some items to the basket. Click on basket icon on main navigator. Change the quantity on one of the items. Click on update.|The amounts on subtotal and total are ammended to reflect the change.|Pass| |
+|01/09/2026|Remove button.|Add some items to the basket. Click on basket icon on main navigator. On one of the items, click on remove.|The item disappears. The total quantity is ammended to reflect the change.|Pass| |
+|01/09/2026|Basket merge.|Log on to the site. Add some items to the basket. Log out.While not logged in, add some more items to the basket. Navigate to the shopping basket page. Click on log in and log back in.|The items in the guest basket are added to the items in the saved user basket. Total is ammended.|Pass| |
+|01/09/2026|Proceed to checkout button.|On a populated basket page, click on proceed to to checkout button.|Checkout page loads.|
+|01/09/2026|Continue shopping.|On a populated basket page, click on continue shopping button.|All products page loads.|Pass| |
+
 
 
 
