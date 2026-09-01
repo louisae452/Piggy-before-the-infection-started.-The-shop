@@ -51,12 +51,13 @@
     <div>
         <form method="post" action="{% url 'account_email' %}">
             {% csrf_token %}
+            <input type="hidden" name="next" value="{% url 'profiles:profile' %}">
             <label for="id_email">{% trans " New email address" %}</label>
-            <br>
+            
 
             <input type="email" name="email"  id="id_email" value="{{ new_emailaddress.email }}" required>
             
-            <br>
+            
             <button class="button btn-green-transparent" name="action_add" type="submit">{% trans "Add Email" %}</button>
         
         </form>
