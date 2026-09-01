@@ -322,16 +322,38 @@ The following tests were carried out:
 
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
-|01/09/2026|Pagelloads|Log on to the site. Click on the account button on the main navigator bar|Profilee page loads with uses's saved information|Pass| |
-|01/09/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Page loads with new information. No success message.Fail|Add success message|
+|01/09/2026|Page loads|Log on to the site. Click on the account button on the main navigator bar|Profilee page loads with uses's saved information|Pass| |
+01/09/2026|Unauthorised user cannot access page.|Log onto site. Navigate to profile. Copy url address. Open a different browser. Paste url address|User gets directed to log in page.|Pass| |
+|01/09/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Page loads with new information. No success message. Fail|Add success message|
 |01/09/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Pass| |
 |01/09/2026|Change shipping information.|Log on to site. Navigate to profile page. Add or change shipping information. Click on update button.|Page reloads with new information and success message.|Pass| |
 |01/09/2026|Change password button|Log onto the site and navigate to profile page. Click on change password button.|Change password page loads.|Pass| |
-|01/09/2026|Change password.|Log onto site and navigate to profile page. Click on change password button. Enter current and new passwords. Click on change passoword|Profile page loads with success message.|Change password loads again with no message.Fail.|Add adapter to redirect change_password to profile page.|
+|01/09/2026|Change password.|Log onto site and navigate to profile page. Click on change password button. Enter current and new passwords. Click on change passoword|Profile page loads with success message.|Change password loads again with no message. Fail.|Add adapter to redirect change_password to profile page.|
 |01/09/2026|Change password.|Log onto site and navigate to profile page. Click on change password button. Enter current and new passwords. Click on change passoword|Profile page loads with success message.|Pass||
 |01/09/2026|change email button|Log onto site and navigate to profile page. Click onchange email button.|email address page loads.|Pass| |
-|01/09/2026|Add new email address|Log onto site and navigate to profile page. Click on change email buton. Add a new email address and click on add email.|Profile page loads with confirmation email sent message.|Email address reloads with confirmation message.Fail|Add redirect to profiles.adapter|
+|01/09/2026|Add new email address|Log onto site and navigate to profile page. Click on change email button. Add a new email address and click on add email.|Email address page with confirm your email message.|Pass||
+|01/09/2026|Email address make primary. Unverified email|Log onto site and navigate to profile page. Click on change email button. Select unverified email address and click on make primary button.|Page reloads with message to advise email must be verified|Pass||
+|01/09-2026|Email address make primary. Verified email|Log onto site and navigate to profile page Click on change email. Select a verified email address. Click on make primary button.|Page reloads with success message.|Pass| |
+|01/09/2026|Remove email. Primary address.|Log onto site and navigate to profile page. Click on change email. Select the primary email. Click on remove email.|Page reloads with message advising you cannot remove primary email.|Pass| |
+|01/09/2026|Remove email. Non primary address|Log onto site and navigate to profile page. Click on change email. Select a non primary email. Click on remove email.|Page reloads with success message.|Pass| |
+|01/09/2026|Re-send verification button|Log onto site and navigate to profile page. Click on change email button. Click on an unverified email address. Click on re-send verification button|Page reloads with confirmation email sent message. Confirmation email message sent.|Pass| |
+|01/09/2026|Back to profile button.|Log onto site and navigate to profile page. Click on change email button. Click on back to profile button.|Profile page loads.|Pass| |
+|01/09/2026|Order history link|Log onto site. Navigate to profile page. Click on Order history link.|Order history for user loads.|Pass| |
 
+#### Order history page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|01/09/2026|Unauthorised user cannot access page.|Log onto site. Navigate to order history. Copy url address. Open a different browser. Paste url address|User gets directed to log in page.|Pass| |
+|01/09/2026|Order link|Log onto site. Navigate to order history. Click on past order link.|Past order page loads.\Pass| |
+
+#### Past order page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|01/09/2026|Unauthorised user cannot access page.|Log onto site. Navigate to past order page. Copy url address. Open a different browser. Paste url address|User gets directed to log in page.|Pass| |
+|01/09/2026|Print invoice button.|Log onto site. Navigate to past order page. Click on print invoice button.|Printer preview page loads.|Pass| |
+|01/09/2026|Continue shopping button.|Log onto site. Navigate to past order page. Click on continue shopping button.|All products page loads.|Pass| |
 
 
 
