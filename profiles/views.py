@@ -20,11 +20,13 @@ def profile(request):
             userform = UserForm(data=request.POST, instance=user_instance)
             if userform.is_valid():
                 userform.save()
+                messages.success(request, "Your personal details have been updated.")
                 return redirect('profiles:profile')
         elif 'shippingreset' in request.POST:
             profileform = ProfileForm(data=request.POST, instance=user_profile)
             if profileform.is_valid():
                 profileform.save()
+                messages.success(request, "Your shipping information has been updated")
                 return redirect('profiles:profile')
     return render(
         request,

@@ -318,6 +318,13 @@ The following tests were carried out:
 |01/09/2026|Continue shopping button.|Add some items to the basket and proceed to checkout. On the thank you for your order page, click on continue shopping button.|All products page loads.|
 
 
+#### Profile page.
+
+|Date|Test|Method|Expected result|Result|Follow up|
+|:--|:--|:--|:--|:--|:--|
+|01/09/2026|Pagelloads|Log on to the site. Click on the account button on the main navigator bar|Profilee page loads with uses's saved information|Pass| |
+|01/-9/2026|Change personal information.|Log on to site. Navigate to profile page. Add or change personal information. Click on update button.|Page reloads with new information and success message.|Page loads with new information. No success message.|Fail|Add success message|
+
 
 
 ### User experience.
