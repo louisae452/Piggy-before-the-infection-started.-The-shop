@@ -540,7 +540,8 @@ label {
 .btn-long {
     width: 200px;
 }
-.required label::after {
+.required label::after,
+label.required::after {
     content: "*";
     color: var(--forest-green);
 
