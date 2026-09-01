@@ -29,7 +29,7 @@ def test_error_view(request):
     )
 
 urlpatterns = [
-    path('accounts/email/', CustomEmailView.as_view(), name='account_email'), 
+    
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),

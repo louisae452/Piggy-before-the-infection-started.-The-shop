@@ -74,19 +74,3 @@ def past_order_detail(request, order_id, ):
         }
     )
 
-# View to redirect allauth email template after adding a new email.
-class CustomEmailView(EmailView):
-    def post(self, request, *args, **kwargs):
-        # 1. Instantiate the form classes using Allauth's built-in methods
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        
-        # 2. Run Allauth's normal view post logic
-        response = super().post(request, *args, **kwargs)
-        
-        # 3. Securely check if "Add Email" was clicked and the form passed validation
-        if "action_add" in request.POST and form.is_valid():
-            return redirect(reverse('profiles:profile'))
-            
-        # 4. Fallback to normal behavior for making primary, removing, or if errors occur
-        return response
