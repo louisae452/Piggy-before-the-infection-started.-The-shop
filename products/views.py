@@ -1,17 +1,20 @@
-from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404, redirect
-from django.db.models.functions import Cast
-from django.core.exceptions import PermissionDenied
-from django.db.utils import OperationalError, ProgrammingError
 from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.core.paginator import Paginator
 from django.db.models import Avg, FloatField
-from .models import Homepage, Product, Rating
+from django.db.models.functions import Cast
+from django.db.utils import OperationalError, ProgrammingError
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import RatingForm
+from .models import Homepage, Product, Rating
 
 
-
-# Show homepage. Ensure that homepage loads even if not active homepage.
 def home_page(request):
+    """
+    Renders homepage.
+    **Template**
+    :template:`products/home.html`
+    """
     try:
         homepage = Homepage.objects.filter(is_active=True).select_related(
             'top_left_href',
@@ -26,8 +29,15 @@ def home_page(request):
     return render(request, "products/home.html", context)
 
 
-# Showsa listing of all products.
 def all_products(request):
+    """
+    Displays instances of :model:`products.Product`
+    **Context**
+    ``products_page``
+        queriset of products in :model:`products.Product`
+    **Template**
+    :template:`products/all_products.html`
+    """
     products = Product.objects.all()
     paginator = Paginator(products, 8)
     page_number = request.GET.get('page')
@@ -42,6 +52,14 @@ def all_products(request):
 
 
 def plushes(request):
+    """
+    Displays instances of :model:`products.Product`
+    **Context**
+    ``products_page``
+        queriset of plushes in :model:`products.Product`
+    **Template**
+    :template:`products/plushes.html`
+    """
     products = Product.objects.filter(group__category__slug='plushes')
     paginator = Paginator(products, 8)
     page_number = request.GET.get('page')
@@ -56,6 +74,14 @@ def plushes(request):
 
 
 def prints(request):
+    """
+    Displays instances of :model:`products.Product`
+    **Context**
+    ``products_page``
+        queriset of plushes in :model:`products.Product`
+    **Template**
+    :template:`products/plushes.html`
+    """
     products = Product.objects.filter(group__category__slug='3d-prints')
     paginator = Paginator(products, 8)
     page_number = request.GET.get('page')
@@ -69,8 +95,19 @@ def prints(request):
     )
 
 
-# View to show product detail.
 def product_detail(request, slug):
+    """
+    Displays details of one product.
+    **Context**
+    ``product``
+        an instance of :model:`products.Product`
+    ``rating average``
+        the average rating of the product.
+    ``ratings_page``
+        queryset of all the :model:`products.Ratings` records for the product.
+    **Template**
+    :template:`products/product_detail.html`
+    """
     product = get_object_or_404(Product, slug=slug)
     ratings = Rating.objects.filter(product=product)
     average = ratings.aggregate(rating_avg=Avg(Cast('rating',
@@ -88,15 +125,23 @@ def product_detail(request, slug):
         {
             'product': product,
             'rating_average': rating_average,
-            'ratings': ratings,
+            # 'ratings': ratings,
             'ratings_page': ratings_page,
         }
     )
 
 
-# View to create a rating   .
-
 def rate_product(request, slug):
+    """
+    Creates a new rating for a product.
+    **Context**
+    ``rating_form``
+        an instance of :form:`products.RatingForm`
+    ``product``
+        an instance of :`model:products.Product`
+    **Template**
+    :template:`products/rate_product.html`
+    """
     product = get_object_or_404(Product, slug=slug)
     if request.method == "POST":
         rating_form = RatingForm(data=request.POST)
@@ -122,8 +167,7 @@ def rate_product(request, slug):
             rating.save()
             messages.success(request, 'Rating added successfully')
             return redirect('products:productdetail', slug=slug)
-        
-    else:        
+    else:
         rating_form = RatingForm()
     return render(
         request,
@@ -132,13 +176,20 @@ def rate_product(request, slug):
             'rating_form': rating_form,
             'product': product
         }
-        
         )
 
 
-# View to update or delete review.
-
 def update_review(request, id):
+    """
+    Displays an instance of :model:`products.Rating`
+    **Context**
+    ``product``
+        an instance of :model:`products.Product`
+    ``rating``
+        an instance of :model:`products.Rating`
+    ``ratign_form``
+        an instance of :form:`products.RatingForm`
+    """
     rating = get_object_or_404(Rating, id=id)
     if rating.user != request.user:
         raise PermissionDenied('You do not have permission to rate this review')
