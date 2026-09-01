@@ -9,6 +9,9 @@ class CustomAccountAdapter(DefaultAccountAdapter):
         return reverse('profiles:profile')
     
     def get_email_redirect_url(self, request):
-        """Redirects back to the profile dashboard after adding, removing, or changing an email."""
+        """Redirects back to the profile dashboard after adding, removing, or changing or resending verification."""
         return reverse('profiles:profile')
     
+    def get_login_redirect_url(self, request):
+        """Redirects back to the profile dashboard immediately after adding a new email address."""
+        return reverse('profiles:profile')
