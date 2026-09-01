@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.shortcuts import render
-
+from profiles.views import CustomEmailView
 
 def test_error_view(request):
     return render(
@@ -29,7 +29,7 @@ def test_error_view(request):
     )
 
 urlpatterns = [
-    path('test-error-page/', test_error_view, name='test_error_page'),
+    path('accounts/email/', CustomEmailView.as_view(), name='account_email'), 
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('summernote/', include('django_summernote.urls')),

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from allauth.account.views import EmailView
 from django.contrib import messages
 from django.core.exceptions import PermissionDenied
 from .forms import UserForm, ProfileForm, EmailForm
@@ -72,12 +73,15 @@ def past_order_detail(request, order_id, ):
         }
     )
 
-### AI sort out in readme
-@login_required
-def password_success_redirect(request):
-    """
-    Intercepts allauth's post-password change loop and 
-    forces a clean redirect back to the profile page.
-    """
-    messages.success(request, 'Your password was successfully updated!')
-    return redirect('profiles:profile') 
+# View to redirect allauth email template after adding a new email.
+class CustomEmailView(EmailView):
+    def post(self, request, *args, **kwargs):
+        # 1. Run Allauth's normal validation and saving logic
+        response = super().post(request, *args, **kwargs)
+        
+        # 2. If they clicked "Add Email" and the form was valid, send them to the profile
+        if "action_add" in request.POST and not self.get_form().errors:
+            return redirect(reverse('profiles:profile'))
+            
+        # 3. For all other actions, use standard Allauth behavior
+        return response
