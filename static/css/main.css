@@ -245,6 +245,15 @@ main {
     right: 0;
     padding: 10px;
 }
+.home-btn {
+    background-color: var(--mid-green);
+    color: var(--purple);
+    width: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid var(--purple);
+    text-decoration:none;
+}
 /* Allauth pages */
 .auth-form {
     display: flex;
