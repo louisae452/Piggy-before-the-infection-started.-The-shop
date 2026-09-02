@@ -355,7 +355,21 @@ The following tests were carried out:
 |01/09/2026|Print invoice button.|Log onto site. Navigate to past order page. Click on print invoice button.|Printer preview page loads.|Pass| |
 |01/09/2026|Continue shopping button.|Log onto site. Navigate to past order page. Click on continue shopping button.|All products page loads.|Pass| |
 
+### User stories.
 
+- Users are able to regiter for an account and log in and out easily by using the buttons on the main navigator. They can use the forgot your password link to reset their password in the event of forgetting it. Once logged in, they can navigate to their account and change their password and personal information and see their order history and details of any order they made in the past.
+
+- Users and guests can easily naviage through the different products and click on any of them in order to get more information and add to the basket if they decide to purchase them.
+
+- Users and guests can read reviews other shoppers have left for each of the products. They can write, update and delete their own reviews for products.
+
+- Users and guests can add items to the basket and see the total for the items added so far in the main navigator. They can easily access their basket by clicking on the button in the main navigator. On logging in, the items added to the basket while not logged in are added to the user's saved basket.
+
+- Users and guests can update the quantities of the items in the basket and they can remove them.
+
+- Users and guests can safely pay for their purchase using the checkout system provided. They are informed when their payment has gone through so they know threir order is on their way.
+
+- The creator can add items to the website using the admin panel. They can change the images and links on the home page to make it relevant to different times of the year and they can change the videos offered on the side panel.
 
 
 
