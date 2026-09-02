@@ -125,6 +125,8 @@ The following tests were carried out:
 
 ### Manual testing.
 
+The following manual tests were carried out.
+
 #### Authentiction.
 
 ##### Register page.
@@ -375,15 +377,46 @@ The following tests were carried out:
 - The creator can add items to the website using the admin panel. They can change the images and links on the home page to make it relevant to different times of the year and they can change the videos offered on the side panel.
 
 
-
-
-
 ### User experience.
+
+The following issues were found.
 
 |Date|Issue|Template|View/Form|Action taken|
 |:--|:--|:--|:--|:--|
 |01/09/2026|It is not clear which fields are required.|checkout/checkout.html|checkout:UserForm, checkout:OrderForm|Added required class to forms.|
 |01/09/2026|Change password template redirects back to itself after saving new password.|allauth change_password.html|---|Add adapter to redirect template back to profile template.|
+
+### Responsiveness
+
+The site was tested on Inspiron 16 laptop, ipad pro and iphone 16 pro.
+
+The home page.
+
+![Inspiron home](images/responsive/home-ins.jpg)     ![Ipad home landscape](images/responsive/home-ipad.jpg)      ![iphone home landscape](images/responsive/home-iphone-land.jpg)
+
+
+
+![ipad home portrait](images/responsive/home-ipad-port.jpg)     ![iphone home portrait](images/responsive/home-iphone.jpg)
+
+The products page.
+
+![Inspiron products](images/responsive/products-ins.jpg)      ![Ipad products landscape](images/responsive/products-ipad.jpg)      ![iphone products landscape](images/responsive/product-iphone.jpg)
+
+
+![ipad products portrait](images/responsive/product-iphone-port.jpg)      ![iphone products portrait](images/responsive/product-iphone-land.jpg)
+
+A product detail page.
+
+![Inspiron detail](images/responsive/detail.ins.jpg)     ![ipad detail landscape](images/responsive/detail-ipad.jpg)
+
+![iphone detail landscape](images/responsive/detail-iphone-lands.jpg)     ![ipad detail portrait](images/responsive/detail-ipad-port.jpg)     ![iphone detail portrait](images/responsive/detail-iphone.jpg)
+
+The basket page.
+
+![Inspiron basket](images/responsive/basket-ins.jpg)      ![ipad basket landscape](images/responsive/basket-ipad.jpg)       ![iphone basket landscape](images/responsive/basket-iphone-land.jpg)
+
+
+![ipad basket portrait](images/responsive/detail-ipad-port.jpg)       ![iphone basket portrait](images/responsive/basket-iphone.jpg)
 
 
 ### Validation.

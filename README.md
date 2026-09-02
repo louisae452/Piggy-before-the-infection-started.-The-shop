@@ -102,11 +102,94 @@ The account link will lead to a page where the user can see and modify their per
 
 ### Customisable homepage. 
 
-The homepage has a structure which continues over the products templates, featuring a navigation bar at the top with links to all products, plushes, 3d prints and shopping basket and a vertical section which contains links to content related videos. 
+The homepage features a main navigation bar with a smaller navigation area underneath with links to all products, plushes and 3d prints. A vertical section contains links to content related videos.
 
-The main area of the homepage is divided into four completely customisable sections, with the option to include a picture, a title and a link. The content of these sections is controlled by the Homepage model, which also controls the video links in the vertical section.
+This structure is continued in all pages thorough the site.
 
-The videos in the vertical section on the other pages will be controlled by their respective models.
+The main area of the homepage is divided into four completely customisable sections, with the option to include a picture, a title and a link (which can be external or internal). The content of these sections is controlled by the Homepage model, which also controls the video links in the vertical section for all pages not featuring individual products.
+
+        HOME PAGE IMAGE.
+
+### Main navigation bar.
+
+When first arriving to the site, the navigation bar contain links to go home, shopping basket, log in and register.
+On logging in, the links turn into go home, account, log out and shopping basket.
+
+        NAV BAR PICTURES X2
+
+### Products pages.
+
+The products page lists the products with a picture, name and price. Eight products are displayed by page. The products can be separted into plushes and 3d prints by clicking on the relevant buttons.
+
+        PRODUCTS PICTURES
+
+### Product detail pages.
+
+Clicking on one of the products in the products page leads to the individual product page. The detail page features an information area separated into pictures and textual information. The images section has a main picture and smaller images next to it. Clicking into one of the smaller images places it in the main picture area. The link to see a large image opens an enlarged image of the image displayed in the main image area in a new window.
+
+The textual information contains the name of the product followed by the star rating of the product, a link to find more information about the character depicted by the product, a description, the product price and a quantity area which the user can increase or decrease by clicking on the up and down arrows. Buttons to add the product to the basket and continue shopping are also provided.
+
+Under the  product information is the reviews area featuring two reviews per page. Users can add new reviews as well as update or delete reviews they had previously written.
+
+        pRODUCT DETAIL PICTURE
+
+### The Basket page.
+
+The price of the products already on the shopping basket is shown in the shopping basket button on the main navigatiton bar. On adding a product to the baset, the amount is changed accordingly.
+
+On clicking on the shopping basket button, the shopping basket page loads. It shows the products that have been added to the basket as well as an area in which the user can use the up and down arrows to modify the quantity of each product or remove it. Delivery costs have been added and the total cost of the order calculated.
+
+Items can be saved to the basket whether the user is logged in or not. On logging in, the items that had been added while not logged in are added to the items that were previously saved on the user's basket.
+
+The page has links to proceed to checkout and continue shopping.
+
+    SHOPPING BASKET PICTURE.
+
+### Checkout page.
+
+The checkout page is divided into two areas. The first one contains the order summary while the second one has the shipping information.
+
+If the user is not logged in, they have the option to either log in or continue as a guest. If they log in, the information saved into their profile is loaded onto the form. They can use it as it is, or ammend it if necessary. If the shipping information is ammended, the user has the option to save it to their profile or use it only on that order.
+
+Once ready, the user can proceed to secure checkout.
+
+    CHECKOUT PAGE PICTURE
+
+### Secure checkout.
+
+Secure checkout is provided by stripe.
+
+### Order invoice.
+
+On successful payment of the order, the user is directed to the thank you page where the invoice of the order is provided. A link to print the invoice is provided.
+
+    THANK YOU PAGE AND INVOICE PICTURES.
+
+### Profile.
+
+Once the user has logged in, the account button on the main navigation area directs the user to their profile.
+
+There, the user can update their personal information and shipping details, change their password and email address and access their order history.
+
+        PROFILE PAGE PICTURE.
+
+### Order history page.
+
+The order history page featues a list of all of the user's past orders. Clicking on them, the order invoice can be seen and printed.
+
+        OLD ORDER PAGE PICTURE.
+
+### Securiy.
+
+The site can be used by registered and unregistered users. Banking information is kept by stripe, so it is never stored or seen on the site.
+
+Personal information the site stores about the users contain their names, shipping details and email addresses.
+
+Email addresses have to be verified before a user is fully registered. The password can only be reset in two different ways. The forgotten password link on the log in page emails the user a link to reset their password. On successful complection of the password reset, a record is kept on the PasswordResetLog model. The password reset facility on the profile page requires the user to be logged in to be accessed.
+
+If the user decides to change the email address on their profile, they must got through the email verification process again.
+
+Users can use a different email address for specific orders but those are only recorded on the Order model for order processing and not on their profiles.
 
 
 ## Models and views.
@@ -121,7 +204,29 @@ The shopping_bag app contains the ShoppingBasket and ShopItems models, while che
 
 The profiles app contains the Profile model as well as he PasswordResetLog model to record password changes as required by legal regulations.
 
+This are the views used on the site.
 
+|View|App|Form|Template|Function|
+|:---|:---|:---|:---|:---|
+|home_page|products|--|products/home.html|Displays home page|
+|all_products|products|--|products/all_products.html|Displays a list of all products|
+|plushes|products|--|products/plushes.html|Displays a list of all plushes|
+|prints|products|--|products/plushes.html|Displays a list of all 3d prints|
+|product_detail|products|--|products/product_detail.htms|Displays information about a product|
+|rate_product|products|products.RatingForm|products/rate_product.html|Allows a review to be recorded|
+|update_review|products|products.RatingForm|products/update_product.html|Allows a review to be updated or deleted|
+|get_basket|shopping_bag|--|--|Creates or retrieves a basket|
+|shopping_bag|shopping_bag|--|shopping_bag/shopping_bag.html|Displays the shopping basket.|
+|add_to_bag|shopping_bag|--|--|Adds items to the bag|
+|update_bag|shopping_bag|--|--|Updates the quantity of an existing item in the basket|
+|remove_from_basket|shopping_bag|--|--|Removes an item from the basket|
+|bag_contents|shopping_bag|--|--|Makes shopping basket details available across the site.|
+|checkout|checkout|checkout.UserForm checkout.OrderForm |checkout/checkout.html|Displays the order informataion.|
+|payment_success|checkout|--|checkout/success.html checkot/error.html|Displays success or fail status after checkout.|
+|payment_cancel|checkout|--|checkout/checkout.html|Handles cancelled stripe sessions|
+|profile|profiles|profiles.UserForm profiles.ProfileForm profiles.EmailForm|profiles/profile.html|Displays user's profile information.|
+|order_history|profiles|--|profiles/order_history.html|Displays a list of all user's past orders.|
+|past_order_detail|profiles|--|profiles/past_order_detail|Displays details of a past order.|
 
 
 

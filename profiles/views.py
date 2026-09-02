@@ -18,7 +18,7 @@ def profile(request):
     ``profileform``
         an instance of :form:`profiles.ProfileForm`
     ``emailform``
-        an instance of :form:`profilies.EmailForm`
+        an instance of :form:`profiles.EmailForm`
     **Template**
     :template:`profiles.profile.html`
     """
@@ -101,6 +101,8 @@ def past_order_detail(request, order_id, ):
         an instance of :model:`checkout.Order`
     `order_items``
         a lsit of items in an instance of :model:`checkout.Order`
+    **Template**
+    :template:`profiles/past_order_detail.html`
     """
     user = request.user
     order = get_object_or_404(Order, id=order_id)

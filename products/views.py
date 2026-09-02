@@ -188,6 +188,8 @@ def update_review(request, id):
         an instance of :model:`products.Rating`
     ``ratign_form``
         an instance of :form:`products.RatingForm`
+    **Template**
+    :template:`products/update_review.html`
     """
     rating = get_object_or_404(Rating, id=id)
     if rating.user != request.user:
