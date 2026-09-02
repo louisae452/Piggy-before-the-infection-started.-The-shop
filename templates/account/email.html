@@ -12,8 +12,6 @@
 <div class="content-container">
     <div>
         <h1 class="padding-bottom-10 greentext">{% trans "Email Address" %}</h1>
-        
-        
     </div>
     <div>
         {% if user.emailaddress_set.all  %}
@@ -21,6 +19,7 @@
             <!-- Form written with AI help -->
             <form class="" method="post" action="{% url 'account_email' %}">
                 {% csrf_token %}
+                <input type="hidden" name="next" value="{% url 'account_email' %}">
                 <div class="">
                     {% for emailaddress in user.emailaddress_set.all %}
                     <div class="email-radio-row2 ">
@@ -51,7 +50,7 @@
     <div>
         <form method="post" action="{% url 'account_email' %}">
             {% csrf_token %}
-            <input type="hidden" name="next" value="{% url 'profiles:profile' %}">
+            <input type="hidden" name="next" value="{% url 'account_email' %}">
             <label for="id_email">{% trans " New email address" %}</label>
             
 

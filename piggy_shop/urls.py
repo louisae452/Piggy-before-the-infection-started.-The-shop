@@ -20,8 +20,13 @@ from django.contrib import admin
 from django.http import HttpResponse
 from django.urls import include, path
 
+
+
+
 urlpatterns = [
+    
     path('accounts/', include('allauth.urls')),
+    
     path('admin/', admin.site.urls),
     path('checkout/', include('checkout.urls', namespace='checkout')),
     path('profile/', include('profiles.urls', namespace='profiles')),
