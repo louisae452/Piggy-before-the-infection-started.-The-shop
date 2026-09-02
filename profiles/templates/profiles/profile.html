@@ -4,7 +4,15 @@
 {% block extracontent %}
 
 <div class="profile-container">
-
+    {% if messages %}
+        <div>
+            {% for message in messages %}
+                <div class="alert-box {{ message.tags }}">
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}   
      <div class="form-container greentext">
         <h2 class="padding-bottom-10">Personal information</h2>
         <form method="post">
