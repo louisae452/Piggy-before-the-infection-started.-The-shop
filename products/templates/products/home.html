@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block alerts %} {% endblock alerts%}
 {% block content %}
+
 <div class="home">
     <div class="options-bar">
-    <!--  alt for default homepage image: alt="Default Image"-->
         <a class="button btn-transparent" href="{% url 'products:allproducts' %}">All products</a>
         <a class="button btn-transparent" href="{% url 'products:plushes' %}">Plushes</a>
         <a class="button btn-transparent" href="{% url 'products:prints' %}">3D prints</a>
-        <div class="search-container"></div>
-        
-
     </div>
     {% if messages %}
         <div>
@@ -22,9 +18,9 @@
             {% endfor %}
         </div>
     {% endif %}   
-    
-       
+
     {% block extracontent %}
+
     <div class="extracontent">
         <div class="homeblock" id="top-left">
             {% if homepage.top_left.image %}
@@ -55,7 +51,6 @@
         </div>
         <div class="homeblock" id="top-right">
             {% if homepage.top_right.image %}
-
                 <img src="{{ homepage.top_right.image.url }}" alt="{{ homepage.top_right.image_name }}">
             {% endif %}
             <div class="homeblock-adds">
@@ -77,12 +72,10 @@
                     {% else %}
                         <a class="home-btn" href="#">{{ homepage.top_right_button }}</a>
                     {% endif %}
-                
                 {% endif %}
             </div>
         </div>
         <div class="homeblock" id="bottom-left">
-
             {% if homepage.bottom_left.image %}
                 <img src="{{ homepage.bottom_left.image.url }}" alt="{{ homepage.bottom_left.image_name }}">
             {% endif %}
@@ -106,14 +99,9 @@
                         <a class="home-btn" href="#">{{ homepage.bottom_left_button }}</a>    
                     {% endif %}
                 {% endif %}
-    
             </div>
-
-
-
         </div>
         <div class="homeblock" id="bottom-right">
-
             {% if homepage.bottom_right.image %}
             <img src="{{ homepage.bottom_right.image.url }}" alt="{{ homepage.bottom_right.image_name}}">
             {% endif %}
@@ -136,12 +124,11 @@
                     {% else %}
                         <a class="home-btn" href="#">{{ homepage.bottom_right_button }}</a>
                     {% endif %}
-
                 {% endif %}
             </div>
         </div>
-
     </div>
+
     {% endblock extracontent %}
 </div>
 

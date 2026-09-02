@@ -1,11 +1,9 @@
+<!DOCTYPE html>
 {% load static %}
 
-
-
-<!DOCTYPE html>
 <html class="h-100" lang="en">
 <head>
-    <title>{% block head_title %}Piggy before the infection started. The shop{% endblock %}</title>
+    <title>Piggy before the infection started. The shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     {% block meta_description %}  
     <meta name="description" content="Home page">
@@ -16,7 +14,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
      <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
-    
     <!-- Custom Css-->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
@@ -24,12 +21,11 @@
     <header>
         <nav class="navbar">
             <div class="left-align nav-logo">
-                <img class="logo" src="{% static 'images/sjjc1.svg' %}" alt="superjakejosecat logo" width="45", height="36">
+                <img class="logo" src="{% static 'images/sjjc1.svg' %}" alt="superjakejosecat logo" width="45" height="36">
                 <h1>Piggy before the infection started. The shop</h1>
             </div>
             <div class="right-align">
-                <div class="nav-links">
-                    
+                <div class="nav-links"> 
                     {% if user.is_authenticated %}
                         <a class="button" href="{% url 'products:home'%}">Home</a>
                         <a class="button" href="{% url 'profiles:profile'%}">Account</a>
@@ -40,16 +36,13 @@
                         <a class="button" href="{% url 'shopping_bag:shoppingbag' %}"><i class="fa-solid fa-basket-shopping"></i>£{{ items_total }}</a>
                         <a class="button" href="{% url 'account_login' %}?next={{ request.path }}">Log in</a>
                         <a class="button" href="{% url 'account_signup' %}">Register</a>
-
                     {% endif %}
                 </div>
             </div>
         </nav>
     </header>
-
     <main>
         <div class="grid-container">
-            
             <div class="pagemain">
                 {% block alerts %}
                     {% if messages %}
@@ -62,12 +55,11 @@
                         </div>
                     {% endif %}   
                 {% endblock alerts%}
-            
                 {% block content %}
                 {% endblock content %}
             </div>
             <div class="vertical-bar">
-                <a class="advert-container" href="{{ side_video_1.link }}" target="_blank" rel="noopener">
+                <a class="advert-container" href="{{ side_video_1.link }}" target="_blank" rel="noopener noreferrer">
                     <div class="advert">
                         <div class="circle">
                             {% if side_video_1.thumbnail %}
@@ -79,9 +71,8 @@
                         </div>
                     </div>
                 </a>
-                <a class="advert-container" href="{{ side_video_2.link }}" target="_blank" rel="noopener">
+                <a class="advert-container" href="{{ side_video_2.link }}" target="_blank" rel="noopener noreferrer">
                     <div class="advert">
-
                         <div class="circle">
                             {% if side_video_2.thumbnail %}
                                 <img src="{{ side_video_2.thumbnail.url }}" alt="{{ side_video_2.name }}">
@@ -94,19 +85,16 @@
                 </a>
             </div>
         </div>
-
-        
-        
-        
     </main>
 
     <footer>
-         <p>Contact: <a class="footer-link" href="mailto:piggy.before.the.shop@gmail.com">  piggy.before.the.shop@gmail.com</a></p>
+        <p>Contact: <a class="footer-link" href="mailto:piggy.before.the.shop@gmail.com">  piggy.before.the.shop@gmail.com</a></p>
     </footer>
+
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/39f1e1f60d.js" crossorigin="anonymous"></script>
  
     <!-- Custom js -->
     <script src="{% static 'js/script.js' %}"></script>
-     
 </body>
+</html>

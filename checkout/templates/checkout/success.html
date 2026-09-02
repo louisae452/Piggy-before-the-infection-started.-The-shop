@@ -1,11 +1,8 @@
 {% extends "products/home.html" %}
 {% load static %}
 
-
-
-
-
 {% block extracontent %}
+
 <div class="invoice-container">
     <div class="align-center greentext">
         <h2> Thank you for your order!</h2>
@@ -17,9 +14,7 @@
         <p>Order date: {{ order.date }}</p>
         <p> Order reference: {{ order.id}}</p>
     </div>
-
     <div class="address">
-        
         <p>{{ order.full_name }}</p>
         <p>{{ order.street_address1 }}</p>
         <p>{{ order.street_address2 }}</p>
@@ -47,7 +42,6 @@
         {% endfor %}
     </div>
     <div >
-      
         <div class="data-row data-row-2 greentext">
             <p class="div-code"></p>
             <p class="div-name"><strong>Delivery</strong></p>
@@ -62,7 +56,6 @@
             <p class="div-price"></p>
             <p class="div-subtotal"><strong>£{{ order.grand_total }}</strong></p>
         </div>
-        
     </div>
     <div class="invoice-btns">
         <button class="button btn-green-transparent no-print" onclick="window.print()">Print Invoice</button>

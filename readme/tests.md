@@ -433,4 +433,9 @@ The Python code was validated with [Code Institute CI Python Linter](https://pep
 - shopping_bag/views.py 
 
 
+### Lighthouse.
+
+Intially, SEO performance was 85%. The issue highligted was: 'Requests for robots.txt returned HTTP status 500'. This was fixed by adding a robots.txt rule to the main url.py file.
+
+
 

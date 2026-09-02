@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extracontent %}
+
 <div>
     <div class="rating-form">
         <div class="rating-title">
@@ -16,7 +17,6 @@
                     <i id="star3" class="{% if rating.rating >= '3' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i>
                     <i id="star4" class="{% if rating.rating >= '4' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i>
                     <i id="star5" class="{% if rating.rating >= '5' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i>
-                    
                     <input id="star-input" class="star" type="hidden" name="rating" value="{{ rating.rating }}">
                 </div>
                 {{ rating_form }}
@@ -29,7 +29,6 @@
             <div>
                 <h3> Please, confirm you want to delete this review </h3>
                 <div class="">
-            
                     <a class="button btn-green-transparent" id="cancelbutton">Cancel</a>
                     <a class="button btn-green-transparent" id="deletebutton">Delete</a>
                 </div>

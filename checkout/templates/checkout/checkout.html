@@ -2,27 +2,25 @@
 {% load static %}
 
 {% block extracontent %}
+
 <div class="checkout-page greentext">
     <div  class="shipping-container" id="order-summary">
-        
-            <h2 class="padding-bottom-10">Order summary</h2>
-            <table class="order-sum">
-                <tr>
-                    <th class="align-left">Items</th>
-                    <td class="align-left">£{{ items_total }}</td>
-                </tr>
-                
-                <tr>
-                    <th class="align-left">Packing & postage</th>
-                    <td class="align-left">£{{ delivery }}</td>
-                </tr>
-                <tr>
-                    <th class="align-left">Order total</th>
-                    <th class="align-left">£{{ total }}</th>
-                </tr>
-            </table>
-            <a class="button btn-green-transparent btn-long" href="{% url 'shopping_bag:shoppingbag' %}">Back to shopping basket</a>
-        
+        <h2 class="padding-bottom-10">Order summary</h2>
+        <table class="order-sum">
+            <tr>
+                <th class="align-left">Items</th>
+                <td class="align-left">£{{ items_total }}</td>
+            </tr>  
+            <tr>
+                <th class="align-left">Packing & postage</th>
+                <td class="align-left">£{{ delivery }}</td>
+            </tr>
+            <tr>
+                <th class="align-left">Order total</th>
+                <th class="align-left">£{{ total }}</th>
+            </tr>
+        </table>
+        <a class="button btn-green-transparent btn-long" href="{% url 'shopping_bag:shoppingbag' %}">Back to shopping basket</a>
     </div>
     <div id="order-shipping">
         <div class="shipping-container">
@@ -42,10 +40,6 @@
                 </form>
             </div>
         </div>
-
-
-
-
     </div>
 </div>
 

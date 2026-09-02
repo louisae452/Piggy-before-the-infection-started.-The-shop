@@ -4,6 +4,7 @@
 {% block extracontent %}
 
 <div class="profile-container">
+
      <div class="form-container greentext">
         <h2 class="padding-bottom-10">Personal information</h2>
         <form method="post">
@@ -28,4 +29,5 @@
         <a class="greentext" href="{% url 'profiles:orderhistory' request.user.id %}">Order history</a>
     </div>
 </div>
-{% endblock %}
+
+{% endblock extracontent %}

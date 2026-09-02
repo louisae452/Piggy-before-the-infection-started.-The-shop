@@ -3,7 +3,6 @@
 
 {% block extracontent %}
 
-
 <div class="basket-content padding-10">
 {% if items%}
     <div class="table">
@@ -13,7 +12,6 @@
                 <p class="div-code">Code</p>
                 <p class="div-img"></p>
                 <p class="div-name">Name</p>
-                
                 <p class="div-qty">Quantity</p>
                 <p class="div-price">Price</p>
                 <p class="div-subtotal">Subtotal</p>
@@ -25,7 +23,6 @@
                 </div>
                 <div class="div-img"><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </div>
                 <div class="div-name">{{ item.product.name }}</div>
-                
                 <div class="div-qty">
                     <form id="bag-form" action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
                         {% csrf_token %}
@@ -81,4 +78,5 @@
     </div>
 {% endif %}
 </div>
+
 {% endblock extracontent %}

@@ -2,27 +2,23 @@
 {% load static %}
 
 {% block extracontent %}
+
 <div class="shipping-container" id="payment-error-box">
     <div class="align-center">
-    
         <h2 class="padding-bottom-10 greentext">Payment Verification Failed</h2>
         <p class="padding-bottom-10 greentext">We encountered a problem confirming your transaction status with Stripe.</p>
     </div>    
     <div  class="errors">
         <p class="align-center padding-bottom-10 greentext"><strong>Error Details:</strong></p>
-        
         <p class="padding-bottom-10 greentext">{{ message }}</p>
-        
-
         <p class="padding-bottom-10 greentext" >
             If funds were already deducted from your account, please do not try checking out again. Contact our customer support immediately quoting your details.
         </p>
-        
     </div>
-   
     <div >
         <a class="button btn-green-transparent" href="{% url 'checkout:checkout' %}">Review Address</a>
         <a class="button btn-green-transparent" href="{% url 'shopping_bag:shoppingbag' %}">Return to Bag</a>
     </div>
 </div>
+
 {% endblock extracontent %}
