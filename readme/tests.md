@@ -187,7 +187,10 @@ The following tests were carried out:
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
 |31/08/2026|Top left panel|On home page, click on the button on the top left panel|Page gets redirected as indicated in the button|Pass|| |
-|23/08/2026|Top right panel|On home page, click on the button on the top right panel|Page gets redirected as indicated in the button|Pass| |
+|31/08/2026|Top right panel|On home page, click on the button on the top right panel|Page gets redirected as indicated in the button|Pass| |
+|02/09/2026|Internal link|On admin panel, set one of the links to an internal link. Navigate to home page. Click on link.|Redirects to expected page.|Pass| |
+|02/09/2026|External link|On admin panel, set one of the links to an external link. Navigate to home page. Click on link.|Page opens in new window.|Server error 500. Fail|Modify template to accept both external and internal links|
+|02/09/2026|External link|On admin panel, set one of the links to an internal link. Navigate to home page. Click on link.|Page opens in new window.|Pass| |
 
 #### All products page.
 

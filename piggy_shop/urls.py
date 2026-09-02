@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
 
 urlpatterns = [
@@ -30,6 +31,13 @@ urlpatterns = [
     ),
     path('summernote/', include('django_summernote.urls')),
     path('', include('products.urls', namespace='products')),
+    path(
+        "robots.txt",
+        lambda r: HttpResponse(
+            "User-agent: *\nDisallow: /admin/\nDisallow: /checkout/\n\nSitemap: https://piggy-before-the-shop-260efcf00781.herokuapp.com/",
+            content_type="text/plain"
+        )
+    ),
 ]
 
 # Allow django to serve local images while developing.

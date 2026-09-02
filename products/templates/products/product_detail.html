@@ -8,13 +8,13 @@
         <div class="small-imgs">
             {% for img_obj in product.image_set.all %}
                 <div class="small-pic">
-                    <img class="img-small" src="{{ img_obj.image.url }}" alt="">
+                    <img class="img-small" src="{{ img_obj.image.url }}" alt="{{ img_obj.image_name }}">
                 </div>
             {% endfor %}
         </div>
         <div class="main-img">
             <div class="big-pic">
-                <img id="img-big" src="{{ product.main_image.image.url }}" alt="">
+                <img id="img-big" src="{{ product.main_image.image.url }}" alt="{{product.main_image.image_name }}">
                 <a class="greentext" id="enlarge" href="" target="_blank">See large image</a>
             </div>
         </div>
