@@ -59,9 +59,26 @@
             <img {% if homepage.bottom_left.image %}src="{{ homepage.bottom_left.image.url }}"{% else %}href="#"{% endif %}>
             <div class="homeblock-adds">
                 {% if homepage.bottom_left_title %}
-                <h1 class="dkpurpletext">{{ homepage.bottom_left_title }}</h1>
+                    <h1 class="dkpurpletext">{{ homepage.bottom_left_title }}</h1>
                 {% endif %}
                 {% if homepage.bottom_left_button %}
+                    {% if "http" in homepage.bottom_left_href.url_name %}
+                        <a class="button btn-long" href="{{ homepage.bottom_left_href.url_name }}" target="_blank" rel="noopener noreferrer">
+                            {{ homepage.button_left_button }}
+                        </a>
+                    {% else %}
+                        {% url homepage.bottom_left_href.url_name as internal_url %}
+                        {% if internal_url %}
+                            <a class="button btn-long" href="{{ internal_url }}"></a>
+                        {% else %}
+                            <a class="button btn-long" href="#"></a>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+
+
+
+
                 <a class="button btn-long" {% if homepage.bottom_left_href %}href="{% url homepage.bottom_left_href.url_name %}"{% else %}href="#"{% endif %}>
                     {{ homepage.bottom_left_button }}
                 </a>
