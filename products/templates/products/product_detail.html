@@ -69,7 +69,7 @@
         {% if product.character_link %}
             <a href="{{ product.character_link.url_name }}" target="_blank" rel="noopener noreferrer">See character</a>
         {% endif %}
-        <p>{{ product.description|safe }}</p>
+        {{ product.description|safe }}
         <p>£{{ product.price }}</p>
         <p>Quantity:</p>
         <form action="{% url 'shopping_bag:addtobag' product.code %}" method="POST">
@@ -80,7 +80,7 @@
                 </div>
                 <div class="qty">
                     <span class="qty-display">1</span>
-                    <input type="hidden" name="quantity" class="qty-input" value="1" data_item_code="{{ product.code }}" id="id_qty_{{ product.code }}">
+                    <input type="hidden" name="quantity" class="qty-input" value="1" data-item-code="{{ product.code }}" id="id_qty_{{ product.code }}">
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
                 <div class="arrow arrow-up">

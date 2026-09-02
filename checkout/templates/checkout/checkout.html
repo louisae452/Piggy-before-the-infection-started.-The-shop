@@ -32,7 +32,7 @@
                     <p class="greentext">or continue as a guest</p>
                 </div>
                 {% endif %}
-                <form class="checkout-form" method="POST" action="">
+                <form class="checkout-form" method="POST">
                     {% csrf_token %}
                     {{ user_form }}
                     {{ address_form }}

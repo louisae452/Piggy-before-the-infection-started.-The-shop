@@ -71,6 +71,11 @@ nav {
     display: flex;
     align-items: center;
 }
+.nav-logo h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+}
 .logo {
     padding: 5px;
 }

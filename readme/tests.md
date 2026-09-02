@@ -432,6 +432,11 @@ The Python code was validated with [Code Institute CI Python Linter](https://pep
 - shopping_bag/urls.py
 - shopping_bag/views.py 
 
+#### HTML
+
+Warning was given about the h1 element in the main navigator. It was changed to h2 to allow for top headings inside the pages.
+
+
 
 ### Lighthouse.
 
