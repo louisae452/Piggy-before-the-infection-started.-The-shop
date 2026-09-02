@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block alerts %}{% endblock alerts %}
+
 {% block content %}
 
 <div class="home">
@@ -9,15 +11,6 @@
         <a class="button btn-transparent" href="{% url 'products:plushes' %}">Plushes</a>
         <a class="button btn-transparent" href="{% url 'products:prints' %}">3D prints</a>
     </div>
-    {% if messages %}
-        <div>
-            {% for message in messages %}
-                <div class="alert-box {{ message.tags }}">
-                    <p>{{ message }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    {% endif %}   
 
     {% block extracontent %}
 
