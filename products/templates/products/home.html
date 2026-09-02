@@ -35,9 +35,21 @@
                 <h1 class="dkpurpletext">{{ homepage.top_left_title }}</h1>
                 {% endif %}
                 {% if homepage.top_left_button %}
-                <a class="button btn-long" {% if homepage.top_left_href %}href="{% url homepage.top_left_href.url_name %}"{% else %}href=""{% endif %}>
-                    {{ homepage.top_left_button }}
-                </a>
+                    {% if homepage.top_letf_href and "http" in homepage.top_left_href.url_name %}
+                        <a class="button btn-long" href="{{ homepage.top_left_href.url_name }}" target="_blank" rel="noopener noreferrer">
+                            {{ homepage.top_left_button }}
+                        </a>
+                    {% elif homepage.top_left_href %}
+                        {% url homepage.top_left_href.url_name as internal_url %}
+                        {% if internal_url %}
+                            <a class="button btn-long" href="{{ internal_url }}">{{ homepage.top_left_button }}</a>
+                        {% else %}
+                            <a class="button btn-long" href="#">{{ homepage.top_left_button }}</a>
+                        {% endif %}
+                    {% else %}
+                        <a class="button btn-long" href="#">{{ homepage.top_left_button }}</a>
+                    {% endif %}
+
                 {% endif %}
             </div>
         </div>
@@ -48,10 +60,22 @@
                 {% if homepage.top_right_title %}
                 <h1 class="dkpurpletext">{{ homepage.top_right_title }}</h1>
                 {% endif %}
-                {% if homepage.top_right_button %}
-                <a class="button btn-long" {% if homepage.top_right_href %}href="{% url homepage.top_right_href.url_name %}"{% else %}href=""{% endif %}>
-                    {{ homepage.top_right_button }}
-                </a>
+                {% if homepage.top_right_href and homepage.top_right_button %}
+                    {% if "http" in homepage.top_right_href.url_name %}
+                        <a class="button btn-long" href="{{ homepage.top_right_href.url_name }}" target="_blank" rel="noopener noreferrer">
+                            {{ homepage.top_right_button }}
+                        </a>
+                    {% elif homepage.top_right_href %}
+                        {% url homepage.top_right_href.url_name as internal_url %}
+                        {% if internal_url %}
+                            <a class="button btn-long" href="{{ internal_url }}">{{ homepage.top_right_button }}</a>
+                        {% else %}
+                            <a class="button btn-long" href="#">{{ homepage.top_right_button }}</a>
+                        {% endif %}
+                    {% else %}
+                        <a class="button btn-long" href="#">{{ homepage.top_right_button }}</a>
+                    {% endif %}
+                
                 {% endif %}
             </div>
         </div>
@@ -61,26 +85,23 @@
                 {% if homepage.bottom_left_title %}
                     <h1 class="dkpurpletext">{{ homepage.bottom_left_title }}</h1>
                 {% endif %}
-                {% if homepage.bottom_left_button %}
+                {% if homepage.bottom_letf_href and homepage.bottom_left_button %}
                     {% if "http" in homepage.bottom_left_href.url_name %}
                         <a class="button btn-long" href="{{ homepage.bottom_left_href.url_name }}" target="_blank" rel="noopener noreferrer">
-                            {{ homepage.button_left_button }}
+                            {{ homepage.bottom_left_button }}
                         </a>
-                    {% else %}
+                    {% elif homepage.bottom_left_href %}
                         {% url homepage.bottom_left_href.url_name as internal_url %}
                         {% if internal_url %}
-                            <a class="button btn-long" href="{{ internal_url }}"></a>
+                            <a class="button btn-long" href="{{ internal_url }}">{{ homepage.bottom_left_button }}</a>
                         {% else %}
-                            <a class="button btn-long" href="#"></a>
+                            <a class="button btn-long" href="#">{{ homepage.bottom_left_button }}</a>
                         {% endif %}
+                    {% else %}
+                        <a class="button btn-long" href="#">{{ homepage.bottom_left_button }}</a>    
                     {% endif %}
                 {% endif %}
-
-
-
-
-                
-                
+    
             </div>
 
 
@@ -92,10 +113,22 @@
                 {% if homepage.bottom_right_title %}
                 <h1 class="dkpurpletext">{{ homepage.bottom_right_title }}</h1>
                 {% endif %}
-                {% if homepage.bottom_right_button %}
-                <a class="button btn-long" {% if homepage.bottom_right_href %}href="{% url homepage.bottom_right_href.url_name %}"{% else %}href=""{% endif %}>
-                    {{ homepage.bottom_right_button }}
-                </a>
+                {% if homepage.bottom_right_href and homepage.bottom_right_button %}
+                    {% if "http" in homepage.bottom_right_href.url_name %}
+                        <a class="button btn-long" href="{{ homepage.bottom_right_href.url_name }}" target="_blank" rel="noopener noreferrer">
+                            {{ homepage.bottom_right_button }}
+                        </a>
+                    {% elif homepage.bottom_right_href %}
+                        {% url homepage.bottom_right_href.url_name as internal_url %}
+                        {% if internal_url %}
+                            <a class="button btn-long" href="{{ internal_url }}">{{ homepage.bottom_right_button }}</a>
+                        {% else %}
+                            <a class="button btn-long" href="#">{{ homepage.bottom_right_button }}</a>
+                        {% endif %}
+                    {% else %}
+                        <a class="button btn-long" href="#">{{ homepage.bottom_right_button }}</a>
+                    {% endif %}
+
                 {% endif %}
             </div>
         </div>
