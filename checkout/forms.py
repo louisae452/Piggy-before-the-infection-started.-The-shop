@@ -25,7 +25,7 @@ class OrderForm(forms.ModelForm):
     save_profile = forms.BooleanField(
         required=False,
         initial=False,
-        abel='Save address to my profile'
+        label='Save address to my profile'
     )
     required_css_class = 'required'
 
