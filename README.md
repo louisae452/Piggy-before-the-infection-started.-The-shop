@@ -360,9 +360,9 @@ All the images and videos portrayed on the site have been created by SuperJakeJo
 
 ## Items
 
-The items presented on the site were designed by SuperJakeJoseCat to portray characters created by SOMEBODY for the ROBLOX game Piggy and SuperJakeJoseCat for the YouTube series Piggy before the infection started.
+The items presented on the site were designed by SuperJakeJoseCat to portray characters created by Minitoon for the ROBLOX game Piggy and SuperJakeJoseCat for the YouTube series Piggy before the infection started.
 
-Plushes were crafted by SuperLuisaCat and 3D prints by SuperJakeJose Cat.
+Plushes were crafted by SuperLuisaCat and SuperJakeJoseCat and 3D prints by SuperJakeJose Cat.
 
 All the items belong to SuperJakeJoseCat's private collection and are not for sale.
 

@@ -424,6 +424,9 @@ textarea {
     color: var(--forest-green);
     padding: 10px;
 }
+.rating-username {
+    font-size: 0.75em;
+}
 
 /* Shopping bag */
 .basket-content {

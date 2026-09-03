@@ -133,6 +133,10 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
+
+    
+
+
     // Delete review.
     
     let deletereview = document.getElementById("deletereview");

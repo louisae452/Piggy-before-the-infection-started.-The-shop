@@ -102,14 +102,14 @@
             <div class="one-rating">
                 <div class="rating-text">
                     <div class="star-rating-container">    
-                        <p ><i id="star1" class="{% if rating.rating >= '1' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
-                        <p ><i id="star2" class="{% if rating.rating >= '2' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
-                        <p ><i id="star3" class="{% if rating.rating >= '3' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
-                        <p ><i id="star4" class="{% if rating.rating >= '4' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
-                        <p ><i id="star5" class="{% if rating.rating >= '5' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star1-{{ rating.pk }}" class="{% if rating.rating >= '1' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star2-{{ rating.pk }}" class="{% if rating.rating >= '2' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star3-{{ rating.pk }}" class="{% if rating.rating >= '3' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star4-{{ rating.pk }}" class="{% if rating.rating >= '4' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
+                        <p ><i id="star5-{{ rating.pk }}" class="{% if rating.rating >= '5' %}fa-solid fa-star{% else %}fa-regular fa-star{% endif %}"></i></p>
                     </div>
-                        <p id="username">By {% if rating.user %}{{ rating.user.username }}{% else %}guest user{% endif %}</p>
-                        <p><span> {{ rating.title }}</p>
+                        <p class="rating-username">By {% if rating.user %}{{ rating.user.username }}{% else %}guest user{% endif %}</p>
+                        <p><span> {{ rating.title }}</span></p>
                         <p> {{ rating.comment | safe }}</p>
                 </div>
                 <div class="rating-btns">
