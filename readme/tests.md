@@ -421,6 +421,40 @@ The basket page.
 
 ### Validation.
 
+#### HTML
+
+The following html pages were run through the [W3C HTML validator](https://validator.w3.org/#validate_by_input):
+
+- products/home.html
+
+- products/all_products.html
+
+- products/plushes.html
+
+- products/ prints.html
+
+- products/product_detail.html
+
+- products/rate_product.html
+
+- products/update_review.html
+
+- shopping_bag/shopping_bag.html
+
+- checkout/checkout.html
+
+- checkout/success.html
+
+- checkout/confirmation.html
+
+- profiles/profile.html
+
+- profiles/order_history.html
+
+- profiles/past_order.html
+
+All errors were fixed.
+
 #### Python.
 
 The Python code was validated with [Code Institute CI Python Linter](https://pep8ci.herokuapp.com/#).
@@ -465,11 +499,17 @@ The Python code was validated with [Code Institute CI Python Linter](https://pep
 - shopping_bag/urls.py
 - shopping_bag/views.py 
 
-#### HTML
+#### CSS
 
-Warning was given about the h1 element in the main navigator. It was changed to h2 to allow for top headings inside the pages.
+static/css/main.css was validated with [w3 CSS validator](https://jigsaw.w3.org/css-validator/validator.html).
 
+No errors were found.
 
+#### JavaScript
+
+static/js/script.js was validated with [js Lint](https://www.jslint.com/).
+
+All errors were fixed.
 
 ### Lighthouse.
 

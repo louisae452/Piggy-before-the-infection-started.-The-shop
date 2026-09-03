@@ -108,20 +108,22 @@ This structure is continued in all pages thorough the site.
 
 The main area of the homepage is divided into four completely customisable sections, with the option to include a picture, a title and a link (which can be external or internal). The content of these sections is controlled by the Homepage model, which also controls the video links in the vertical section for all pages not featuring individual products.
 
-        HOME PAGE IMAGE.
+![Home page](readme/images/responsive/home-ins.jpg)
 
 ### Main navigation bar.
 
 When first arriving to the site, the navigation bar contain links to go home, shopping basket, log in and register.
 On logging in, the links turn into go home, account, log out and shopping basket.
 
-        NAV BAR PICTURES X2
+![Nav bar logged out](readme/images/features/nav-loggedout.jpg)
+
+![Nav bar logged in](readme/images/features/nav-loggin.jpg)
 
 ### Products pages.
 
 The products page lists the products with a picture, name and price. Eight products are displayed by page. The products can be separted into plushes and 3d prints by clicking on the relevant buttons.
 
-        PRODUCTS PICTURES
+![Products page](readme/images/responsive/products-ins.jpg)
 
 ### Product detail pages.
 
@@ -131,7 +133,7 @@ The textual information contains the name of the product followed by the star ra
 
 Under the  product information is the reviews area featuring two reviews per page. Users can add new reviews as well as update or delete reviews they had previously written.
 
-        pRODUCT DETAIL PICTURE
+![Product detail page](readme/images/responsive/detail.ins.jpg)
 
 ### The Basket page.
 
@@ -143,7 +145,7 @@ Items can be saved to the basket whether the user is logged in or not. On loggin
 
 The page has links to proceed to checkout and continue shopping.
 
-    SHOPPING BASKET PICTURE.
+![Basket page](readme/images/responsive/basket-ins.jpg)
 
 ### Checkout page.
 
@@ -153,7 +155,7 @@ If the user is not logged in, they have the option to either log in or continue 
 
 Once ready, the user can proceed to secure checkout.
 
-    CHECKOUT PAGE PICTURE
+![Checkout page](readme/images/features/checkout.jpg)
 
 ### Secure checkout.
 
@@ -163,7 +165,7 @@ Secure checkout is provided by stripe.
 
 On successful payment of the order, the user is directed to the thank you page where the invoice of the order is provided. A link to print the invoice is provided.
 
-    THANK YOU PAGE AND INVOICE PICTURES.
+![Thank you page](readme/images/features/thankyou.jpg)        ![Invoice](readme/images/features/invoice.jpg)
 
 ### Profile.
 
@@ -171,13 +173,13 @@ Once the user has logged in, the account button on the main navigation area dire
 
 There, the user can update their personal information and shipping details, change their password and email address and access their order history.
 
-        PROFILE PAGE PICTURE.
+![Profile page](readme/images/features/profile.jpg)
 
 ### Order history page.
 
 The order history page featues a list of all of the user's past orders. Clicking on them, the order invoice can be seen and printed.
 
-        OLD ORDER PAGE PICTURE.
+![Order history page](readme/images/features/order-history.jpg)
 
 ### Securiy.
 
