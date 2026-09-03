@@ -191,6 +191,8 @@ If the user decides to change the email address on their profile, they must got 
 
 Users can use a different email address for specific orders but those are only recorded on the Order model for order processing and not on their profiles.
 
+Checkout pages have been blocked from indexing to prevent them from being shown to the public on search engines.This results in the SEO for those pages being 66%.
+
 
 ## Models and views.
 

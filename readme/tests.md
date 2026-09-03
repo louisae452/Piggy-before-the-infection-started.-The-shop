@@ -473,7 +473,39 @@ Warning was given about the h1 element in the main navigator. It was changed to 
 
 ### Lighthouse.
 
-Intially, SEO performance was 85%. The issue highligted was: 'Requests for robots.txt returned HTTP status 500'. This was fixed by adding a robots.txt rule to the main url.py file.
+Lighthouse was run on all pages on Google Dev Tools. These are the results.
+
+|Page|Mode|Performance|Accessibility|Best Practices|SEO|
+|:--|:--|--:|--:|--:|-------:|
+|Home|Desktop|97|100|100|100
+|Home|Mobile|98|100|100|100|
+|All products|Desktop|96|100|100|100|
+|All products|Mobile|98|100|100|100|
+|Plushes|Desktop|96|100|100|100|
+|Plushes|Mobile|100|100|100|100|
+|Prints|Desktop|100|100|100|100|
+|Prints|Mobile|100|100|100|100|
+|Product detail|Desktop|98|100|100|100|
+|Product detail|Mobile|90|100|100|100|
+|Shopping basket|Desktop|100|100|100|100|
+|Shopping basket|Mobile|100|100|100|100|
+|Checkout|Desktop|100|100|100|66|
+|Checkout|Mobile|95|100|100|66|
+|Thank you|Desktop|99|100|100|66|
+|Thank ou|Mobile|93|100|100|66|
+|Profile|Desktop|100|100|100|100|
+|Profile|Mobile|95|100|100|100|100|
+|Order history|Desktop|100|100|100|100|
+|Order history|Mobile|94|100|100|100|
+|Order detail|Desktop|100|100|100|100|
+|Order detqil|Mobile|94|100|100|100|
+
+
+Intially, SEO performance on some pages was 85%. The issue highligted was: 'Requests for robots.txt returned HTTP status 500'. This was fixed by adding a robots.txt rule to the main url.py file.
+
+The SEO 66% performance on the checkout pages is due to them having been blocked from indexing to stop them from being shown by search engines as they contain sensitive information.
+
+Padding was added to the lines on the order history page to increase the area of the clickable link.
 
 
 
