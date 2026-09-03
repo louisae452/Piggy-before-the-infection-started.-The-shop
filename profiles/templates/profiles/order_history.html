@@ -6,14 +6,14 @@
 <div class="order-history pading-10 greentext">
     <h2 class="padding-10"> Order history for {{ user.first_name }} {{ user.last_name }}</h2>
     <table class="order-table">
-        <tr class="padding-bottom-10">
+        <tr class="padding-10">
             <th class="align-left width-75">Order id</th>
             <th class="align-left width-100">Date</th>
             <th class="align-left width-75">Total</th>
             <th class="align-left width-75">Status</th>
         </tr>
         {% for order in order_list %}
-        <tr>
+        <tr class="padding-10">
             <td>{{ order.id }}</td>
             <td><a class="greentext" href="{% url 'profiles:pastorderdetail' order.id %}">{{ order.date }}</a></td>
             <td>{{ order.grand_total }}</td>
