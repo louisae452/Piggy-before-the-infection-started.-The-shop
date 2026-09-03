@@ -194,6 +194,8 @@ Users can use a different email address for specific orders but those are only r
 
 ## Models and views.
 
+### Models
+
 This is the entity relationship diagram of the models used in this project. The different colour areas show how the models are distributed through the different appications.
 
 ![erd](readme/images/erd.jpg)
@@ -203,6 +205,8 @@ The product app contains all the models related to the products. This includes t
 The shopping_bag app contains the ShoppingBasket and ShopItems models, while checkout contains the Order and OrderLineItem models.
 
 The profiles app contains the Profile model as well as he PasswordResetLog model to record password changes as required by legal regulations.
+
+### Views
 
 This are the views used on the site.
 
@@ -229,24 +233,10 @@ This are the views used on the site.
 |past_order_detail|profiles|--|profiles/past_order_detail|Displays details of a past order.|
 
 
-
-
-
 ## Issues.
 
 The email confirming the order was successfully processed currently ends up in the recipient's junk email. This is probably due to the fact that the email content is business based while the sender's email has been registered as a personal email address.
 
-
-
-## Deployment.
-
-When setting heorku app must run this from terminal:
-
-heroku config:set EMAIL_HOST_PASSWORD="email-app-pwd" --app heroku-app-name
-
-to configure the email
-
-add stripe keys to heroku. Change local host settings.
 
 ## Use of AI.
 
@@ -266,7 +256,50 @@ The following features were developed using AI assistance:
 
 - settings.py: Code to record reset password requests for Heroku loggins.
 
+## Deployment.
 
+he project was managed in [github](https://github.com) and deployed to [heroku](https://id.heroku.com/login).
+
+The process followed to deploy was:
+
+- Once logged into Heroku, navigate to the 'new' button on the top right corner and click on 'create new app'.
+- Give the app a name.
+- Choose your location.
+- Click on 'create app'.
+- Click on 'settings' and 'reveal config vars'
+- Set the appropriate keys.
+- From the app dashboard, click on 'Deploy'.
+- In Deployment method, select GitHub.
+- Search for the repository name.
+- Click on 'connect'.
+- Choose a branch to deploy from.
+- Click on 'deploy branch'.
+- Move to the top of the page and click on 'Open app'.
+
+The following keys were set up: ALLOWED_HOSTS, CLOUDINARY_URL, DATABASE_URL, EMAIL_HOST_PASSWORD, SECRET_KEY, STRIPE_PUBLIC_KEY and STRIPE_SECRET_KEY.
+
+The site can be accessed from: [here](https://piggy-before-the-shop-260efcf00781.herokuapp.com/)
+
+To fork the project:
+
+- On Github, mavigate to the [project page]( https://github.com/louisae452/Piggy-before-the-infection-started.-The-shop)
+- Click on the fork icon.
+- Select new branch.
+- Give the branch a name and save.
+
+To clone the project:
+
+- On Github, navigate to the [project page]( https://github.com/louisae452/Piggy-before-the-infection-started.-The-shop)
+- Click on the code button.
+- Copy the address shown.
+- Open your code editor.
+- On the terminal, navigate to the desired directory.
+- Type 'git clone' followed by the address you copied.
+- Press enter.
+
+## Languages used
+
+HTML, CSS, JavaScript, Python
 
 ## Frameworks, packages and libraries.
 
@@ -318,3 +351,19 @@ The following features were developed using AI assistance:
 - Mock object library. [Real Python](https://realpython.com/python-mock-library/) 
 
 - Mock and MagicMock. [Medium](https://medium.com/@snehagiranje05/unveiling-the-magic-understanding-mock-and-magicmock-in-python-ecadf1f1013c)
+
+## Media
+
+All the images and videos portrayed on the site have been created by SuperJakeJosesCat.
+
+## Items
+
+The items presented on the site were designed by SuperJakeJoseCat to portray characters created by SOMEBODY for the ROBLOX game Piggy and SuperJakeJoseCat for the YouTube series Piggy before the infection started.
+
+Plushes were crafted by SuperLuisaCat and 3D prints by SuperJakeJose Cat.
+
+All the items belong to SuperJakeJoseCat's private collection and are not for sale.
+
+## Acknoledgements
+
+

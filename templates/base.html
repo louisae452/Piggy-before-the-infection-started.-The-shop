@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     {% block meta_description %}  
     <meta name="description" content="Home page">
-    <meta name="keywords" content="piggy, penny, p199y, superjakejosecat">
+    <meta name="keywords" content="piggy, penny, p199y, superjakejosecat, plushes, 3d prints">
     {% endblock %}
+    {% if  request.resolver_match.app_name == 'checkout' or request.resolver_match.url_name in 'checkout,payment_cancel,payment_success' %}
+        <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+
     <!-- Favicon. -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
