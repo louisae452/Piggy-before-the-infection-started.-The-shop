@@ -6,18 +6,18 @@
 <div class="order-history pading-10 greentext">
     <h2 class="padding-10"> Order history for {{ user.first_name }} {{ user.last_name }}</h2>
     <table class="order-table">
-        <tr class="padding-10">
-            <th class="align-left width-75">Order id</th>
-            <th class="align-left width-100">Date</th>
-            <th class="align-left width-75">Total</th>
-            <th class="align-left width-75">Status</th>
+        <tr>
+            <th class="align-left width-75 padding-10">Order id</th>
+            <th class="align-left width-100 padding-10">Date</th>
+            <th class="align-left width-75 padding-10">Total</th>
+            <th class="align-left width-75 padding-10">Status</th>
         </tr>
         {% for order in order_list %}
         <tr class="padding-10">
-            <td>{{ order.id }}</td>
-            <td><a class="greentext" href="{% url 'profiles:pastorderdetail' order.id %}">{{ order.date }}</a></td>
-            <td>{{ order.grand_total }}</td>
-            <td>{{ order.status }}</td>
+            <td class="padding-10">{{ order.id }}</td>
+            <td class="padding-10"><a class="greentext" href="{% url 'profiles:pastorderdetail' order.id %}">{{ order.date }}</a></td>
+            <td class="padding-10">{{ order.grand_total }}</td>
+            <td class="padding-10">{{ order.status }}</td>
         </tr>
         {% endfor %}
     </table>
