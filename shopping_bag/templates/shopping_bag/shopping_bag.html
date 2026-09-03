@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="qty">
                                     <span class="qty-display">{{ item.quantity }}</span>
-                                    <input type="hidden" name="quantity" class="qty-input" value="{{ item.quantity }}" data_item_code="{{ item.product.code }}" id="id_qty_{{ item.product.code }}">
+                                    <input type="hidden" name="quantity" class="qty-input" value="{{ item.quantity }}" data-item-code="{{ item.product.code }}" id="id_qty_{{ item.product.code }}">
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </div>
                                 <div class="arrow arrow-up">
