@@ -24,7 +24,7 @@
                 <div class="div-img"><img class="bag-img" src="{{ item.product.main_image.image.url }}" alt=""> </div>
                 <div class="div-name">{{ item.product.name }}</div>
                 <div class="div-qty">
-                    <form id="bag-form" action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
+                    <form action="{% url 'shopping_bag:updatebag' item.product.code %}" method="POST">
                         {% csrf_token %}
                             <div class="quantity-box">
                                 <div class="arrow arrow-down">
@@ -41,7 +41,7 @@
                             </div>
                             <div class="qty-update">
                                 <button type="submit" class="button btn-green-transparent btn-shop">Update</button>
-                                <button type="submit" id="remove" class="button btn-green-transparent btn-shop" data-alt-url="{% url 'shopping_bag:removefrombasket' item.product.code %}">Remove</button>
+                                <button type="submit" class="button btn-green-transparent btn-shop" data-alt-url="{% url 'shopping_bag:removefrombasket' item.product.code %}">Remove</button>
                             </div>
                         </form> 
                 </div>
