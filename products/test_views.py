@@ -234,18 +234,18 @@ class TestProductDetail(TestCase):
         self.assertEqual(response.context['rating_average'], 0)
 
     def test_product_detail_pagination(self):
-        """Tests paginator shows 4 items per page."""
+        """Tests paginator shows 2 items per page."""
         for i in range(6):
             Rating.objects.create(product=self.product, rating=4)
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.context['ratings_page']), 4)
+        self.assertEqual(len(response.context['ratings_page']), 2)
         self.assertTrue(response.context['ratings_page'].has_next())
         self.assertFalse(response.context['ratings_page'].has_previous())
 
     def test_product_detail_page_2(self):
         """Tests ratings in page 2"""
-        for i in range(6):
+        for i in range(4):
             Rating.objects.create(product=self.product, rating=4)
         response = self.client.get(self.url, {'page': 2})
         self.assertEqual(response.status_code, 200)
