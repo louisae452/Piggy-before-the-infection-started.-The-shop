@@ -28,7 +28,7 @@
                         {% csrf_token %}
                             <div class="quantity-box">
                                 <div class="arrow arrow-down">
-                                    <i class="fa-solid fa-arrow-down"></i>
+                                    <i class="fa-solid fa-minus"></i>
                                 </div>
                                 <div class="qty">
                                     <span class="qty-display">{{ item.quantity }}</span>
@@ -36,7 +36,7 @@
                                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                 </div>
                                 <div class="arrow arrow-up">
-                                    <i class="fa-solid fa-arrow-up"></i>
+                                    <i class="fa-solid fa-plus"></i>
                                 </div>
                             </div>
                             <div class="qty-update">

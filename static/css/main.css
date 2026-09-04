@@ -55,7 +55,7 @@ input {
     border-radius: 5px;
     color: var(--forest-green);
     background-color: var(--barely-there-pink);
-    padding-left: 5px;
+    padding: 5px;
 }
 
 
@@ -280,6 +280,8 @@ input[type="radio"] {
     display: flex;
     justify-content: center;
     color: var(--forest-green);
+    font-size: 1.25em;
+    padding: 5px;
 }
 .pagination span a {
     color: var(--forest-green);
