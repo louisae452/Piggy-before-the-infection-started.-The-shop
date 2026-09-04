@@ -451,10 +451,6 @@ My family for their unconditional support.
 
 SuperJakeJoseCat for sharing his creativity and being my biggest fan.
 
-
-
-
-
-
-
 [View the finished project here.](https://piggy-before-the-shop-260efcf00781.herokuapp.com/)
+
+[Back to the top](#contents)
