@@ -10,19 +10,19 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 ## Contents.
 
-1. [Business goals.](#1-business-goals)
+1.- [Business goals.](#1-business-goals)
 
-2. [User needs](#2-user-needs)
+2.- [User needs](#2-user-needs)
 
-3. [User stories](#3-user-stories)
+3.- [User stories](#3-user-stories)
 
-4. [Plan](#4-plan)
+4.- [Plan](#4-plan)
 
-5. [Features](#5-features)
+5.- [Features](#5-features)
 
-6. [security](#6-securiy)
+6.- [security](#6-securiy)
 
-7. [Models and views](#7models-and-views)
+7.- [Models and views](#7models-and-views)
 
 8.- [Use of AI](#8-use-of-ai)
 

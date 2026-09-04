@@ -368,7 +368,10 @@ The following issues were found:
 |:--|:--|:--|:--|:--|
 |01/09/2026|It is not clear which fields are required.|checkout/checkout.html|checkout:UserForm, checkout:OrderForm|Added required class to forms.|
 |01/09/2026|Change password template redirects back to itself after saving new password.|allauth change_password.html|---|Add adapter to redirect template back to profile template.|
-
+|04/09/2026|Forms input fields are too small.| | |Added padding around the text.|
+|04/09/2026|Fonts are not inteesting.| | |Added Lato and Cherry Cream  Soda fonts.|
+|04/09/2026|Arrows up an down should be plus and minus.|products/product_detail.html shopping_bag/shopping_bag.html| |Replaced arrows with up and down signs|
+|04/09/2026|Pagination is too small| | | Made pagination fonts bigger and added padding.|
 ### 5. Responsiveness
 
 The site was tested on Inspiron 16 laptop, ipad pro and iphone 16 pro.
