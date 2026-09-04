@@ -1,4 +1,6 @@
 /* CSS variables*/
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Cream+Soda&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 :root {
     
     --dark-purple: #440643;
@@ -19,13 +21,16 @@
     margin: 0;
     box-sizing: border-box;
 }
+h1, h2 { 
+     font-family: 'Cherry Cream Soda', sans-serif;
+}
 body {
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    font-family: 'Lato', sans-serif;
 }
-
 /* General */
 .button {
     background-color: var(--dark-purple);
