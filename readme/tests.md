@@ -1,8 +1,24 @@
+[Back to main file](../README.md#9-testing).
 
-### Automated testing.
+### Contents.
+
+1. [Automated testing](#1-automated-testing)
+
+2. [Manual testing](#2-manual-testing)
+
+3. [User stories](#3-user-stories)
+
+4. [User experience](#4-user-experience)
+
+5. [Responsiveness](#5-responsiveness)
+
+6. [Validation](#6-validation)
+
+7. [Lighthouse](#7-lighthouse)
+
+### 1. Automated testing.
 
 The following tests were carried out:
-
 
 #### Checkout app.
 
@@ -27,10 +43,6 @@ The following tests were carried out:
 |26/08/2026|checkout|Checkout populates form data from authenticated user|Pass||
 |26/08/2026|checkout|Checkout serves empty form for unauthenticated user|Pass||
 |26/08/2026|payment_success|Missing session id and order id redirects with error|Pass||
-
-
-
-
 
 #### Products app.
 
@@ -70,15 +82,6 @@ The following tests were carried out:
 |25/08/2026|update_review|Page loads with the required review|Pass||
 |25/08/2026|update_review|A user cannot update someone else's review|Pass|||
 
-
-
-
-
-
-
-
-
-
 #### Profiles app.
 
 ##### Forms.
@@ -110,7 +113,6 @@ The following tests were carried out:
 |26/08/2026|past_order_detail|Logged in user cannot access guest orders|Pass||
 |26/08/2026|past_order_detail|Invalid order throws 404 error|Pass||
 
-
 ### Shopping_bag app.
 
 #### Views
@@ -122,12 +124,11 @@ The following tests were carried out:
 |26/08/2026|add_to_basket|A new ShopItems record is created|Pass||
 |26/08/2026|update_bag|New quantity is saved|Pass||
 
+### 2. Manual testing.
 
-### Manual testing.
+The following manual tests were carried out:
 
-The following manual tests were carried out.
-
-#### Authentiction.
+#### Authentication.
 
 ##### Register page.
 
@@ -142,7 +143,6 @@ The following manual tests were carried out.
 |31/08/2026|Password does not match|In register page, fill the fields. Ensure the confirm password field does not match the original password.|The register page loads again with the filled in username and email.|Pass| |
 |31/08/2206|New user registers with an already registered username|In register page, fill in user name with an already existing user's username. Fill in the rest of the fields and save.|A user with that user name already exists message apperars|Pass| |
 |31/08/2026|New user registers with already registered email address|In register page, fill the email with an already existing email address. Fill the other fields and Register.| Verify your email address page loads with message. An email is sent to the email address. The email advises the email address is already in use and prompts the user to follow forgotten password protocol if needed.The link leads to password reset link.|Pass| |
-
 
 ##### Sign in page.
 
@@ -161,7 +161,6 @@ The following manual tests were carried out.
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
 |31/08/2026| Sign out page loads|Navigate to site. While loggef in, click on Log out button|Sign out   page loads. On clicking on log out button, home page loads with success button. Log in and register buttons appear on main navigator bar.|Pass| |
-
 
 #### Home page.
 
@@ -253,7 +252,6 @@ The following manual tests were carried out.
 |31/08/2026|Logged in user rating save.|After signing in, on a rate page, add a star rating, a title and a comment. Click on save.|Rating is saved. Rating appears in rating area of product image with user name.|Pass| |
 |31/08/2026|Guest user rating save.|Without signing in, on a rate page, add a star rating, a title and a comment. Click on save.|Rating is saved. Rating appears in rating area of product image credited to guest user.|Pass| |
 
-
 #### Update rating page.
 
 |Date|Test|Method|Expected result|Result|Follow up|
@@ -262,7 +260,6 @@ The following manual tests were carried out.
 |31/08/2026|Delete button/ cancel.|After loggin in, navigate to a rating written by the user .Click on update. Click on delete. Cancel delete.| Delete is cancelled.|Pass| |
 |31/08/2026|Delete button/ delete.|After loggin in, navigate to a rating witten by the user. Click on update. Click on delete. Confirm delete.|The review is deleted. Product page loads with success message.|Pass| |
 |3108/2026|Unauthorised user.|After logging in, navigate to a rating written by the user. Click on the update button. Copy the url address. Log out. Paste the url address onto a new browser page.|403 error displays.|Pass|  |
-
 
 #### Shopping basket page.
 
@@ -297,23 +294,11 @@ The following manual tests were carried out.
 |01/09/2026|Deliver to a different address and change address on profile|Add some items to the basket  and navigate to the checkout page. Log in. Change the address the order is delivered to. Click on save address to my profile. Proceed to checkout.|Order is recorded with new address. Address on user's profile is changed.|Pass| |
 |01/09/2026|Change name on profile|Add some items to the basket  and navigate to the checkout page. Log in. Change the name the order is delivered to. Click on save save to my profile. Proceed to checkout.|Order is recorded with new address. Address on user's profile is changed.|Pass| |
 
-
-
-
-
-
-
-
-
-
-
-
 #### Stripe page.
 
 |Date|Test|Method|Expected result|Result|Follow up|
 |:--|:--|:--|:--|:--|:--|
 |01/09/2026|Payment goes through.|Add some items to the basket. Navigate to the checkout page and fill the form with suitable information.Click on proceed to secure payment button. On Stripe page,fill in the tester credit card information. Click on pay.|Thank you for your order page loads . An email is sent to inform the usesr the order has been successful. A new record is created in the Order model.|Pass|  |
-
 
 #### Thank you page.
 
@@ -321,7 +306,6 @@ The following manual tests were carried out.
 |:--|:--|:--|:--|:--|:--|
 |01/09/2026|Print invoice button|Add some items to the basket and proceed to checkout. On the thank you for your order page, click on print invoice button.|The printer page on your device loads ready to print the invoice.|Pass| |
 |01/09/2026|Continue shopping button.|Add some items to the basket and proceed to checkout. On the thank you for your order page, click on continue shopping button.|All products page loads.|
-
 
 #### Profile page.
 
@@ -360,7 +344,7 @@ The following manual tests were carried out.
 |01/09/2026|Print invoice button.|Log onto site. Navigate to past order page. Click on print invoice button.|Printer preview page loads.|Pass| |
 |01/09/2026|Continue shopping button.|Log onto site. Navigate to past order page. Click on continue shopping button.|All products page loads.|Pass| |
 
-### User stories.
+### 3. User stories.
 
 - Users are able to regiter for an account and log in and out easily by using the buttons on the main navigator. They can use the forgot your password link to reset their password in the event of forgetting it. Once logged in, they can navigate to their account and change their password and personal information and see their order history and details of any order they made in the past.
 
@@ -376,21 +360,20 @@ The following manual tests were carried out.
 
 - The creator can add items to the website using the admin panel. They can change the images and links on the home page to make it relevant to different times of the year and they can change the videos offered on the side panel.
 
+### 4. User experience.
 
-### User experience.
-
-The following issues were found.
+The following issues were found:
 
 |Date|Issue|Template|View/Form|Action taken|
 |:--|:--|:--|:--|:--|
 |01/09/2026|It is not clear which fields are required.|checkout/checkout.html|checkout:UserForm, checkout:OrderForm|Added required class to forms.|
 |01/09/2026|Change password template redirects back to itself after saving new password.|allauth change_password.html|---|Add adapter to redirect template back to profile template.|
 
-### Responsiveness
+### 5. Responsiveness
 
 The site was tested on Inspiron 16 laptop, ipad pro and iphone 16 pro.
 
-The home page.
+#### The home page.
 
 ![Inspiron home](images/responsive/home-ins.jpg)     ![Ipad home landscape](images/responsive/home-ipad.jpg)      ![iphone home landscape](images/responsive/home-iphone-land.jpg)
 
@@ -398,7 +381,7 @@ The home page.
 
 ![ipad home portrait](images/responsive/home-ipad-port.jpg)     ![iphone home portrait](images/responsive/home-iphone.jpg)
 
-The products page.
+#### The products page.
 
 ![Inspiron products](images/responsive/products-ins.jpg)      ![Ipad products landscape](images/responsive/products-ipad.jpg)      ![iphone products landscape](images/responsive/product-iphone.jpg)
 
@@ -411,15 +394,14 @@ A product detail page.
 
 ![iphone detail landscape](images/responsive/detail-iphone-lands.jpg)     ![ipad detail portrait](images/responsive/detail-ipad-port.jpg)     ![iphone detail portrait](images/responsive/detail-iphone.jpg)
 
-The basket page.
+#### The basket page.
 
 ![Inspiron basket](images/responsive/basket-ins.jpg)      ![ipad basket landscape](images/responsive/basket-ipad.jpg)       ![iphone basket landscape](images/responsive/basket-iphone-land.jpg)
 
 
 ![ipad basket portrait](images/responsive/detail-ipad-port.jpg)       ![iphone basket portrait](images/responsive/basket-iphone.jpg)
 
-
-### Validation.
+### 6. Validation.
 
 #### HTML
 
@@ -467,10 +449,8 @@ The Python code was validated with [Code Institute CI Python Linter](https://pep
 - checkout/test_views.py
 - checkout/urls.py
 - checkot/views.py
-
 - piggy_shop/settings.py
 - piggy_shop/urls.py
-
 - products/admin.py
 - products/apps.py
 - products/context.py
@@ -478,7 +458,6 @@ The Python code was validated with [Code Institute CI Python Linter](https://pep
 - products/test_views.py
 - products/ursl.py
 - products/views.py
-
 - profiles/adapters.py
 - profiles/admin.py
 - profiles/apps.py
@@ -489,7 +468,6 @@ The Python code was validated with [Code Institute CI Python Linter](https://pep
 - profiles/test_views.py
 - profiles/urls.py
 - profiles/views.py
-
 - shopping_bag/admin.py
 - shopping_bag/apps.py
 - shopping_bag/context.py
@@ -511,9 +489,9 @@ static/js/script.js was validated with [js Lint](https://www.jslint.com/).
 
 All errors were fixed.
 
-### Lighthouse.
+### 7. Lighthouse.
 
-Lighthouse was run on all pages on Google Dev Tools. These are the results.
+Lighthouse was run on all pages on Google Dev Tools. These are the results:
 
 |Page|Mode|Performance|Accessibility|Best Practices|SEO|
 |:--|:--|--:|--:|--:|-------:|
@@ -540,12 +518,13 @@ Lighthouse was run on all pages on Google Dev Tools. These are the results.
 |Order detail|Desktop|100|100|100|100|
 |Order detqil|Mobile|94|100|100|100|
 
-
 Intially, SEO performance on some pages was 85%. The issue highligted was: 'Requests for robots.txt returned HTTP status 500'. This was fixed by adding a robots.txt rule to the main url.py file.
 
 The SEO 66% performance on the checkout pages is due to them having been blocked from indexing to stop them from being shown by search engines as they contain sensitive information.
 
 Padding was added to the lines on the order history page to increase the area of the clickable link.
 
+[Back to beginning](#contents).
 
+[Back to main file](../README.md#9-testing).
 

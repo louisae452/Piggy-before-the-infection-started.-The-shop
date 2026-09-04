@@ -1,6 +1,6 @@
 # Piggy before the infection started.The shop.
 
-VIEW THE FINISHED PROJECT HERE
+[View the finished project here.](https://piggy-before-the-shop-260efcf00781.herokuapp.com/)
 
 Through the years, Piggy before the infection started has garnered an ever increasing group of faithful followers. 
 
@@ -8,7 +8,55 @@ Piggy before the infection started-The shop is the exclusive official merchandis
 
 It aims to look after the series' fans as well as increase the reach of the series.
 
-## Business goals.
+## Contents.
+
+1. [Business goals.](#1-business-goals)
+
+2. [User needs](#2-user-needs)
+
+3. [User stories](#3-user-stories)
+
+4. [Plan](#4-plan)
+
+5. [Features](#5-features)
+
+6. [security](#6-securiy)
+
+7. [Models and views](#7models-and-views)
+
+8.- [Use of AI](#8-use-of-ai)
+
+9.- [Testing](readme/tests.md)
+
+  1. [Automated testing](readme/tests.md#1-automated-testing)
+
+  2. [Manual testing](readme/tests.md#2-manual-testing)
+
+  3. [User stories](readme/tests.md#3-user-stories)
+
+  4. [User experience](readme/tests.md#4-user-experience)
+
+  5. [Responsiveness](readme/tests.md#5-responsiveness)
+
+  6. [Validation](readme/tests.md/#6-validation)
+
+  7. [Lighthouse](readme/tests.md#7-lighthouse)
+
+10.- [Issues](#10-issues)
+
+11.- [Deployment](#11-deployment)
+
+12.- [Languages used](#12-languages-used)
+
+13.- [Frameworks, packages and libraries](#13-frameworks-packages-and-libraries)
+
+14.- [Media](#14-media)
+
+15.- [Displayed items](#15-displayed-items)
+
+16.- [Acknoledgements](#16-acknoledgements)
+
+## 1. Business goals.
 
 - To provide exclusive merchandise for Piggy before the infection started series.
 
@@ -16,7 +64,7 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - To make Piggy before the infection fans feel looked after.
 
-## User needs.
+## 2. User needs.
 
 ### Fans needs.
 
@@ -42,7 +90,7 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - To be able to  contact users about new offers and products.
 
-## User stories.
+## 3. User stories.
 
 - As a user I want to be able to  easily  register, log in and log out of my account so that I can access the site.
 
@@ -74,7 +122,7 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - As the creator I want to be able to  see a list of the items that have been sold and the state of the orders so that I can ensure a fast service.
 
-## Plan.
+## 4. Plan.
 
 From the users point of view, the site will have four main pages. The home page will show a header with buttons to log in and register and a footer with links to  appropriate sites  and newsletter registration. Once the user has logged in, the header will show buttons to log out, go to account and shopping basket.
 
@@ -98,7 +146,7 @@ On the creator’s side of the site, there will be features to add, modify and d
 
 The account link will lead to a page where the user can see and modify their personal information, as well as see their purchase history and details about any specific order.
 
-## Features
+## 5. Features
 
 ### Customisable homepage. 
 
@@ -181,7 +229,7 @@ The order history page featues a list of all of the user's past orders. Clicking
 
 ![Order history page](readme/images/features/order-history.jpg)
 
-### Securiy.
+## 6. Securiy.
 
 The site can be used by registered and unregistered users. Banking information is kept by stripe, so it is never stored or seen on the site.
 
@@ -195,8 +243,7 @@ Users can use a different email address for specific orders but those are only r
 
 Checkout pages have been blocked from indexing to prevent them from being shown to the public on search engines.This results in the SEO for those pages being 66%.
 
-
-## Models and views.
+## 7.Models and views.
 
 ### Models
 
@@ -236,13 +283,7 @@ This are the views used on the site.
 |order_history|profiles|--|profiles/order_history.html|Displays a list of all user's past orders.|
 |past_order_detail|profiles|--|profiles/past_order_detail|Displays details of a past order.|
 
-
-## Issues.
-
-The email confirming the order was successfully processed currently ends up in the recipient's junk email. This is probably due to the fact that the email content is business based while the sender's email has been registered as a personal email address.
-
-
-## Use of AI.
+## 8. Use of AI.
 
 The following features were developed using AI assistance:
 
@@ -260,7 +301,16 @@ The following features were developed using AI assistance:
 
 - settings.py: Code to record reset password requests for Heroku loggins.
 
-## Deployment.
+## 9. Testing.
+
+The log for all the tests done can be found [here](/readme/tests.md).
+
+## 10. Issues.
+
+The email confirming the order was successfully processed currently ends up in the recipient's junk email. This is probably due to the fact that the email content is business based while the sender's email has been registered as a personal email address.
+
+
+## 11. Deployment.
 
 he project was managed in [github](https://github.com) and deployed to [heroku](https://id.heroku.com/login).
 
@@ -301,11 +351,11 @@ To clone the project:
 - Type 'git clone' followed by the address you copied.
 - Press enter.
 
-## Languages used
+## 12. Languages used
 
 HTML, CSS, JavaScript, Python
 
-## Frameworks, packages and libraries.
+## 13. Frameworks, packages and libraries.
 
 - Django 6.0.7
 
@@ -356,11 +406,11 @@ HTML, CSS, JavaScript, Python
 
 - Mock and MagicMock. [Medium](https://medium.com/@snehagiranje05/unveiling-the-magic-understanding-mock-and-magicmock-in-python-ecadf1f1013c)
 
-## Media
+## 14. Media
 
 All the images and videos portrayed on the site have been created by SuperJakeJosesCat.
 
-## Items
+## 15. Displayed items
 
 The items presented on the site were designed by SuperJakeJoseCat to portray characters created by Minitoon for the ROBLOX game Piggy and SuperJakeJoseCat for the YouTube series Piggy before the infection started.
 
@@ -368,6 +418,6 @@ Plushes were crafted by SuperLuisaCat and SuperJakeJoseCat and 3D prints by Supe
 
 All the items belong to SuperJakeJoseCat's private collection and are not for sale.
 
-## Acknoledgements
+## 16. Acknoledgements
 
-
+[View the finished project here.](https://piggy-before-the-shop-260efcf00781.herokuapp.com/)
