@@ -38,14 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
             enlarge.href = big_img.src;
         });
     }
-    // Remove from basket
-    let form = document.getElementById("bag-form");
-    let removebtn = document.getElementById("remove");
-    if (removebtn) {
-        removebtn.addEventListener("click", function () {
-            let newurl = removebtn.getAttribute("data-alt-url");
-            form.action = newurl;
-            form.submit();
+    // Remove items from the basket.
+    let removebtn = document.querySelectorAll(".remove");
+    if (removebtn.length > 0) {
+        removebtn.forEach(function (button) {
+            button.addEventListener("click", function () {
+                let form = button.closest(".bag-form");
+                if (form) {
+                    let newurl = button.getAttribute("data-alt-url");
+                    form.action = newurl;
+                    form.submit();
+                }
+            });
+        
         });
     }
     // Star ratings.
