@@ -78,7 +78,7 @@ It aims to look after the series' fans as well as increase the reach of the seri
 
 - To receive updated information about the state of their order.
 
-- To be able to write reviews and read reviews made by other users.
+- To be able to write, and update and delete their own reviews and read reviews made by other users.
 
 ### Creator's needs.
 
@@ -136,13 +136,15 @@ The products page will have the same format, with the list of products on the mi
 
 The individual product page will show the information about the product with a choice of pictures, the ability to add to the basket, and a rate the product section where the shopper can read and write reviews for the product.
 
+The videos suggested on the side panel will change to direct users to iconic videos showing the character being sold on that page.
+
 [Initial product detail wireframe.](/readme/images/wireframes/initial_detail.jpg)
 
 The shopping basket will show the products, quantity and final price and will allow to check out safely.
 
 [Initial shopping basket wireframe.](/readme/images/wireframes/initial_shopping_bag.jpg)
 
-On the creator’s side of the site, there will be features to add, modify and delete products and offers and see list of product sold on a period of time.
+The creator will be able to modify the products offered and the look of the home page from the admin panel.
 
 The account link will lead to a page where the user can see and modify their personal information, as well as see their purchase history and details about any specific order.
 
@@ -160,7 +162,7 @@ The main area of the homepage is divided into four completely customisable secti
 
 ### Main navigation bar.
 
-When first arriving to the site, the navigation bar contain links to go home, shopping basket, log in and register.
+When first arriving to the site, the navigation bar contains links to go home, shopping basket, log in and register.
 On logging in, the links turn into go home, account, log out and shopping basket.
 
 ![Nav bar logged out](readme/images/features/nav-loggedout.jpg)
@@ -169,7 +171,7 @@ On logging in, the links turn into go home, account, log out and shopping basket
 
 ### Products pages.
 
-The products page lists the products with a picture, name and price. Eight products are displayed by page. The products can be separted into plushes and 3d prints by clicking on the relevant buttons.
+The products page lists the products with a picture, name and price. Eight products are displayed per page. The products can be separted into plushes and 3d prints by clicking on the relevant buttons.
 
 ![Products page](readme/images/responsive/products-ins.jpg)
 
@@ -211,9 +213,9 @@ Secure checkout is provided by stripe.
 
 ### Order invoice.
 
-On successful payment of the order, the user is directed to the thank you page where the invoice of the order is provided. A link to print the invoice is provided.
+On successful payment of the order, the user is directed to the thank you page where the invoice of the order is provided. A link to print the invoice is provided. An email is sent to the user to confirm the successful purchase.
 
-![Thank you page](readme/images/features/thankyou.jpg)        ![Invoice](readme/images/features/invoice.jpg)
+![Thank you page](readme/images/features/thankyou.jpg)        ![Invoice](readme/images/features/invoice.jpg)        ![Order confirmation email](readme/images/features/conf-email.jpg)
 
 ### Profile.
 
@@ -312,7 +314,7 @@ The email confirming the order was successfully processed currently ends up in t
 
 ## 11. Deployment.
 
-he project was managed in [github](https://github.com) and deployed to [heroku](https://id.heroku.com/login).
+The project was managed in [github](https://github.com) and deployed to [heroku](https://id.heroku.com/login).
 
 The process followed to deploy was:
 
@@ -377,8 +379,27 @@ HTML, CSS, JavaScript, Python
 
 - To run automated tests: pytest
 
+- For version control: [HitHub](https://www.github.com) 
+
+- To deploy the site : [Heroku](https://dashboard.heroku.com/apps)
+
+- To debug and optimise: Google Developer Tools
+
+- To validate HTML: [w3 HTML validator](https://validator.w3.org/)
+
+- To validate CSS: [w3 CSS validator](https://jigsaw.w3.org/css-validator/)
+
+- To validate JavaScript: [JsLint](https://www.jslint.com/)
+
+- To validate Python: [CI Pyhton Linter](https://pep8ci.herokuapp.com/)
+
 - To convert image to webp: [ToWebP](https://towebp.io/)
 
+- To draw erd diagram: [dbdiagram.io](https://dbdiagram.io/home)
+
+- Django docs.
+
+- General information: [w3schools](https://www.w3schools.com/)
 
 - [Django-environ documentation](https://django-environ.readthedocs.io/en/latest/)
 
@@ -408,7 +429,7 @@ HTML, CSS, JavaScript, Python
 
 ## 14. Media
 
-All the images and videos portrayed on the site have been created by SuperJakeJosesCat.
+All the images and videos portrayed on the site have been created by SuperJakeJoseCat.
 
 ## 15. Displayed items
 
@@ -416,8 +437,24 @@ The items presented on the site were designed by SuperJakeJoseCat to portray cha
 
 Plushes were crafted by SuperLuisaCat and SuperJakeJoseCat and 3D prints by SuperJakeJose Cat.
 
-All the items belong to SuperJakeJoseCat's private collection and are not for sale.
+All the items shown belong to SuperJakeJoseCat's private collection and are not for sale.
 
 ## 16. Acknoledgements
+
+This project would not have been possible without the following people:
+
+My tutor, Kevin Loughrey who helped and encouraged me through the development of the project.
+
+My friend and Colleague, Veronica Teodorof who accompanied me in this journey. The load is always lower when shared.
+
+My family for their unconditional support.
+
+SuperJakeJoseCat for sharing his creativity and being my biggest fan.
+
+
+
+
+
+
 
 [View the finished project here.](https://piggy-before-the-shop-260efcf00781.herokuapp.com/)
